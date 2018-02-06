@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lz.cm.dao.IContractDAO">
+    <insert id="doCreate" useGeneratedKeys="true" keyProperty="contractid">
+        INSERT INTO contract(companyName,contact,phone,qq,principal,address,note,signingDate,period,expireDate,status,principalPhone,principalQQ,allCost)VALUES
+        (#{companyName},#{contact},#{phone},#{qq},#{principal},#{address},#{note},#{signingDate},#{period},#{expireDate},#{status},#{principalPhone},#{principalQQ},#{allCost});
+    </insert>
+    <insert id="doUpdate" parameterType="Contract">
+        UPDATE  contract SET
+       companyName=#{companyName},contact=#{contact},phone=#{phone},qq=#{qq},principal=#{principal},address=#{address},note=#{note},signingDate=#{signingDate},period=#{period},expireDate=#{expireDate},status=#{status},principalPhone=#{principalPhone},principalQQ=#{principalQQ},allCost=#{allCost}
+        WHERE contractid=#{contractid}
+    </insert>
+    <update id="updateAlreadyPay">
+        UPDATE contract SET alreadyPay=#{alreadyPay} WHERE contractid=#{contractid}
+    </update>
+    <select id="getAlreadyPay" resultType="Contract" parameterType="Integer">
+        SELECT alreadyPay FROM contract WHERE contractid=#{contractid}
+    </select>
+
+    <update id="plDeleteContract" parameterType="Map">
+        UPDATE contract SET dflag=1 WHERE contractid IN
+        <foreach collection="ids" item="item" separator="," open="(" close=")" >#{item}</foreach>
+    </update>
+</mapper>

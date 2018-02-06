@@ -1,0 +1,35 @@
+
+@media (min-width: 600px) {
+
+
+    #companyTitle div:nth-child(1) {
+        font-size: 30px;
+    }
+
+    #advantage {
+        text-align: left;
+
+    }
+
+
+
+    #companyTitle div:nth-child(2) {
+        font-size: 20px;
+    }
+
+    #advantage img {
+        width: 80px;
+        padding: 12px;
+    }
+
+    #service *:not(#myservice) {
+        font-size: 12px;
+    }
+
+
+    #buzhou img {
+        height: 60px;
+    }
+
+
+}

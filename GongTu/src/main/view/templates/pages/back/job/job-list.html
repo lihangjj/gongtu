@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="plugins/include_javascript::js"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<style type="text/css">
+    #jobtb tr td {
+        vertical-align: middle;
+    }
+</style>
+<body style="overflow-x:hidden;visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">职位列表</div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="jobtb" class="table  table-hover table-responsive  " style="text-align: center">
+                    <tr id="row1">
+                        <td>职位编号</td>
+                        <td>所属部门</td>
+                        <td>职位名称</td>
+                        <td>操作</td>
+                    </tr>
+
+                    <tr th:each="job:${allVo}">
+                        <td th:text="${job.jobid}"></td>
+                        <td>
+                            <select class="form-control" name="deptid" th:id="'deptid-'+${job.jobid}">
+                                <option th:each="dept:${allDept}" th:text="${dept.dname}" th:value="${dept.deptid}" th:selected="${dept.dname==job.dept.dname}" ></option>
+                            </select>
+                        </td>
+                        <td>
+                            <input  class="form-control" th:id="'name-'+${job.jobid}" th:value="${job.name}"/>
+                        </td>
+                        <td>
+                            <button class="btn btn-primary" style="margin: 1rem"
+                                    th:id="'edit-'+${job.jobid}">修改
+                            </button>
+                            <button class="btn btn-danger" th:id="'dele-'+${job.jobid}">删除</button>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript">
+    $(function () {
+        $("[id^=edit-]").each(function () {
+            $(this).click(function () {
+                var jid = this.id.split('-')[1];
+                $.post("/pages/back/job/edit", {
+                    jobid: jid,
+                    name: $("#name-" + jid).val(),
+                    deptid:$("#deptid-"+jid).val()
+                }, function (res) {
+                    if (res) {
+                        showAlert($("#successMsg"), "职位修改成功！");
+                    } else {
+                        showAlert($("#failureMsg"), "职位修改失败！");
+
+                    }
+                }, "json")
+            })
+        });
+        $("[id^=dele-]").each(function () {
+            $(this).click(function () {
+                var jid = this.id.split('-')[1];
+                var tr = $(this).parent().parent();
+                areYouSure("注意！删除将不可恢复，您确定要删除吗？", function () {
+                    $.post("/pages/back/job/delete", {jobid: jid}, function (res) {
+                        if (res) {
+                            showAlert($("#successMsg"), "职位删除成功！")
+                            tr.remove();
+
+                        } else {
+                            showAlert($("#failureMsg"), "职位删除失败！")
+                        }
+                    }, "json")
+                })
+
+            })
+
+        })
+    })
+</script>
+</html>

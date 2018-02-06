@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden">
+<head th:include="plugins/include_javascript::js"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<script type="text/javascript ">
+
+    $(function () {
+        $("#formDiv").validate({
+            debug: true, // 取消表单的提交操作
+            submitHandler: function (form) {
+                //出现数据加载
+                showLoadingData();
+                $.post("/pages/back/job/add", {
+                    name: $("#name").val(),
+                    deptid:$("#deptid").val()
+                }, function (res) {
+                    if (res) {
+                        showAlert($("#successMsg"), "职位增加成功！")
+                        $("#name").val("");
+                        $("#deptid").val("")
+                    } else {
+                        showAlert($("#failureMsg"), "职位增加失败！")
+                    }
+                    hideLoadingData();
+
+                }, "json");
+
+            },
+            errorPlacement: function (error, element) {
+                $("#" + $(element).attr("id") + "Msg").append(error);
+            },
+            highlight: function (element, errorClass) {
+                $(element).fadeOut(1, function () {
+                    $(element).fadeIn(1, function () {
+                        $(element).css({
+                            "box-shadow": "0 0 10px rgba(255,0,0,1)"
+                        })
+                    });
+
+                })
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).fadeOut(1, function () {
+                    $(element).fadeIn(1, function () {
+                        $(element).css({
+                            "box-shadow": "0 0 10px rgba(0,255,0,1)"
+                        });
+                    });
+                })
+            },
+            errorClass: "text-danger",
+            messages:{
+                deptid:"请选择部门！"
+            },
+            rules: {
+                name: {required: true},
+                deptid: {required: true}
+            }
+        });
+
+    })
+
+
+</script>
+<body style="overflow-x:hidden;visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">增加职位</div>
+        <div class="row">
+            <div class="col-xs-10 col-xs-push-1 " style="border: solid #d3d3d3 1px;border-radius: 5px;">
+                <form class="form" id="formDiv" enctype="multipart/form-data" method="post"
+                      th:action="@{/pages/back/dept/add}">
+                    <div class="form-inline form-group ">
+                        <label>职位名称：</label>
+                        <input class="form-control" type="text" placeholder="请输入职位名称" name="name" id="name"/>
+                        <span th:id="dnameMsg" style="margin-left: 2rem"></span>
+                    </div>
+                    <div class="form-inline form-group ">
+                        <label>所属部门：</label>
+                        <select class="form-control" name="deptid" id="deptid">
+                            <option value="">请选择部门</option>
+                            <option th:each="dept:${allVo}" th:value="${dept.deptid}" th:text="${dept.dname}">
+                            </option>
+                        </select>
+                        <span th:id="deptidMsg" style="margin-left: 2rem"></span>
+                    </div>
+                    <div class="form-inline form-group ">
+                        <button type="submit" class="btn btn-success">确认添加</button>
+                        <a th:href="@{/pages/back/loginSuccess}">
+                            <button class="btn btn-danger" type="button">取消添加</button>
+                        </a>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

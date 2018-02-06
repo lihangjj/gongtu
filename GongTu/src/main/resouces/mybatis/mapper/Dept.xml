@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lz.cm.dao.IDeptDAO">
+    <insert id="doCreate">
+        INSERT INTO dept(dname)VALUES
+        (#{dname});
+    </insert>
+    <select id="getDeptByDname" parameterType="String" resultType="Dept">
+        SELECT *FROM dept WHERE dname=#{dname}
+    </select>
+
+    <update id="doUpdate" parameterType="Dept">
+        UPDATE dept SET dname=#{dname} WHERE deptid=#{deptid}
+    </update>
+    <delete id="delete" parameterType="Dept">
+        DELETE FROM dept WHERE deptid=#{deptid}
+    </delete>
+
+    <select id="getJobsByDeptId" parameterType="Integer" resultType="Job">
+        SELECT *FROM job WHERE deptid=#{deptid}
+    </select>
+</mapper>

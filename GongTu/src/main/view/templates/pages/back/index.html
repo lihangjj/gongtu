@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" style="overflow-x:hidden">
+<head th:include="plugins/include_javascript::js"></head>
+<link th:href="@{/css/pages/back/menu.css}" type="text/css" rel="stylesheet"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<body style="overflow-x:hidden;visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+
+    </div>
+    <script type="text/javascript">
+        $(function () {
+
+        })
+    </script>
+</div>
+</body>
+</html>

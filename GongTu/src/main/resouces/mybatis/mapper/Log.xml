@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lz.cm.dao.ILogDAO">
+    <insert id="doCreate">
+        INSERT INTO log(type,projectid,note,coordination,time)VALUES
+        (#{type},#{projectid},#{note},#{coordination},#{time});
+    </insert>
+    <update id="doUpdate" parameterType="Job">
+        UPDATE job SET name=#{name},deptid=#{deptid} WHERE jobid=#{jobid}
+    </update>
+    <delete id="delete" parameterType="Job">
+        DELETE FROM job WHERE jobid=#{jobid}
+    </delete>
+</mapper>

@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden">
+<head th:include="plugins/include_javascript::js"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<style type="text/css">
+    form label {
+        text-align: right;
+    }
+
+    .col-lg-6 input, .col-lg-6 select {
+        margin: 0.1rem;
+    }
+
+    #jiben div {
+        margin: 0.1rem;
+    }
+
+    h3 {
+        color: #00b6ff;
+    }
+
+    #statusDiv div {
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    #statusDiv input {
+        width: 3rem;
+        display: inline-block;
+        vertical-align: middle;
+    }
+</style>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.css}"/>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.zh-CN.js}"></script>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+
+<script type="text/javascript" th:src="@{/js/pages/back/contract/contract-editPre.js}"></script>
+
+<body style="overflow-x:hidden;visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">修改合同</div>
+        <form class="form" id="formDiv" enctype="multipart/form-data" method="post"
+              th:action="@{/pages/back/contract/edit}">
+            <div style="padding: 3rem;">
+                <div class="row">
+                    <div class="col-xs-12" style="border: solid #d3d3d3 1px;border-radius: 5px;">
+                        <h3 style="text-align: center">基本信息</h3>
+                        <div class="form-inline " id="jiben">
+                            <div class=" form-group">
+                                <label>公司名称：</label>
+                                <input class="form-control" type="text" placeholder="请输入公司名称" name="companyName"
+                                       th:value="${contract.companyName}"
+                                       id="companyName"/>
+                            </div>
+                            <div class="form-inline form-group">
+                                <label>联系人：</label>
+                                <input class="form-control" type="text" id="contact" name="contact"
+                                       th:value="${contract.contact}"
+                                       placeholder="请输入联系人姓名"
+                                />
+                            </div>
+                            <div class="form-inline form-group">
+                                <label>联系人电话：</label>
+                                <input class="form-control " placeholder="请输入电话" id="phone" name="phone"
+                                       th:value="${contract.phone}"/>
+                            </div>
+                            <div class="form-inline form-group">
+                                <label>联系人QQ：</label>
+                                <input class="form-control" placeholder="请输入QQ" id="qq" name="qq"
+                                       th:value="${contract.qq}"/>
+                            </div>
+                            <div class="form-inline form-group">
+                                <label>负责人：</label>
+                                <input class="form-control" placeholder="请输入负责人" id="principal" name="principal"
+                                       th:value="${contract.principal}"
+                                />
+                            </div>
+
+                            <div class="form-inline form-group">
+                                <label>负责人电话：</label>
+                                <input class="form-control" placeholder="请输入负责人电话" id="principalPhone"
+                                       th:value="${contract.principalPhone}"
+                                       name="principalPhone"/>
+                            </div>
+                            <div class="form-inline form-group">
+
+                                <label>负责人QQ：</label>
+                                <input class="form-control" placeholder="请输入QQ" id="principalQQ" name="principalQQ"
+                                       th:value="${contract.principalQQ}"
+                                />
+                            </div>
+                            <div class="form-inline form-group">
+                                <label>地址：</label>
+                                <input class="form-control" placeholder="请输入地址" id="address" name="address"
+                                       th:value="${contract.address}"
+                                />
+                            </div>
+                            <div class="form-inline form-group">
+                                <label>签订时间：</label>
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" style="width: 14.2rem;margin-left: -0.1rem"
+                                           th:value="${contract.signingDate}"
+                                           th:readonly="true" id="signingDate" name="signingDate"/>
+                                    <span class="input-group-addon">
+                             <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                                </div>
+                            </div>
+                            <div class="form-inline form-group">
+                                <label>签订周期（月）：</label>
+                                <input class="form-control" placeholder="请输入签订周期（多少月）" id="period" name="period"
+                                       th:value="${contract.period}"/>
+                            </div>
+                            <div class="form-inline form-group">
+                                <label>到期时间：</label>
+                                <input class="form-control" id="expireDate" name="expireDate" th:readonly="true"
+                                       th:value="${contract.expireDate}"/>
+                            </div>
+                            <div class="form-inline form-group" id="statusDiv">
+                                <div>
+                                    <label>状态：</label>
+                                </div>
+                                <!--<label>合同状态：</label>-->
+                                <div>
+                                    <input type="radio" class="form-control" id="status" name="status"
+                                           th:checked="${contract.status=='进行中'?true:false}"
+                                           value="进行中"/><span>进行中</span>
+                                </div>
+                                <div>
+                                    <input th:checked="${contract.status=='暂停'?true:false}"
+                                           type="radio"
+                                           class="form-control"
+                                           value="暂停" id="status" name="status"/>暂停
+                                </div>
+                                <div>
+                                    <input th:checked="${contract.status=='完结'?true:false}"
+                                           type="radio"
+                                           class="form-control"
+                                           value="完结" id="status" name="status"/>完结
+                                </div>
+
+
+                            </div>
+
+                            <div class="form-inline form-group ">
+                                <label>说明：</label>
+                                <textarea class="form-control" style="min-width: 30rem;" placeholder="有说明则填写" id="note"
+                                          name="note" th:text="${contract.note}"></textarea>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-6" style="border: solid #d3d3d3 1px;border-radius: 5px;" id="allProject">
+                        <div class="row" id="row1">
+                            <div class="col-sm-1" style="text-align: center">
+                                <h3>资质</h3>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目名称</h4>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目金额</h4>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">执行人</h4>
+                            </div>
+                        </div>
+                        <div class="row" th:id="'row-zz-'+${project.projectid}" th:each="project:${zz}">
+                            <div class="col-sm-1" style="text-align: center">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control " placeholder="请输入项目名称"
+                                       th:name="'zz-name-'+${contract.contractid}+'-'+${project.projectid}"
+                                       th:value="${project.name}"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control digits" placeholder="请输入项目金额"
+                                       th:name="'zz-cost-'+${contract.contractid}+'-'+${project.projectid}" id="cost-"
+                                       th:value="${project.cost}"/>
+                            </div>
+
+                            <div class="col-sm-3">
+
+                                <select class="form-control"
+                                        th:name="'zz-executive-'+${contract.contractid}+'-'+${project.projectid}">
+                                    <option th:each="name:${names}" th:text="${name}"
+                                            th:selected="${name==project.executive?true:false}"></option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row" id="zzRowLast">
+                            <div style="text-align: center">
+                                <button class="btn btn-success" type="button" style="margin: 0.5rem" id="zzAddRow">添加
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="border: solid #d3d3d3 1px;border-radius: 5px;" id="allGkProject">
+                        <div class="row" id="row2">
+                            <div class="col-sm-1" style="text-align: center">
+                                <h3>挂靠</h3>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目名称</h4>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目金额</h4>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">执行人</h4>
+                            </div>
+                        </div>
+                        <div class="row" th:id="'row-gk-'+${project.projectid}" th:each="project:${gk}">
+                            <div class="col-sm-1" style="text-align: center">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" placeholder="请输入项目名称"
+                                       th:name="'gk-name-'+${contract.contractid}+'-'+${project.projectid}"
+                                       th:value="${project.name}"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control digits" placeholder="请输入项目金额"
+                                       th:name="'gk-cost-'+${contract.contractid}+'-'+${project.projectid}" id="cost-"
+                                       th:value="${project.cost}"/>
+                            </div>
+
+                            <div class="col-sm-3">
+
+                                <select class="form-control"
+                                        th:name="'gk-executive-'+${contract.contractid}+'-'+${project.projectid}">
+                                    <option th:each="name:${names}" th:text="${name}"
+                                            th:selected="${name==project.executive?true:false}"></option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row" id="gkRowLast">
+                            <div style="text-align: center">
+                                <button class="btn btn-success" type="button" style="margin: 0.5rem" id="gkAddRow">添加
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="border: solid #d3d3d3 1px;border-radius: 5px;" id="allDpProject">
+                        <div class="row" id="row3">
+                            <div class="col-sm-1" style="text-align: center">
+                                <h3>代评</h3>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目名称</h4>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目金额</h4>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">执行人</h4>
+                            </div>
+                        </div>
+                        <div class="row" th:id="'row-dp-'+${project.projectid}" th:each="project:${dp}">
+                            <div class="col-sm-1" style="text-align: center">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" placeholder="请输入项目名称"
+                                       th:name="'dp-name-'+${contract.contractid}+'-'+${project.projectid}"
+                                       th:value="${project.name}"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control digits" placeholder="请输入项目金额"
+                                       th:name="'dp-cost-'+${contract.contractid}+'-'+${project.projectid}" id="cost-"
+                                       th:value="${project.cost}"/>
+                            </div>
+
+                            <div class="col-sm-3">
+
+                                <select class="form-control"
+                                        th:name="'dp-executive-'+${contract.contractid}+'-'+${project.projectid}">
+                                    <option th:each="name:${names}" th:text="${name}"
+                                            th:selected="${name==project.executive?true:false}"></option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row" id="dpRowLast">
+                            <div style="text-align: center">
+                                <button class="btn btn-success" type="button" style="margin: 0.5rem" id="dpAddRow">添加
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="border: solid #d3d3d3 1px;border-radius: 5px;" id="allPxProject">
+                        <div class="row" id="row4">
+                            <div class="col-sm-1" style="text-align: center">
+                                <h3>培训</h3>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目名称</h4>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目金额</h4>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">执行人</h4>
+                            </div>
+                        </div>
+                        <div class="row" th:id="'row-px-'+${project.projectid}" th:each="project:${px}">
+                            <div class="col-sm-1" style="text-align: center">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" placeholder="请输入项目名称"
+                                       th:name="'px-name-'+${contract.contractid}+'-'+${project.projectid}"
+                                       th:value="${project.name}"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control digits" placeholder="请输入项目金额"
+                                       th:name="'px-cost-'+${contract.contractid}+'-'+${project.projectid}" id="cost-"
+                                       th:value="${project.cost}"/>
+                            </div>
+
+                            <div class="col-sm-3">
+
+                                <select class="form-control"
+                                        th:name="'px-executive-'+${contract.contractid}+'-'+${project.projectid}">
+                                    <option th:each="name:${names}" th:text="${name}"
+                                            th:selected="${name==project.executive?true:false}"></option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row" id="pxRowLast">
+                            <div style="text-align: center">
+                                <button class="btn btn-success" type="button" style="margin: 0.5rem" id="pxAddRow">添加
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6 " style="border: solid #d3d3d3 1px;border-radius: 5px;" id="allQtProject">
+                        <div class="row" id="row5">
+                            <div class="col-sm-1" style="text-align: center">
+                                <h3>其他</h3>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目名称</h4>
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">项目金额</h4>
+
+                            </div>
+                            <div class="col-sm-3">
+                                <h4 style="text-align: center">执行人</h4>
+                            </div>
+                        </div>
+                        <div class="row" th:id="'row-qt-'+${project.projectid}" th:each="project:${qt}">
+                            <div class="col-sm-1" style="text-align: center">
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control" placeholder="请输入项目名称"
+                                       th:name="'qt-name-'+${contract.contractid}+'-'+${project.projectid}"
+                                       th:value="${project.name}"/>
+                            </div>
+                            <div class="col-sm-3">
+                                <input type="text" class="form-control digits" placeholder="请输入项目金额"
+                                       th:name="'qt-cost-'+${contract.contractid}+'-'+${project.projectid}" id="cost-"
+                                       th:value="${project.cost}"/>
+                            </div>
+
+                            <div class="col-sm-3">
+
+                                <select class="form-control"
+                                        th:name="'qt-executive-'+${contract.contractid}+'-'+${project.projectid}">
+                                    <option th:each="name:${names}" th:text="${name}"
+                                            th:selected="${name==project.executive?true:false}"></option>
+                                </select>
+                            </div>
+
+                        </div>
+                        <div class="row" id="qtRowLast">
+                            <div style="text-align: center">
+                                <button class="btn btn-success" type="button" style="margin: 0.5rem" id="qtAddRow">添加
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="padding: 5rem">
+                        <div class="row" id="row6">
+                            <div class="form-inline form-group col-xs-12">
+                                <input type="hidden" id="allCost" name="allCost" th:value="${contract.allCost}"/>
+                                <button type="button" id="totalCost" th:readonly="true" class="btn btn-warning btn-lg"
+                                        style="margin: 1rem;color: red" th:text="'总金额：'+${contract.allCost}">
+                                </button>
+                                <button type="submit" class="btn btn-success btn-lg" style="margin: 1rem">修改合同</button>
+                                <a href="javascript:history.go(-1);">
+                                    <button class="btn btn-danger  btn-lg" type="button" style="margin: 1rem">取消修改
+                                    </button>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <input type="hidden" name="contractid" th:value="${contract.contractid}"/>
+        </form>
+        <select id="allNames" style="display: none">
+            <option th:each="name:${names}" th:text="${name}"></option>
+        </select>
+    </div>
+</div>
+</body>
+
+</html>

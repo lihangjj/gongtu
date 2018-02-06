@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lz.cm.dao.IProjectDAO">
+    <insert id="doCreate">
+        INSERT INTO project(projectid,contractid,name,type,cost,executive,addDate)VALUES
+        (#{projectid},#{contractid},#{name},#{type},#{cost},#{executive},#{addDate});
+    </insert>
+    <insert id="doUpdate" parameterType="Project">
+        UPDATE  project SET  name=#{name},cost=#{cost},executive=#{executive} WHERE projectid=#{projectid}
+    </insert>
+
+    <select id="getAllProjectByConstractId" parameterType="Integer" resultType="Project">
+        SELECT * FROM project WHERE contractid=#{contractid} AND dflag=0
+    </select>
+
+    <update id="plDeleteProjectByContractId" parameterType="Map">
+        UPDATE project SET dflag=1 WHERE contractid IN
+        <foreach collection="ids" close=")" open="(" separator="," item="item">#{item}</foreach>
+    </update>
+    <update id="plDeleteProject" parameterType="Map">
+        UPDATE project SET dflag=1 WHERE projectid IN
+        <foreach collection="ids" close=")" open="(" separator="," item="item">#{item}</foreach>
+    </update>
+
+</mapper>

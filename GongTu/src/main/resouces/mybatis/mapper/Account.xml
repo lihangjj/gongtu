@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lz.cm.dao.IAccountDAO">
+
+    <insert id="doCreate">
+        INSERT INTO account(accountid,name,bank)VALUES
+        (#{accountid},#{name},#{bank});
+    </insert>
+    <update id="doUpdate">
+    UPDATE account set accountid=#{accountid},name=#{name},bank=#{bank} WHERE accountid=#{accountid}
+    </update>
+    <delete id="doDelete" parameterType="Account">
+        DELETE FROM account WHERE accountid=#{accountid}
+    </delete>
+
+</mapper>
