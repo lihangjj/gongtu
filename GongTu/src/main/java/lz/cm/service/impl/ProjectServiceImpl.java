@@ -1,9 +1,12 @@
 package lz.cm.service.impl;
 
 import lz.cm.dao.IContractDAO;
+import lz.cm.dao.ILogDAO;
+import lz.cm.dao.IMemberDAO;
 import lz.cm.dao.IProjectDAO;
 import lz.cm.service.IProjectService;
 import lz.cm.vo.Contract;
+import lz.cm.vo.Log;
 import lz.cm.vo.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,6 +22,10 @@ public class ProjectServiceImpl implements IProjectService {
     private IProjectDAO projectDAO;
     @Autowired
     private IContractDAO contractDAO;
+    @Autowired
+    private ILogDAO logDAO;
+    @Autowired
+    private IMemberDAO memberDAO;
 
     @Override
     public Project getVoById(Integer id) {
@@ -43,16 +50,16 @@ public class ProjectServiceImpl implements IProjectService {
                 if (vals.length == 2) {//,有状态筛选
                     String val = vals[1];
                     if ("".equals(c[0]) || c[0] == null) {//如果类型为所有
-                        condition = " contractid in (select contractid from contract where status='" + val + "')";
+                        condition = " contractid in (select contractid from contract where status='" + val + "') AND dflag=0";
                     } else {//如果有类型筛选
-                        condition = parameterName + "='" + c[0] + "' AND contractid in (select contractid from contract where status='" + val + "')";
+                        condition = parameterName + "='" + c[0] + "' AND contractid in (select contractid from contract where status='" + val + "')  AND dflag=0";
                     }
 
                 } else {//无状态筛选
                     if ("".equals(c[0]) || c[0] == null) {//如果类型为所有
-                        condition = "";
+                        condition = "dflag=0";
                     } else {//如果有类型筛选
-                        condition = parameterName + "='" + c[0] + "'";
+                        condition = parameterName + "='" + c[0] + "'  AND dflag=0";
                     }
 
                 }
@@ -70,11 +77,15 @@ public class ProjectServiceImpl implements IProjectService {
 
         }
 
-
         Map<String, Object> resMap = projectDAO.splitVoByFlag(Project.class, column, keyWord, currentPage, lineSize, condition);
         List<Project> allProject = (List<Project>) resMap.get("allVo");
         for (Project p : allProject) {
             p.setContract(contractDAO.findById(p.getContractid(), Contract.class));
+            List<Log> logs=(List<Log>) logDAO.splitVoByFlag(Log.class,null,null,1,null,getCondition("projectid","=",p.getProjectid().toString())+" and dflag=0").get("allVo");
+            for (Log l:logs) {
+                l.setMember(memberDAO.getMemberNameByMemberid(l.getMemberid()));
+            }
+            p.setLogs(logs);
         }
         resMap.put("allVo", allProject);
         return resMap;

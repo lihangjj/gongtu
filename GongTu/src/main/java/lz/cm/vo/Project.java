@@ -2,12 +2,23 @@ package lz.cm.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Project implements Serializable {
     private String name, type, executive;
     private Integer projectid, contractid;
-    private Integer cost,dflag;
-        private Contract contract;
+    private Integer cost, dflag;
+    private Contract contract;
+
+    private List<Log> logs;
+
+    public List<Log> getLogs() {
+        return logs;
+    }
+
+    public void setLogs(List<Log> logs) {
+        this.logs = logs;
+    }
 
     public Contract getContract() {
         return contract;

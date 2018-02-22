@@ -12,6 +12,7 @@ import java.util.Map;
 public interface IMemberDAO extends IDAO<String, Member> {
     boolean doCreate(Member vo) throws Exception;
 
+    Member getMemberNameByMemberid(String memberid);
 
     List<Role> getAllMemberRoles(String memberid);
 
@@ -43,6 +44,7 @@ public interface IMemberDAO extends IDAO<String, Member> {
 
     boolean removeRoleFromMember(Map<String, Object> map);
 
-    Integer getDeptRenshuByJobId(Map<String,Object> map);
+    Integer getDeptRenshuByJobId(Map<String, Object> map);
+
     List<String> getAllNames();
 }

@@ -1,4 +1,6 @@
 //
+
+
 function loadData() {
     $.ajax({
         url: "/pages/back/project/listAjax",
@@ -27,7 +29,11 @@ function loadData() {
                 var signingDate = c.signingDate;
                 var expireDate = c.expireDate;
                 var type;
+                var logs = p.logs;
 
+                allLogs = logs;
+                var log = p.logs.length == 0 ? "无" : "查看";
+                var logColor = p.logs.length == 0 ? "" : "green";
                 switch (p.type) {
                     case "px":
                         type = "培训";
@@ -48,20 +54,72 @@ function loadData() {
                 }
                 dntb.append($("<tr id='row-" + pid + "' >\n" +
                     "                        <td ><input class=\"form-control\" type=\"checkbox\" id='check-" + pid + "'/></td>\n" +
-                    "                        <td ><a style='text-decoration: none;cursor: pointer' href='/pages/back/contract/editPre?contractid=" + c.contractid + "'>" + companyName + "</a>-" + p.name + "</td>\n" +
+                    "                        <td style='text-align: left' ><a style='text-decoration: none;cursor: pointer' href='/pages/back/contract/editPre?contractid=" + c.contractid + "'>" + companyName + "</a>-" + p.name + "</td>\n" +
                     "                        <td>" + type + "</td>\n" +
                     "                        <td>" + p.cost + "</td>\n" +
-                    "                        <td style='max-width: 30rem'>日志</td>\n" +
+                    "                        <td id='p-" + pid + "' style='color: " + logColor + ";cursor: pointer;'><div style='color: black' class=\"dropdown\">\n" +
+                    "                                    <span id='pp-" + pid + "' class=\"dropdown-toggle\" data-toggle='dropdown' style='color: " + logColor + ";cursor: pointer;'>" + log + "</span>\n" +
+                    "                                    <div class=\"dropdown-menu\" style='width: 50rem;margin-left: 8rem;margin-top: -10rem'>\n" +
+                    "                                        <table id='logtb-" + pid + "' class=\"table\" style='text-align: center'>\n" +
+                    "                                            <tr id='tr1-" + pid + "' style='font-weight: bold'>\n" +
+                    "                                                <td>类型</td>\n" +
+                    "                                                <td>协调</td>\n" +
+                    "                                                <td style='width: 20rem'>内容</td>\n" +
+                    "                                                <td>时间-作者</td>\n" +
+                    "                                            </tr>\n" +
+                    "                                        </table>\n" +
+                    "                                    </div>\n" +
+                    "                                </div></td>\n" +
                     "                        <td>" + p.executive + "</td>\n" +
                     "                        <td>" + signingDate + "</td>\n" +
                     "                        <td>" + expireDate + "</td>\n" +
                     "                        <td style='color: " + statusColor + "'>" + status + "</td>\n" +
                     "                    </tr>"));
+                for (var y = (logs.length > 4 ? logs.length - 5 : 0); y < logs.length; y++) {
+                    var log = logs[y];
+                    $("#tr1-" + pid).after("<tr >\n" +
+                        "<td>" + log.type + "</td>\n" +
+                        "<td>" + log.coordination + "</td>\n" +
+                        "<td>" + log.note + "</td>\n" +
+                        " <td>" + new Date(log.time).format("yyyy-MM-dd hh:mm:ss") + "-" + log.member.name + "</td>\n" +
+                        " </tr>");
+                }
+                var more = $("<tr id='more-" + pid + "' >\n" +
+                    "<td colspan='4' style='color: green' >更多</td>\n" +
+                    " </tr>");
 
+                more.get(0).m=logs;
+                more.click(function () {
+                    var id = this.id.split('-')[1];
+                    var allLogs=this.m;
+                    $("#tr1-"+id).nextAll().remove();
+                    for (var m = 0; m < allLogs.length; m++) {
+                        var log = allLogs[m];
+                        $("#tr1-" + id).after("<tr >\n" +
+                            "<td>" + log.type + "</td>\n" +
+                            "<td>" + log.coordination + "</td>\n" +
+                            "<td>" + log.note + "</td>\n" +
+                            " <td>" + new Date(log.time).format("yyyy-MM-dd hh:mm:ss") + "-" + log.member.name + "</td>\n" +
+                            " </tr>");
+                    }
+                });
+                logs.length>4? $("#logtb-" + pid).append(more):"";
 
             }
             createSplitBar(allRecorders);
+            if (windowNW > 992) {
+                $("[id^=p-]").each(function () {
+                    if (this.style.color == "green") {
+                        var id = this.id.split("-")[1];
+                        $(this).hover(function () {
+                            $("#pp-" + id).next().show();
+                        }, function () {
+                            $("#pp-" + id).next().hide();
 
+                        })
+                    }
+                });
+            }
             $(".dropdown-menu").click(function (e) {
                 e.stopPropagation();
             });
@@ -73,6 +131,8 @@ function loadData() {
         }
     });
 }
+
+var allLogs;
 
 // /*]]>*/
 $(function () {

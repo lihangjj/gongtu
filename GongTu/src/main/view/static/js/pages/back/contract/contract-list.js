@@ -112,9 +112,9 @@ function loadData() {
                 $("[id^=show]").each(function () {
                     if ($(this).find(".dropdown-toggle").text() != "无") {
                         $(this).hover(function () {
-                            $(this).find(".dropdown-toggle").dropdown("toggle")
+                            $(this).find(".dropdown-toggle").next().show()
                         }, function () {
-                            $(this).find(".dropdown-toggle").dropdown("toggle")
+                            $(this).find(".dropdown-toggle").next().hide()
                         })
                     }
 

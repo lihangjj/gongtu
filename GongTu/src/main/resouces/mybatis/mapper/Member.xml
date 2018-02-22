@@ -117,4 +117,8 @@
     <select id="getAllNames" resultType="String">
         SELECT name from member;
     </select>
+    <select id="getMemberNameByMemberid" resultType="Member" parameterType="String">
+        SELECT name from member WHERE memberid=#{memberid};
+    </select>
+
 </mapper>

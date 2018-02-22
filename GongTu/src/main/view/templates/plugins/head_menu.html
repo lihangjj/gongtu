@@ -48,7 +48,7 @@
         <div class="row">
             <div id="validateDiv">
                 <button class="glyphicon glyphicon-menu-left" id="zhedie" style="background: none"></button>
-                <img th:src="@{/images/index/myLogo.png}"/>
+                <img th:src="@{/images/pages/back/system/gtLogo.png}"/>
                 <div style="position: absolute;right: 5%;z-index: 9;top:2rem;" class="">
                     <div class="" style="display: inline">
                         <button class="btn btn-primary " id="msg"><span class="badge" style="color: red;">5</span>消息
@@ -105,7 +105,7 @@
                 </div>
 
                 <div th:id="'role-'+${role.roleid}" th:each="role:${session.allRoles}">
-                    <div th:id="'title-'+${role.roleid}" th:text="${role.title}">
+                    <div th:id="'title-'+${role.roleid}" th:text="${role.title}" style="font-weight:550;">
                     </div>
                     <span class="glyphicon glyphicon-chevron-down" style="position: absolute; right: 1%"></span>
 

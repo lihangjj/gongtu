@@ -32,7 +32,7 @@ function loadData() {
                     " <td >" + contract.allCost + "</td>\n" +
                     " <td id='drop-"+id+"'  ><div class=\"dropdown\" >\n" +
                     "            <span id='alreadyPay-" + id + "' style='cursor: pointer' data-toggle=\"dropdown\">" + contract.alreadyPay + "</span>\n" +
-                    "            <div class=\"dropdown-menu\" style='width: 50rem;margin-left: 10rem;'>\n" +
+                    "            <div class=\"dropdown-menu\" style='width: 50rem;margin-left: -50rem;'>\n" +
                     "                <table class='table' id='paylog-" + id + "' style='text-align: center'></table>\n" +
                     "            </div>\n" +
                     "        </div></td>\n" +
@@ -48,7 +48,7 @@ function loadData() {
                     "<tr>" +
                     "<td >金额</td>" +
                     "<td>方式</td>" +
-                    "<td >收款账户</td>" +
+                    "<td >付款账户</td>" +
                     "<td >时间</td>" +
                     "</tr>");
                 for (var p = 0; p < paylogs.length; p++) {
@@ -65,17 +65,19 @@ function loadData() {
 
             }
             if (windowNW>992){//不这样手机上不现实
+
+
                 $("[id^=drop]").hover(function () {
                     var id=this.id.split('-')[1];
                     var alreadyPay=$("#alreadyPay-"+id);
                     if (alreadyPay.text()!="0"){
-                        alreadyPay.dropdown("toggle");
+                        alreadyPay.next().show();
                     }
                 },function () {
                     var id=this.id.split('-')[1];
                     var alreadyPay=$("#alreadyPay-"+id);
                     if (alreadyPay.text()!="0"){
-                        alreadyPay.dropdown("toggle");
+                        alreadyPay.next().hide();
                     }
                 });
             }
@@ -131,10 +133,10 @@ function loadData() {
                                 "                                <td>付款金额:" + paylog.cost + "</td>\n" +
                                 "                            </tr>\n" +
                                 "                            <tr>\n" +
-                                "                                <td colspan=\"2\">付款银行-账户:" + paylog.paybank + "-" + payaccount + "</td>\n" +
+                                "                                <td colspan=\"2\"><span style='color: red'>付</span>款银行-账户:" + paylog.paybank + "-" + payaccount + "</td>\n" +
                                 "                            </tr>\n" +
                                 "                            <tr>\n" +
-                                "                                <td colspan=\"2\">收款银行-账户:" + paylog.shoubank + "-" + paylog.shouaccount + "</td>\n" +
+                                "                                <td colspan=\"2\"><span style='color:green '>收</span>款银行-账户:" + paylog.shoubank + "-" + paylog.shouaccount + "</td>\n" +
                                 "                            </tr>\n" +
                                 "                            <tr>\n" +
                                 "                                <td>发票总金额:" + invoiceCost + "</td>\n" +

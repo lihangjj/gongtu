@@ -69,6 +69,7 @@ public class LogController extends AbstractControllerAdapter {
     boolean add(Log log) {
         System.err.println(log);
         log.setTime(new Date());
+        log.setMemberid(getMid());
         try {
             return logService.add(log);
         } catch (Exception e) {
@@ -80,7 +81,14 @@ public class LogController extends AbstractControllerAdapter {
 
     @RequestMapping("list")
     String list(HttpServletRequest request, Model model) throws Exception {
-        return "pages/back/job/job-list";
+        return "pages/back/log/log-list";
+    }
+
+    @RequestMapping("listAjax")
+    @ResponseBody
+    Object listAjax(HttpServletRequest request, Model model) throws Exception {
+
+        return  handSplit(request,logService);
     }
 
     @Override

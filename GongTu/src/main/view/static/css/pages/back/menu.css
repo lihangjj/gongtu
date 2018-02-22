@@ -11,7 +11,7 @@
 }
 
 #validateDiv {
-    background: rgb(38, 50, 56);
+    background: rgb(5, 102, 169);
     height: 10%;
     width: 100%;
     position: absolute;
@@ -53,13 +53,13 @@
 
 #menuDiv {
     min-height: 90%;
-    background: rgb(38, 50, 56);
+    background: rgb(212, 231, 240);
     transition:transform 1s;
     position: absolute;
     top: 10%;
     float: left;
     border-top: solid rgba(200, 200, 200, 0.3) 1px;
-    color: #d3d3d3;
+    color: #000000;
     font-size: 10px;
 
 }
@@ -74,7 +74,7 @@
     position: absolute;
     right: 0;
     top: 10%;
-    background: rgb(201, 225, 233);
+    background: rgb(255, 255, 255);
     min-height: 90%;
 }
 
@@ -140,7 +140,7 @@
 
 #menuDiv > div {
     padding: 5% 0 5% 5%;
-    border-top: solid rgba(200, 200, 200, 0.3) 1px;
+    border-top: solid rgba(150, 150, 150, 0.4) 1px;
 }
 
 #menuDiv > div > div {
@@ -154,5 +154,5 @@
 
 #menuDiv > div > div:hover {
     cursor: pointer;
-    background: rgb(64, 89, 102);
+    background: rgba(0, 162, 233, 0.5);
 }

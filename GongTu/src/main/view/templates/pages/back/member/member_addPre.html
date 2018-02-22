@@ -188,10 +188,18 @@
                         <input class="form-control" placeholder="请输入年龄" id="age" name="age"/>
                         <span th:id="ageMsg" style="margin-left: 2rem"></span>
                     </div>
-                    <div class="form-inline form-group ">
-                        <label>性别：</label>
-                        <input class="form-control" type="radio" name="sex" th:value="男" th:checked="true"/><label>男&nbsp;&nbsp;&nbsp;&nbsp;</label>
-                        <input class="form-control" type="radio" name="sex" th:value="女"/><label>女</label>
+                    <div class="form-inline form-group " >
+                        <div style="display: inline-block">
+                            <label>性别：</label>
+                        </div>
+                        <div style="display: inline-block">
+                            <input class="form-control" type="radio" style="width: 3rem" name="sex" th:value="男" th:checked="true"/>
+                            <div style="text-align: center">男</div>
+                        </div>
+                        <div style="display: inline-block;margin-left: 3rem">
+                            <input class="form-control" type="radio" style="width: 3rem" name="sex" th:value="女"/>
+                            <div style="text-align: center">女</div>
+                        </div>
                     </div>
                     <div class="form-inline form-group ">
                         <label>部门：</label>

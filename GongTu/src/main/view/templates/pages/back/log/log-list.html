@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="plugins/include_javascript::js"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<style type="text/css">
+    #logtb tr td {
+        vertical-align: middle;
+    }
+</style>
+<body style="overflow-x:hidden;visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">日志列表</div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="logtb" class="table  table-hover table-responsive  " style="text-align: center">
+                    <tr id="row1">
+                        <td width="3rem"><input  class="form-control" type="checkbox" id="checkAll" style="width: 3rem;"/></td>
+                        <td>所属</td>
+                        <td>类型</td>
+                        <td>内容</td>
+                        <td>时间-作者</td>
+                        <td>操作</td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:inline="javascript" th:src="@{/js/pages/back/log/log-list.js}"></script>
+</body>
+</html>
