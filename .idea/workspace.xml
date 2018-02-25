@@ -1,70 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4065f4bf-0756-4967-baa4-3f281c06620c" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/message/MessageController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/ICostDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IMessageDAO.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/ICostService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IMessageService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/CostServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/MessageServiceImpl.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/vo/Cost.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/vo/Message.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Cost.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Message.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/finance/account-list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/finance/cost-addPre.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/finance/cost-list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-addPre.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-editPre.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-list.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-mlist.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/account-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/cost-addPre.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/cost-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-addPre.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-editPre.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-list.html" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-mlist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/.idea/workspace.xml" afterPath="$PROJECT_DIR$/../GongT/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/AbstractController.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/AbstractController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/GlobalExceptionHandler.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/GlobalExceptionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/finance/FinancController.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/finance/FinancController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/log/LogController.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/log/LogController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/system/SystemSetController.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/system/SystemSetController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IAccountDAO.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IAccountDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/ILogDAO.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/ILogDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IMemberDAO.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IMemberDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IProjectDAO.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IProjectDAO.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IAccountService.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IAccountService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/ILogService.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/ILogService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IMemberServiceBack.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IMemberServiceBack.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/AccountServiceImpl.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/AccountServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/LogServiceImpl.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/LogServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/MemberServiceBackImpl.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/MemberServiceBackImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/realm/MemberRealm.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/realm/MemberRealm.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/test/Test.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/test/Test.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/util/MathUtil.java" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/util/MathUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/i18n/Color.properties" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/i18n/Color.properties" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Account.xml" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Account.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Log.xml" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Log.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Member.xml" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Member.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/css/pages/back/menu.css" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/css/pages/back/menu.css" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/lz.js" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/lz.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/contract/contract-addPre.js" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/contract/contract-addPre.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/contract/contract-clist.js" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/contract/contract-clist.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/index.js" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/index.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/log/log-list.js" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/log/log-list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/member/member_list.js" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/member/member_list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/project/project-list.js" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/project/project-list.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/interceptor_error.html" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/interceptor_error.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/contract/contract-clist.html" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/contract/contract-clist.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/log/log-list.html" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/log/log-list.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/system/setStylePre.html" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/system/setStylePre.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/plugins/head_menu.html" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/plugins/head_menu.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/unAuthPage.html" afterPath="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/unAuthPage.html" />
-    </list>
+    <list default="true" id="4065f4bf-0756-4967-baa4-3f281c06620c" name="Default" comment="" />
     <ignored path="$PROJECT_DIR$/../GongT/out/" />
     <ignored path="$PROJECT_DIR$/../GongT/target/" />
     <ignored path="$PROJECT_DIR$/../GongT/GongTu/target/" />
@@ -1025,7 +962,7 @@
       <workItem from="1519209636915" duration="37863000" />
       <workItem from="1519266691716" duration="1851000" />
       <workItem from="1519479847820" duration="33951000" />
-      <workItem from="1519536318730" duration="46619000" />
+      <workItem from="1519536318730" duration="46735000" />
     </task>
     <task id="LOCAL-00001" summary="去上海之前">
       <created>1517935550443</created>
@@ -1041,11 +978,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519276683946</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="今天去初次交差">
+      <created>1519597392705</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1519597392705</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347823000" />
+    <option name="totallyTimeSpent" value="347939000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1130,7 +1074,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="去上海之前" />
     <MESSAGE value="从上海回来" />
-    <option name="LAST_COMMIT_MESSAGE" value="从上海回来" />
+    <MESSAGE value="今天去初次交差" />
+    <option name="LAST_COMMIT_MESSAGE" value="今天去初次交差" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
