@@ -37,4 +37,5 @@ public interface IMemberServiceBack extends IService<String, Member> {
     boolean editFontStyle(Member member) throws Exception;
 
     List<String> getAllNames() throws Exception;
+    List<Member> getAllMemberIdAndNames();
 }

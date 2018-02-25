@@ -2,10 +2,11 @@ package lz.cm.controller.pages.back.log;
 
 import lz.cm.controller.AbstractControllerAdapter;
 import lz.cm.service.ILogService;
+import lz.cm.service.IMemberServiceBack;
 import lz.cm.service.IProjectService;
-import lz.cm.vo.Job;
 import lz.cm.vo.Log;
 import lz.cm.vo.Project;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.Iterator;
 import java.util.List;
@@ -26,26 +28,33 @@ public class LogController extends AbstractControllerAdapter {
 
     @Autowired
     private ILogService logService;
+    @Autowired
+    private IMemberServiceBack memberServiceBack;
 
-    @ResponseBody
-    @RequestMapping("delete")
-    boolean delete(Job job) {
-        try {
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        return false;
-    }
 
-    @ResponseBody
     @RequestMapping("edit")
-    boolean edit(Job job) {
+    @ResponseBody
+    String edit(Log log) {
         try {
+            if (!log.getMemberid().equals(getMid())){
+                return "false:对不起，您只能够修改自己的日志";
+            }else {
+                if (logService.edit(log)){
+                    return "true:日志修改成功！";
+                }else {
+                    return "false:日志修改失败！";
+
+                }
+
+            }
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return false;
+        return "false:日志修改失败！";
+
     }
 
 
@@ -81,6 +90,11 @@ public class LogController extends AbstractControllerAdapter {
 
     @RequestMapping("list")
     String list(HttpServletRequest request, Model model) throws Exception {
+        setColumnMap(request, "内容:note|");
+        String date = new SimpleDateFormat("yyyy-M").format(new Date());
+        model.addAttribute("allMembers",memberServiceBack.getAllMemberIdAndNames());
+        System.err.println(date);
+        model.addAttribute("date", date);
         return "pages/back/log/log-list";
     }
 
@@ -88,7 +102,20 @@ public class LogController extends AbstractControllerAdapter {
     @ResponseBody
     Object listAjax(HttpServletRequest request, Model model) throws Exception {
 
-        return  handSplit(request,logService);
+        return handSplit(request, logService);
+    }
+
+    @ResponseBody
+    @RequestMapping("plDeleteLog")
+    @RequiresPermissions("log:delete")
+    boolean plDeleteLog(HttpServletRequest request) {
+        try {
+            String[] ids = request.getParameter("str").split("-");
+            return logService.plDeleteLog(ids);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @Override

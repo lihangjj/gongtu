@@ -53,7 +53,7 @@ function loadData() {
                     "</tr>");
                 for (var p = 0; p < paylogs.length; p++) {
                     var paylog = paylogs[p];
-                    var payTime = paylog.time == null ? "" : new Date(paylog.time).format("yyyy-MM-dd hh:mm:ss");
+                    var payTime = paylog.time == null ? "" : new Date(paylog.time).format("yyyy-M-dd hh:mm:ss");
                     tb.append($("<tr style='border: dashed  #b0ccff 0.1px' >" +
                         "<td  >" + paylog.cost + "</td>" +
                         "<td>" + paylog.payway + "</td>" +
@@ -192,9 +192,18 @@ function shipeiSinput() {
     myselect.each(function () {
         $(this).click(function () {
             $(this).next("input").val(this.value);
+            var bank=$(this).children("[value="+this.value+"]").attr("name");
+            if (bank!=undefined){
+                $("#shoubank").val(bank);
+            }
         });
         $(this).change(function () {
             $(this).next("input").val(this.value);
+            var bank=$(this).children("[value="+this.value+"]").attr("name");
+
+            if (bank!=undefined){
+                $("#shoubank").val(bank);
+            }
         })
     })
 
@@ -261,7 +270,7 @@ $(function () {
         }
 
     });
-    initDetailDate();
+    initSuperDetailDate();
     //这里需要复写parameterName;
     loadData();
     enterKeySubmit(loadData);

@@ -63,7 +63,7 @@ function loadData() {
                     "                        <td >" + allVo[x].age + "</td>\n" +
                     "                        <td >" + allVo[x].sex + "</td>\n" +
                     "                        <td id='stat-" + mid + "' style='color: " + color + "'>" + status + "</td>\n" +
-                    "                        <td >" + new Date(allVo[x].regdate).format("yyyy-MM-dd") + "</td>\n" +
+                    "                        <td >" + new Date(allVo[x].regdate).format("yyyy-M-dd") + "</td>\n" +
                     "                        <td>\n" +
                     "<button class=\"btn btn-xs btn-info\" style=\"margin: 0.2rem\" id='hisRole-" + mid + "'>他的角色</button>\n" +
                     "<button class=\"btn btn-xs btn-primary\" style=\"margin: 0.2rem\" id='edit-" + mid + "'>修改</button>\n" +
@@ -95,7 +95,7 @@ function loadData() {
                     "<td style='color: " + color + "' id='stat-" + mid + "' >状态:" + status + "</td>\n" +
                     "                        </tr>\n" +
                     "                        <tr>\n" +
-                    "<td >注册日期:" + new Date(allVo[x].regdate).format("yyyy-MM-dd") + "</td>\n" +
+                    "<td >注册日期:" + new Date(allVo[x].regdate).format("yyyy-M-dd") + "</td>\n" +
                     "<td>\n" +
                     "    <button class=\"btn btn-xs btn-info\" style=\"margin: 0.2rem\" id='hisRole-" + mid + "'>他的角色</button>\n" +
                     "    <button class=\"btn btn-xs btn-primary\" style=\"margin: 0.2rem\" id='edit-" + mid + "'>修改</button>\n" +

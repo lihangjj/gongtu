@@ -8,7 +8,7 @@ public interface ILogService extends IService<Integer, Log> {
     boolean add(Log log) throws Exception;
 
 
-    boolean delete(Log log)throws Exception;
+    boolean plDeleteLog(String[] ids)throws Exception;
 
 
 

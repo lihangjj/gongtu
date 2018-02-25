@@ -2,6 +2,7 @@ package lz.realm;
 
 import lz.cm.service.IMemberServiceBack;
 import lz.cm.vo.Member;
+import lz.util.str.StrUtil;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.AuthenticationInfo;
@@ -48,6 +49,7 @@ public class MemberRealm extends AuthorizingRealm {
         Session session = SecurityUtils.getSubject().getSession();
         session.setAttribute("name", member.getName());//这里可以保存用户需要保存的
         session.setAttribute("memberid", member.getMemberid());//这里可以保存用户需要保存的
+        session.setAttribute("spmid", StrUtil.SUPER_ADMIN);//这里可以保存用户需要保存的
         session.setAttribute("sessionid", session.getId());//这里可以保存用户需要保存的
         session.setAttribute("photo", member.getPhoto());//用户的小头像
         session.setAttribute("bigphoto", member.getBigphoto());//用户的大头像

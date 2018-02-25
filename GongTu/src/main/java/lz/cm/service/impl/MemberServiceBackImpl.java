@@ -96,7 +96,7 @@ public class MemberServiceBackImpl extends AbstractService implements IMemberSer
 
     @Override
     public Member getVoById(String s) {
-        return null;
+        return memberDAO.findById(s,Member.class);
     }
 
     @Override
@@ -144,6 +144,11 @@ public class MemberServiceBackImpl extends AbstractService implements IMemberSer
     @Override
     public List<String> getAllNames() throws Exception {
         return memberDAO.getAllNames();
+    }
+
+    @Override
+    public List<Member> getAllMemberIdAndNames() {
+        return memberDAO.getAllMemberIdAndNames();
     }
 
 

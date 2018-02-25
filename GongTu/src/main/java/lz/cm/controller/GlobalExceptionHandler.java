@@ -12,7 +12,7 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(Exception.class)
     public String defaultErrorHandler(Exception e, Model model) {//这个跳转只能是正常ip地址来的，ajax是不会跳转的
-        String exception = "";
+        String exception = e.getMessage();
         System.err.println(e.getMessage());
         if (e instanceof UnauthorizedException) {//没有权限异常
             exception = "您没有" + e.getMessage().substring(e.getMessage().lastIndexOf("[")) + "权限";

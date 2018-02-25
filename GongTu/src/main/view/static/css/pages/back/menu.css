@@ -19,7 +19,7 @@
 }
 
 #validateDiv img { /*logo的位置*/
-    height: 4rem;
+    height: 3.5rem;
     width: auto;
     left: 21%;
     position: absolute;

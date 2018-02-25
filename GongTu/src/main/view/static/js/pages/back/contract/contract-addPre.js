@@ -15,7 +15,7 @@ function getRow(type) {
         "                    </div>\n" +
         "                    <div class=\"col-sm-3\">\n" +
         "                        <select class=\"form-control\" name='" + type + "-executive'" +
-        "                                id='executive'>\n" +
+        "                                id='executive-"+type+"'>\n" +
         "                        </select>\n" +
         "                    </div><button class=\"btn btn-danger\" style=\"margin-top: 0.1rem\" name='" + type + "DeleRow'>删除</button>\n" +
         "                </div>");
@@ -51,8 +51,16 @@ function addOrRemoveRow(type) {
     deleteRow(type);
     $("#" + type + "AddRow").click(function () {
         $("#" + type + "RowLast").before(getRow(type));
-        selectExcutive();
+        $("[id^=executive-"+type+"]").each(function () {
+            if ($(this).children().length==0){
+                $(this).append($("<option value=''>请选择执行人</option>"));
+                for (var x = 0; x < allName.length; x++) {
+                    $(this).append($("<option>" + allName[x] + "</option>"))
+                }
+            }
+        });
         deleteRow(type);
+
     });
 
     selectExcutive();

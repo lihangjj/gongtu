@@ -6,10 +6,11 @@
         INSERT INTO log(type,projectid,note,coordination,time,memberid)VALUES
         (#{type},#{projectid},#{note},#{coordination},#{time},#{memberid});
     </insert>
-    <update id="doUpdate" parameterType="Job">
-        UPDATE job SET name=#{name},deptid=#{deptid} WHERE jobid=#{jobid}
+    <update id="doUpdate" parameterType="Log">
+        UPDATE log SET note=#{note}  WHERE logid=#{logid}
     </update>
-    <delete id="delete" parameterType="Job">
-        DELETE FROM job WHERE jobid=#{jobid}
-    </delete>
+    <update id="plDeleteLog" parameterType="Map">
+        UPDATE log SET dflag=1  WHERE logid IN
+        <foreach collection="ids" item="item" separator="," open="(" close=")">#{item}</foreach>
+    </update>
 </mapper>

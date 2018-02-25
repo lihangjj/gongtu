@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="plugins/include_javascript::js"></head>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.css}"/>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.zh-CN.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<style type="text/css">
+    #dntb tr td {
+        vertical-align: middle;
+    }
+</style>
+<body style="overflow-x:hidden;visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">新增公司成本</div>
+        <div class="row">
+            <div class="col-xs-10 col-xs-push-1 " style="border: solid #d3d3d3 1px;;border-radius: 5px;">
+                <form id="form" th:action="@{/pages/back/finance/costAdd}" method="post">
+                    <div class="form-group form-inline">
+                        <label>房租:</label>
+                        <input type="text" id="fangzu" name="fangzu" class="form-control" placeholder="请输入房租"/>
+                        <span id="fangzuMsg"></span>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>水费:</label>
+                        <input type="text" id="shui" name="shui" class="form-control" placeholder="请输入水费"/><span id="shuiMsg"></span>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>电费:</label>
+                        <input type="text" id="dian" name="dian" class="form-control" placeholder="请输入电费"/><span id="dianMsg"></span>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>汽车:</label>
+                        <input type="text" id="qiche" name="qiche" class="form-control" placeholder="请输入汽车费"/><span id="qicheMsg"></span>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>餐饮:</label>
+                        <input type="text" id="canyin" name="canyin" class="form-control" placeholder="请输入餐饮"/><span id="canyinMsg"></span>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>办公耗材:</label>
+                        <input type="text" id="haocai" name="haocai" class="form-control" placeholder="请输入办公耗材"/><span id="haocaiMsg"></span>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>办公设备:</label>
+                        <input type="text" id="shebei" name="shebei" class="form-control" placeholder="请输入办公设备费用"/><span id="shebeiMsg"></span>
+                    </div>
+                    <div class="form-group form-inline">
+                        <label>网络推广:</label>
+                        <input type="text" id="tuiguang" name="tuiguang" class="form-control" placeholder="请输入推广费"/><span id="tuiguangMsg"></span>
+                    </div>
+                    <div class="form-inline form-group">
+                        <label>日期:</label>
+                        <div class='input-group date' id='datetimepicker1'>
+                            <input type='text' class="form-control" style="margin-left: -0.1rem" placeholder="不选择就是现在"
+                                   th:readonly="true" id="date" name="date"/>
+                            <span class="input-group-addon">
+                             <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                        </div>
+                    </div>
+                    <button id="addCost" class="btn btn-success" type="submit" style="margin: 2rem">新增成本</button>
+
+                    <a href="javascript:history.go(-1);"><button id="cancel" class="btn btn-danger" type="button" style="margin: 2rem">取消添加</button></a>
+                </form>
+
+            </div>
+        </div>
+
+
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:inline="javascript" th:src="@{/js/pages/back/finance/cost-addPre.js}"></script>
+</html>

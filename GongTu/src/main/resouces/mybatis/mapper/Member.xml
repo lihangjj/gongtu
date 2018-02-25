@@ -87,7 +87,7 @@
     </update>
     <!--修改用户的系统风格-->
     <update id="updateStyle" parameterType="Member">
-        UPDATE member SET contentColor=#{contentColor},hdColor=#{hdColor},menuColor=#{menuColor},styleValue=#{styleValue},bodyColor=#{bodyColor} WHERE memberid=#{memberid}
+        UPDATE member SET contentColor=#{contentColor},hdColor=#{hdColor},menuFontColor=#{menuFontColor},menuColor=#{menuColor},styleValue=#{styleValue},bodyColor=#{bodyColor} WHERE memberid=#{memberid}
     </update>
     <!--批量修改用户的系统字体风格-->
     <update id="updateSysFont" parameterType="Member">
@@ -119,6 +119,10 @@
     </select>
     <select id="getMemberNameByMemberid" resultType="Member" parameterType="String">
         SELECT name from member WHERE memberid=#{memberid};
+    </select>
+
+    <select id="getAllMemberIdAndNames" resultType="Member">
+        SELECT memberid,name from member
     </select>
 
 </mapper>

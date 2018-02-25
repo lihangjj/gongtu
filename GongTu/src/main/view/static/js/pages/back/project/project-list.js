@@ -81,7 +81,7 @@ function loadData() {
                         "<td>" + log.type + "</td>\n" +
                         "<td>" + log.coordination + "</td>\n" +
                         "<td>" + log.note + "</td>\n" +
-                        " <td>" + new Date(log.time).format("yyyy-MM-dd hh:mm:ss") + "-" + log.member.name + "</td>\n" +
+                        " <td>" + new Date(log.time).format("yyyy-M-dd hh:mm:ss") + "-" + log.member.name + "</td>\n" +
                         " </tr>");
                 }
                 var more = $("<tr id='more-" + pid + "' >\n" +
@@ -99,7 +99,7 @@ function loadData() {
                             "<td>" + log.type + "</td>\n" +
                             "<td>" + log.coordination + "</td>\n" +
                             "<td>" + log.note + "</td>\n" +
-                            " <td>" + new Date(log.time).format("yyyy-MM-dd hh:mm:ss") + "-" + log.member.name + "</td>\n" +
+                            " <td>" + new Date(log.time).format("yyyy-M-dd hh:mm:ss") + "-" + log.member.name + "</td>\n" +
                             " </tr>");
                     }
                 });

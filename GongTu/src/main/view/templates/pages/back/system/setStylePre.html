@@ -50,6 +50,17 @@
                         <img id="fImg" th:src="@{/images/pages/back/system/defaultStyle.jpg}"/>
                         <input type="radio" class="form-control" name="style" value="default"
                                th:checked="${#strings.arraySplit(session.styleValue,':')[0]=='default'?true:false}"/>系统默认
+                        <select class="form-control" name="styleValue">
+                            <option value="mingliang"
+                                    th:selected="${session.styleValue=='default:mingliang'?true:false}">
+                                明亮
+                            </option>
+
+                            <option value="anya"
+                                    th:selected="${session.styleValue=='default:anya'?true:false}">
+                                暗雅
+                            </option>
+                        </select>
                     </div>
                     <div class="col-xs-12 ">
                         <img th:src="@{/upload/system/hktk-bg.jpg}"/>

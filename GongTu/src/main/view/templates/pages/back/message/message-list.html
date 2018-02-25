@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="plugins/include_javascript::js"></head>
+
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<style type="text/css">
+    #dntb tr td {
+        vertical-align: middle;
+    }
+</style>
+<body style="overflow-x:hidden;visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">我的消息列表</div>
+        <div th:replace="plugins/search::search"></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="dntb" class="table  table-hover table-responsive  " style="text-align: center">
+                    <tr id="row1" style="font-weight: bold">
+                        <td style="width: 3rem"><input style="min-width: 2.5rem" class="form-control" type="checkbox"
+                                                       id="selectAll"/></td>
+                        <td>状态<select id="status">
+                            <option>未读</option>
+                            <option>已读</option>
+                            <option value="">所有</option>
+                        </select></td>
+                        <td>标题</td>
+                        <td>内容</td>
+                        <td>时间</td>
+                    </tr>
+                </table>
+                <button id="plDelete" class="btn btn-danger" type="button" style="margin-left: 5rem">删除所选</button>
+
+            </div>
+        </div>
+        <div th:replace="plugins/splitBar::splitBar">
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:inline="javascript" th:src="@{/js/pages/back/message/message-list.js}"></script>
+</html>

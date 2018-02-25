@@ -467,13 +467,27 @@ function initSimpleDate() {
 
 function initDetailDate() {
     $('[id=datetimepicker1]').datetimepicker({
-        format: "yyyy-mm-dd hh:mm:ss",
+        format: "yyyy-mm-dd hh:ii:ss",
         language: 'zh-CN',//这里是language,autoclose: 1,
         todayHighlight: 1,//今天高亮，
         todayBtn: 1,//开启今天按钮
         autoclose: 1,//点击完自动关
         startView: 2,//日期页面
         minView: 1,//最小几个页面，选择日期和时间，如果是2就只是日期
+        forceParse: 0,
+        pickerPosition: 'top-right'//日期插件弹出的位置
+    });
+}
+
+function initSuperDetailDate() {
+    $('[id=datetimepicker1]').datetimepicker({
+        format: "yyyy-mm-dd hh:ii:ss",
+        language: 'zh-CN',//这里是language,autoclose: 1,
+        todayHighlight: 1,//今天高亮，
+        todayBtn: 1,//开启今天按钮
+        autoclose: 1,//点击完自动关
+        startView: 2,//日期页面
+        minView:0,//最小几个页面，选择日期和时间，如果是2就只是日期,1有小时，0有分钟数
         forceParse: 0,
         pickerPosition: 'top-right'//日期插件弹出的位置
     });

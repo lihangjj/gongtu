@@ -1,13 +1,12 @@
 package lz.cm.dao;
 
 import lz.cm.vo.Account;
-import lz.cm.vo.Dept;
-import lz.cm.vo.Job;
 import org.apache.ibatis.annotations.Mapper;
 
-import java.util.List;
+import java.util.Map;
 
 @Mapper
-public interface IAccountDAO extends IDAO<String,Account> {
+public interface IAccountDAO extends IDAO<String, Account> {
+    boolean plDeleteAccount(Map<String, Object>map);
 
 }

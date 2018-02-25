@@ -13,5 +13,8 @@
     <delete id="doDelete" parameterType="Account">
         DELETE FROM account WHERE accountid=#{accountid}
     </delete>
-
+    <delete id="plDeleteAccount" parameterType="Map">
+        DELETE FROM account WHERE accountid IN
+        <foreach collection="ids" close=")" open="(" separator="," item="item">#{item}</foreach>
+    </delete>
 </mapper>

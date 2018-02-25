@@ -26,6 +26,9 @@ public class SystemSetController extends AbstractControllerAdapter {
 
     @RequestMapping("/setStyle")
     String setStyle(Member member, HttpServletRequest request, Model model) {
+
+        Member oMember=memberServiceBack.getVoById(getMid());
+        member.setMenuFontColor(oMember.getMenuFontColor());
         if (request instanceof MultipartHttpServletRequest) {
             MultipartHttpServletRequest mrequest = (MultipartHttpServletRequest) request;
             List<MultipartFile> files = mrequest.getFiles("bodypic");
@@ -33,11 +36,25 @@ public class SystemSetController extends AbstractControllerAdapter {
         String style = request.getParameter("style");
         switch (style) {
             case "default":
-                member.setStyleValue("default:null");
-                member.setHdColor("color:" + getResourceValue("default.head.color"));
-                member.setMenuColor("color:" + getResourceValue("default.menu.color"));
-                member.setContentColor("color:" + getResourceValue("default.content.color"));
-                member.setBodyColor("color:" + getResourceValue("default.body.color"));
+                member.setStyleValue(member.getStyleValue());
+                if ("mingliang".equals(member.getStyleValue())) {
+                    member.setStyleValue("default:null");
+                    member.setHdColor("color:null");
+                    member.setMenuColor("color:null");
+                    member.setContentColor("color:null");
+                    member.setBodyColor("color:null");
+                    member.setMenuFontColor("rgb(0,0,0)");
+
+                } else {
+                    member.setStyleValue("default:anya");
+                    member.setHdColor("color:" + getResourceValue("default.head.color"));
+                    member.setMenuColor("color:" + getResourceValue("default.menu.color"));
+                    member.setContentColor("color:" + getResourceValue("default.content.color"));
+
+                    member.setBodyColor("color:" + getResourceValue("default.body.color"));
+                    member.setMenuFontColor("rgb(255,255,255)");
+                }
+
                 break;
             case "tdcq":
                 member.setStyleValue(member.getStyleValue());
@@ -68,6 +85,7 @@ public class SystemSetController extends AbstractControllerAdapter {
                 break;
             case "zdy":
                 member.setStyleValue("zdy:null");
+
                 if (request instanceof MultipartHttpServletRequest) {
                     MultipartHttpServletRequest mrequest = (MultipartHttpServletRequest) request;
                     List<MultipartFile> files = mrequest.getFiles("bodypic");
@@ -235,6 +253,8 @@ public class SystemSetController extends AbstractControllerAdapter {
                 getSession().setAttribute("menuColor", member.getMenuColor());
                 getSession().setAttribute("bodyColor", member.getBodyColor());
                 getSession().setAttribute("styleValue", member.getStyleValue());
+                getSession().setAttribute("menuFontColor", member.getMenuFontColor());
+
             } else {
                 setMsg("vo.edit.failure", "风格", false, model);
 
@@ -253,20 +273,20 @@ public class SystemSetController extends AbstractControllerAdapter {
 
     @RequestMapping("/setFont")
     String setFont(Member member, Model model) {
-        if (member.getMenuColor()==null||"".equals(member.getMenuColor())){
+        if (member.getMenuColor() == null || "".equals(member.getMenuColor())) {
             member.setMenuColor("color:null");
-        }else {
-            member.setMenuColor("color:"+member.getMenuColor());
+        } else {
+            member.setMenuColor("color:" + member.getMenuColor());
         }
         member.setMemberid(getMid());
 
         try {
             if (memberServiceBack.editFontStyle(member)) {
-                getSession().setAttribute("sysColor",member.getSysColor());
-                getSession().setAttribute("sysFont",member.getSysFont());
-                getSession().setAttribute("menuColor",member.getMenuColor());
-                getSession().setAttribute("menuFontColor",member.getMenuFontColor());
-                getSession().setAttribute("menuSelectedColor",member.getMenuSelectedColor());
+                getSession().setAttribute("sysColor", member.getSysColor());
+                getSession().setAttribute("sysFont", member.getSysFont());
+                getSession().setAttribute("menuColor", member.getMenuColor());
+                getSession().setAttribute("menuFontColor", member.getMenuFontColor());
+                getSession().setAttribute("menuSelectedColor", member.getMenuSelectedColor());
             } else {
                 setMsg("vo.edit.failure", "风格", false, model);
             }

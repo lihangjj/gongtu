@@ -8,7 +8,8 @@ public interface IAccountService extends IService<String, Account> {
 
     boolean add(Account account) throws Exception;
 
-    boolean delete(Account account)throws Exception;
+    boolean delete(Account account) throws Exception;
 
+    boolean plDeleteAccount(String[] ids) throws Exception;
 
 }

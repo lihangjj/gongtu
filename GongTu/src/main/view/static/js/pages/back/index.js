@@ -57,6 +57,8 @@ function restoreBar() {
 var webSocket;
 var memberid;
 var sessionid;
+var spmid;
+var name;
 
 function myWebSocket() {
     var url="ws://192.168.1.108/fushMessage/"+sessionid;

@@ -33,6 +33,12 @@ public abstract class AbstractController {
         model.addAttribute("msg", getResourceValue(msg, title));
     }
 
+    /**
+     * @param msg   消息
+     * @param title 标题，哪种VO
+     * @param type  类型，true成功，false失败，
+     * @param model
+     */
     public void setMsg(String msg, String title, Object type, Model model) {
         model.addAttribute("msg", getResourceValue(msg, title));
         model.addAttribute("type", type);
@@ -56,6 +62,11 @@ public abstract class AbstractController {
     }
 
     //设置分页的查询列
+
+    /**
+     * @param request
+     * @param columnData 格式为：用户编号:mid|名字:name
+     */
     protected void setColumnMap(HttpServletRequest request, String columnData) {
         Map<String, String> columnMap = new LinkedHashMap<>();
         String[] clomunAndflag = columnData.split("\\|");
@@ -65,6 +76,7 @@ public abstract class AbstractController {
         }
         request.setAttribute("columnMap", columnMap);
     }
+
     /**
      * @param request
      * @param serviceImpl 具体服务层实现类
@@ -97,8 +109,8 @@ public abstract class AbstractController {
             //反射得到分页方法，而后执行
             Method splitM = serviceImpl.getClass().getMethod("splitVoByFlag", String.class, String.class, Integer.class, Integer.class, String.class, String.class);
             Map<String, Object> map = (Map<String, Object>) splitM.invoke(serviceImpl, column, keyWord, currentPage, lineSize, parameterName, parameterValue);
-            double allRecorders = (int) map.get("allRecorders");
-            if (lineSize!=null){
+            int allRecorders = (int) map.get("allRecorders");
+            if (lineSize != null) {
                 int pageSize = (int) Math.ceil(allRecorders / lineSize);
                 request.setAttribute("pageSize", pageSize);
             }
@@ -119,6 +131,11 @@ public abstract class AbstractController {
     protected String getMid() {
         return (String) getSession().getAttribute("memberid");
     }
+
+    protected String getName() {
+        return (String) getSession().getAttribute("name");
+    }
+
     /**
      * 分页的跳转路径
      *

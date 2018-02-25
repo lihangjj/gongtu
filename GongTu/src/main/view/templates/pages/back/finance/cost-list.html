@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="plugins/include_javascript::js"></head>
+
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<style type="text/css">
+    #dntb tr td {
+        vertical-align: middle;
+    }
+</style>
+<body style="overflow-x:hidden;visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">公司成本列表</div>
+        <div th:replace="plugins/search::search"></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="dntb" class="table  table-hover table-responsive  " style="text-align: center">
+                    <tr id="row1" style="font-weight: bold">
+                        <td style="width: 3rem"><input style="min-width: 2.5rem" class="form-control" type="checkbox"
+                                                       id="selectAll"/></td>
+                        <td><select id="yyyy">
+                            <option value="">所有</option>
+                            <option th:each="x:${#numbers.sequence(2018,2038)}" th:selected="${#dates.year(#dates.createToday())==x?true:false}" th:text="${x}"></option>
+                        </select>年<select id="mm">
+                            <option value="">全年</option>
+                            <option th:each="x:${#numbers.sequence(1,12)}" th:text="${x}"></option>
+                        </select>月
+                        </td>
+                        <td>总计</td>
+                        <td>房租</td>
+                        <td>水</td>
+                        <td>电</td>
+                        <td>汽车</td>
+                        <td>餐饮</td>
+                        <td>办公耗材</td>
+                        <td>办公设备</td>
+                        <td>网络推广</td>
+                    </tr>
+                </table>
+                <button id="deleCheked" class="btn btn-danger" type="button" style="margin-left: 5rem">删除所选</button>
+                <a th:href="@{/pages/back/finance/costAddPre}"><button id="addAcc" class="btn btn-success" style="margin-left: 5rem">新增成本</button></a>
+
+            </div>
+        </div>
+        <div th:replace="plugins/splitBar::splitBar">
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:inline="javascript" th:src="@{/js/pages/back/finance/cost-list.js}"></script>
+</html>

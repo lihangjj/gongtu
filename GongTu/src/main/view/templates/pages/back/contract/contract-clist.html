@@ -47,6 +47,10 @@
                         </div>
 
                     </div>
+                    <div class="form-inline form-group">
+                        <label>付款账号：</label>
+                        <input type="text" class="form-control" name="payaccount" id="payaccount"/>
+                    </div>
                     <div class="form-inline form-group" id="myInput">
                         <div style="position: relative">
                             <label style="position: relative;margin-top: 0.5rem">付款银行：</label>
@@ -65,9 +69,23 @@
                                    name="paybank" id="paybank" class="form-control"/>
                         </div>
                     </div>
-                    <div class="form-inline form-group">
-                        <label>付款账号：</label>
-                        <input type="text" class="form-control" name="payaccount" id="payaccount"/>
+
+                    <div class="form-inline form-group" id="myInput">
+                        <div style="position: relative">
+                            <label style="position: relative;margin-top: 0.5rem">收款账号：</label>
+                            <select style="position: absolute;" class="form-control">
+                                <option th:value="${account.accountid}" th:name="${account.bank}" th:each="account:${allAccount}"
+                                        th:text="${account.accountid}+'('+${account.bank}+')'+'('+${account.name}+')'"></option>
+
+                            </select>
+                            <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none"
+                                   type="text"
+                                   name="shouaccount" id="shouaccount" class="form-control"/>
+                            <button class="btn btn-success" type="button" id="saveaccount"
+                                    style="right: 0;position: absolute;border-radius: 100px">保存此账户
+                            </button>
+                        </div>
+
                     </div>
                     <div class="form-inline form-group" id="myInput">
                         <div style="position: relative">
@@ -87,23 +105,7 @@
                                    name="shoubank" id="shoubank" class="form-control"/>
                         </div>
                     </div>
-                    <div class="form-inline form-group" id="myInput">
-                        <div style="position: relative">
-                            <label style="position: relative;margin-top: 0.5rem">收款账号：</label>
-                            <select style="position: absolute;" class="form-control">
-                                <option th:value="${account.accountid}" th:each="account:${allAccount}"
-                                        th:text="${account.accountid}+'('+${account.bank}+')'+'('+${account.name}+')'"></option>
 
-                            </select>
-                            <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none"
-                                   type="text"
-                                   name="shouaccount" id="shouaccount" class="form-control"/>
-                            <button class="btn btn-success" type="button" id="saveaccount"
-                                    style="right: 0;position: absolute;border-radius: 100px">保存此账户
-                            </button>
-                        </div>
-
-                    </div>
 
                     <div class="form-inline form-group">
                         <label>发票总额：</label>

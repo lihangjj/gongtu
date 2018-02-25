@@ -47,4 +47,6 @@ public interface IMemberDAO extends IDAO<String, Member> {
     Integer getDeptRenshuByJobId(Map<String, Object> map);
 
     List<String> getAllNames();
+
+    List<Member> getAllMemberIdAndNames();
 }

@@ -12,6 +12,7 @@ public interface IProjectDAO extends IDAO<Integer, Project> {
     List<Project> getAllProjectByConstractId(Integer contractid);
 
     boolean plDeleteProjectByContractId(Map<String, Object> map);
+
     boolean plDeleteProject(Map<String, Object> map);
 
 }

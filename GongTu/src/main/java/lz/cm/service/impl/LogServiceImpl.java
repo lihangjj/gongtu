@@ -12,11 +12,14 @@ import lz.cm.vo.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
 @Service
 public class LogServiceImpl implements ILogService {
+
+
     @Autowired
     private ILogDAO logDAO;
     @Autowired
@@ -28,7 +31,7 @@ public class LogServiceImpl implements ILogService {
 
     @Override
     public boolean edit(Log log) throws Exception {
-        return false;
+        return logDAO.doUpdate(log);
     }
 
     @Override
@@ -37,8 +40,10 @@ public class LogServiceImpl implements ILogService {
     }
 
     @Override
-    public boolean delete(Log log) throws Exception {
-        return false;
+    public boolean plDeleteLog(String[] ids) throws Exception {
+        Map<String, Object> pMap = new HashMap<>();
+        pMap.put("ids", ids);
+        return logDAO.plDeleteLog(pMap);
     }
 
     @Override
@@ -49,8 +54,18 @@ public class LogServiceImpl implements ILogService {
     @Override
     public Map<String, Object> splitVoByFlag(String column, String keyWord, Integer currentPage, Integer lineSize, String parameterName, String parameterValue) throws Exception {
 
+        System.err.println(parameterValue);
+        if (parameterValue.contains("split")) {
+            String status = parameterValue.split("split")[1].split("=")[1];
 
-        Map<String, Object> resMap = logDAO.splitVoByFlag(Log.class, column, keyWord, currentPage, lineSize, getCondition(parameterName, "=", parameterValue));
+            parameterValue = parameterValue.split("split")[0] + " and projectid in (select projectid from project where contractid in (select contractid from contract where status='" + status + "'))";
+
+        }
+        parameterValue = parameterValue + " order by time desc";
+        System.err.println(parameterValue);
+
+
+        Map<String, Object> resMap = logDAO.splitVoByFlag(Log.class, column, keyWord, currentPage, lineSize, parameterValue);
         List<Log> allLogs = (List<Log>) resMap.get("allVo");
         for (Log l : allLogs) {
             l.setMember(memberDAO.getMemberNameByMemberid(l.getMemberid()));

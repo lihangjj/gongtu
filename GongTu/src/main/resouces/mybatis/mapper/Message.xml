@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lz.cm.dao.IMessageDAO">
+    <insert id="doCreate" useGeneratedKeys="true" keyProperty="messageid">
+        INSERT INTO message(sender, note, time, title)VALUES
+        (#{sender},#{note},#{time},#{title});
+    </insert>
+    <insert id="sendTo">
+        INSERT INTO member_message(messageid, memberid)VALUES
+        (#{messageid},#{memberid});
+    </insert>
+    <update id="updateFlag" parameterType="String">
+        UPDATE message SET flag=1  WHERE messageid=#{messageid}
+    </update>
+
+    <update id="doUpdate" parameterType="Message">
+        UPDATE message SET note=#{note},title=#{title},time=#{time}  WHERE messageid=#{messageid}
+    </update>
+
+    <delete id="plDelete" parameterType="Map">
+        DELETE FROM message WHERE messageid IN
+        <foreach collection="ids" item="item" separator="," open="(" close=")">#{item}</foreach>
+    </delete>
+
+    <update id="plljDelete" parameterType="Map">
+        UPDATE message SET dflag=1 WHERE messageid IN
+        <foreach collection="ids" item="item" separator="," open="(" close=")">#{item}</foreach>
+    </update>
+    <select id="getStatus" resultType="String" parameterType="Map">
+        SELECT status from member_message WHERE memberid=#{memberid} AND messageid=#{messageid}
+    </select>
+    <delete id="plDeleteGr" parameterType="Map">
+        DELETE FROM member_message WHERE memberid=#{memberid} AND messageid IN
+        <foreach collection="ids" close=")" open="(" separator="," item="item">#{item}</foreach>
+    </delete>
+</mapper>
