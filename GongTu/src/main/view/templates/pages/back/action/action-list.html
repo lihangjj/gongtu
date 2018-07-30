@@ -9,7 +9,7 @@
     }
 
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <!--modal谁先弹出来，谁就在前面-->
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
@@ -41,7 +41,7 @@
                         <button class="btn btn-info dropdown-toggle" type="button" data-toggle="dropdown">将选中权限添加至某个角色
                         </button>
                         <ul class="dropdown-menu"  id="addActionsTo">
-                            <li th:each="role:${allRole}" th:id="${role.roleid}"  th:text="${role.title}"
+                            <li th:each="role:${allRole}" th:id="${role.roleid}"  th:text="${role.title}+'-'+${role.note}"
                                 style="cursor: pointer;"  onmouseenter="this.style.background='green'"
                                 onmouseleave="this.style.background=''">
                             </li>
@@ -52,7 +52,7 @@
                             将选中权限从某个角色移除
                         </button>
                         <ul class="dropdown-menu" id="removeActionsFrom">
-                            <li th:each="role:${allRole}" th:id="${role.roleid}" th:text="${role.title}"
+                            <li th:each="role:${allRole}" th:id="${role.roleid}" th:text="${role.title}+'-'+${role.note}"
                                 style="cursor: pointer;" onmouseenter="this.style.background='green'"
                                 onmouseleave="this.style.background=''">
                             </li>

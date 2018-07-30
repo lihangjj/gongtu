@@ -80,6 +80,14 @@ public class MessageServiceImpl implements IMessageService {
         return messageDAO.plDeleteGr(pMap);
     }
 
+    @Override
+    public boolean plYdMessage(String[] ids, String memberid) throws Exception {
+        Map<String, Object> pMap = new HashMap<>();
+        pMap.put("ids", ids);
+        pMap.put("memberid", memberid);
+        return messageDAO.plYdMessage(pMap);
+    }
+
 
     @Override
     public boolean sendTo(int messageid, String[] ids) throws Exception {

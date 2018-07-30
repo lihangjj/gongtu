@@ -26,7 +26,7 @@ public class ActionController extends AbstractController {
 
     @RequestMapping("add")
     @ResponseBody
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles("roleAndAction:superAdmin")
     boolean add(Action action) {
 
 
@@ -41,7 +41,8 @@ public class ActionController extends AbstractController {
     }
 
     @RequestMapping("actionsAddTo")
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles("roleAndAction:superAdmin")
+
     @ResponseBody
     boolean actionsAddTo(HttpServletRequest request) {
         String[] ids = request.getParameter("ids").split("-");
@@ -56,7 +57,8 @@ public class ActionController extends AbstractController {
     }
 
     @RequestMapping("actionsRemoveFrom")
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles("roleAndAction:superAdmin")
+
     @ResponseBody
     boolean actionsRemoveFrom(HttpServletRequest request) {
         String[] ids = request.getParameter("ids").split("-");
@@ -68,17 +70,18 @@ public class ActionController extends AbstractController {
         }
         return false;
     }
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles("roleAndAction:superAdmin")
+
     @RequestMapping("list")
     String list(HttpServletRequest request, Model model) throws Exception {
         String columnData = "标记:flag|权限ID:actionid|名称:title|路径:cost|sflag:sflag";
         setColumnMap(request, columnData);
         List<Role> allRole = actionService.getAllRoles();
-        System.err.println(allRole.size());
         model.addAttribute("allRole", allRole);
         return "pages/back/action/action-list";
     }
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles("roleAndAction:superAdmin")
+
     @RequestMapping("listAjax")
     @ResponseBody
     Map listAjax(HttpServletRequest request) {
@@ -95,7 +98,7 @@ public class ActionController extends AbstractController {
 
     @RequestMapping("edit")
     @ResponseBody
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles("roleAndAction:superAdmin")
     boolean edit(Action action, HttpServletRequest request) {
         if (!getMid().equals(StrUtil.SUPER_ADMIN)) {//不是超级管理员，直接返回错
             return false;

@@ -30,6 +30,51 @@ $(function () {//公共操作函数这样写就必须要写window.onload
     });//点击换验证码
 
 });
+var allMemberRoles;
+var allMemberActions;
+
+var job;
+
+function hasJob(allJob) {
+    if (isSuperMan()) {
+        return true
+    }
+    if (allJob.indexOf(job) > 0) {
+        return true;
+    }
+    return false;
+}
+var superMan = 'lh'
+
+function isSuperMan() {
+    return superMan == memberid;
+
+}
+
+function hasRole(flag) {
+
+    if (isSuperMan()) {
+        return true
+    }
+
+    for (var x = 0; x < allMemberRoles.length; x++) {
+        if (flag == allMemberRoles[x].flag) {
+            return true;
+        }
+    }
+    return false;
+}
+
+// function hasAnyRoles() {
+//     for (var x = 0; x < allMemberRoles.length; x++) {
+//         var flag = allMemberRoles[x].flag;
+//         for (var i in arguments) {
+//             if (arguments[i] == flag)
+//                 return true;
+//         }
+//     }
+//     return false;
+// }
 
 //确定对话框
 function areYouSure(msg, execute) {
@@ -51,7 +96,7 @@ function areYouSure(msg, execute) {
         "                </div>\n" +
         "            </div>\n" +
         "        </div>");
-    $("body").prepend(sureModal);
+    $("body").append(sureModal);
     var sureM = $("#sure");
     var yes = $("#yes");
     sureM.modal("show");
@@ -103,7 +148,13 @@ Date.prototype.format = function (fmt) {
 var hideAlert;
 var setT;
 
-function showAlert(type, msg) {
+
+function showAlert(type, msg, url) {
+    var time = 2000;
+    if (url != undefined) {
+        time = 3000;
+        msg = msg + "<span style='color: red'>,3秒后</span>刷新或<a href='" + url + "' style='color: red'>跳转</a>"
+    }
     type.html(msg);
     type.parent().siblings().css("display", "none");
     type.parent().css("display", "block");
@@ -113,8 +164,8 @@ function showAlert(type, msg) {
     hideAlert = setTimeout(function () {
         //这里还要将对应的提示类型再次变为none
         $("#alertM").modal("hide");
-    }, 2000);
-
+        url == undefined ? "" : window.location = url;
+    }, time);
 }
 
 function alertMsg(obj, msg) {
@@ -141,9 +192,11 @@ function noSelectMsg() {
 //展现数据加载
 function showLoadingData() {
     $("#loadingData").css({
+        height: $("#contentDiv").height(),
         display: "block"
     })
 }
+
 //隐藏数据加载
 function hideLoadingData() {
     $("#loadingData").css({
@@ -197,8 +250,6 @@ function imgPreview(fileDom) {
 }
 
 
-
-
 //设置cookie
 var cookie = {
     set: function (key, val, time) {//设置cookie方法
@@ -229,6 +280,16 @@ var cookie = {
     }
 };
 
+//zhuid 全选id,子id
+function checkAll(quanobj, ziobj) {
+    quanobj.click(function () {
+        var flag=this.checked;
+        ziobj.each(function () {
+            this.checked = flag;
+        })
+    })
+
+}
 
 //全选，手机和电脑端
 
@@ -236,11 +297,11 @@ function selectAll() {
     $("[id=selectAll]").each(function () {
         $(this).click(function () {
             var s = this.checked;
-            if (windowNW<500){
+            if (windowNW < 500) {
                 $("[id=selectItem-xs]").each(function () {
                     this.checked = s;
                 })
-            }else {
+            } else {
                 $("[id=selectItem]").each(function () {
                     this.checked = s;
                 })
@@ -292,9 +353,9 @@ function getPageSize(allRecorders) {//计算总页数
     if (allRecorders == 0) {
         pageSize = 1;
     } else {
-        if("null"==lineSize||lineSize==null||""==lineSize){
-            pageSize=1;
-        }else {
+        if ("null" == lineSize || lineSize == null || "" == lineSize) {
+            pageSize = 1;
+        } else {
             pageSize = Math.ceil(allRecorders / lineSize);
 
         }
@@ -412,36 +473,23 @@ function sandian() {
 
 //修改总记录数和总页数
 function editAllRecordersAndPageSize() {
-    $("#allRecorders").html(allRecorders);
+    $("[id=allRecorders]").html(allRecorders);
     $("#pageSize").html(pageSize)
 
 }
 
 //创建到多少页和每页显示多少行
 function daoAndLineSize() {
-
-    var dao = $("<select id=\"dao\" class=\"form-control\"  style=\"width: 13rem;margin: 1rem 1rem 0 0\"></select>");
-
-    for (var x = 1; x <= pageSize; x++) {
-        var res = currentPage == x ? "selected" : "";
-        var op = $("<option " + res + " id='d" + x + "'  value='" + x + "'>到第" + x + "页</option>");
-        dao.append(op);
-    }
-    var mei = $("<select id=\"mei\" class=\"form-control\" style=\"width: 16rem;margin: 1rem 1rem 0 0\"></select>");
-    for (var x = 1; x < 21; x++) {
+    var mei = $("<select id=\"mei\" class=\"form-control\" style=' height: 37px'></select>");
+    for (var x = 5; x < 101; x++) {
         var res = lineSize == x ? "selected" : "";
         mei.append($("<option " + res + " id='m" + x + "'  value='" + x + "'>每页显示" + x + "行</option>"))
+        x += 4;
     }
-    var s=lineSize=="500"?"selected":"";
+    var s = lineSize == "100" ? "selected" : "";
     mei.append($("<option " + s + " id='showAll'  value='500'>最多500行</option>"));
-    $("#daomei").append(dao);
     $("#daomei").append(mei);
-    dao.on("change", function () {
-        currentPage = this.value;
-        loadData();
-        createSplitBar(allRecorders);
 
-    });
     mei.on("change", function () {
         lineSize = this.value;
         currentPage = 1;
@@ -487,10 +535,16 @@ function initSuperDetailDate() {
         todayBtn: 1,//开启今天按钮
         autoclose: 1,//点击完自动关
         startView: 2,//日期页面
-        minView:0,//最小几个页面，选择日期和时间，如果是2就只是日期,1有小时，0有分钟数
+        minView: 0,//最小几个页面，选择日期和时间，如果是2就只是日期,1有小时，0有分钟数
         forceParse: 0,
         pickerPosition: 'top-right'//日期插件弹出的位置
     });
+}
+
+
+function shoujiOpenOverFlowX() {
+//手机移除可以滚动，体验会好一点
+    windowNW < 768 ? $("html").css("overflow-x", "") : "";
 }
 
 //图片旋转

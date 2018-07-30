@@ -15,4 +15,5 @@ public interface IPaylogService extends IService<Integer, Paylog> {
 
     List<Paylog> getAllPaylogsByContractId(Contract contract) throws Exception;
 
+    boolean delete(Paylog paylog);
 }

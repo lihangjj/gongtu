@@ -5,6 +5,8 @@ import lz.cm.service.IRoleService;
 import lz.cm.vo.Action;
 import lz.cm.vo.Role;
 import lz.util.str.StrUtil;
+import org.apache.shiro.authz.annotation.Logical;
+import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.apache.shiro.authz.annotation.RequiresRoles;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,12 +26,10 @@ public class RoleController extends AbstractController {
     @Autowired
     private IRoleService roleService;
 
-
     @RequestMapping("add")
     @ResponseBody
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles("roleAndAction:superAdmin")
     boolean add(Role role) {
-        System.err.println(role);
         try {
             return roleService.add(role);
         } catch (Exception e) {
@@ -41,7 +41,7 @@ public class RoleController extends AbstractController {
     }
 
     @RequestMapping("list")
-    @RequiresRoles("roleAndAction")
+    @RequiresPermissions("role:list")
     String list(HttpServletRequest request, Model model) throws Exception {
         String columnData = "标记:flag|名称:title|角色ID:roleid";
         setColumnMap(request, columnData);
@@ -49,7 +49,7 @@ public class RoleController extends AbstractController {
     }
 
     @RequestMapping("listAjax")
-    @RequiresRoles("roleAndAction")
+    @RequiresPermissions("role:list")
     @ResponseBody
     Map listAjax(HttpServletRequest request) {
         try {
@@ -64,7 +64,7 @@ public class RoleController extends AbstractController {
 
 
     @RequestMapping("edit")
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles("roleAndAction:superAdmin")
     @ResponseBody
     boolean edit(Role role) {
         System.err.println(role);
@@ -81,12 +81,10 @@ public class RoleController extends AbstractController {
 
     //批量为用户增加角色
     @RequestMapping("plAddRoleToMembersOrRemove")
-    @RequiresRoles("roleAndAction")
+    @RequiresRoles(value = {"roleAndAction:superAdmin", "roleAndAction:总经理"}, logical = Logical.OR)
     @ResponseBody
     boolean plAddRoleToMembers(HttpServletRequest request) {
-        if (!getMid().equals(StrUtil.SUPER_ADMIN)) {//不是超级管理员，直接返回错
-            return false;
-        }
+
         String type = request.getParameter("type");
         String roleids = request.getParameter("roleids");
         String memberids = request.getParameter("memberids");

@@ -130,7 +130,6 @@ public class RoleServiceImpl implements IRoleService {
     public Map<String, Object> splitVoByFlag(String column, String keyWord, Integer currentPage, Integer lineSize, String parameterName, String parameterValue) throws Exception {
         Map<String, Object> resMap = roleDAO.splitVoByFlag(Role.class, column, keyWord, currentPage, lineSize, getCondition(parameterName,"=",parameterValue));
         List<Role> roles = (List<Role>) resMap.get("allVo");
-        System.err.println(roles.size());
         for (Role r : roles) {
             r.setActions(roleDAO.getAllActionsByRoleId(r.getRoleid()));
         }

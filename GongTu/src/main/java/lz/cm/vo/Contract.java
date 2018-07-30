@@ -2,6 +2,7 @@ package lz.cm.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Contract implements Serializable {
     private String companyName;
@@ -13,6 +14,15 @@ public class Contract implements Serializable {
     private String note;
     private String status;
     private String principalPhone;
+    List<Project> projects;
+
+    public List<Project> getProjects() {
+        return projects;
+    }
+
+    public void setProjects(List<Project> projects) {
+        this.projects = projects;
+    }
 
     private Integer allCost;
     private Integer alreadyPay;

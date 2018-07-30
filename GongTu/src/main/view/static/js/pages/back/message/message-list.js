@@ -24,8 +24,9 @@ function loadData() {
                     "                         <td style=\"width: 3rem\"><input style=\"min-width: 2.5rem\" class=\"form-control\" type=\"checkbox\"\n" +
                     "                                                       id='check-" + id + "'/></td>\n" +
                     "                        <td style='color: " + staColor + "' id='status-" + id + "'>" + m.status + "</td>\n" +
-                    "                   <td> " + m.title + "</td>\n" +
+                    "                   <td>" + m.title + "</td>\n" +
                     "                        <td>" + m.note + "</td>\n" +
+                    "                        <td>" + m.sender + "</td>\n" +
                     "                        <td>" + new Date(m.time).format("yyyy-MM-dd hh:mm:ss") + "</td>\n" +
                     "                    </tr>")
 
@@ -50,6 +51,7 @@ function loadData() {
 
 var status = '未读';
 $(function () {
+    shoujiOpenOverFlowX();
     loadData();
     $("#selectAll").click(function () {
         var c = this.checked;
@@ -82,6 +84,35 @@ $(function () {
                     }
                 }, "json");
             });
+
+        }
+
+
+    });
+    $("#plyidu").click(function () {
+        var str = "";
+        $("[id^=check-]").each(function () {
+            if (this.checked) {
+                str += this.id.split('-')[1] + "-";
+            }
+        });
+        if (str == "") {
+            showAlert($("#warningMsg"), "您还未选择任何数据")
+        } else {
+
+            $.post("/pages/back/message/plYdMessage", {str: str}, function (res) {
+                if (res) {
+                    var ids = str.split('-');
+                    for (var x = 0; x < ids.length; x++) {
+                        var sta=  $("#status-" + ids[x]);
+                       sta.text("已读");
+                       sta.css({color:'green'})
+                    }
+                    $("#selectAll").get(0).checked = false;
+                } else {
+                    showAlert($("#failureMsg"), "消息设置为已读成功失败");
+                }
+            }, "json");
 
         }
 

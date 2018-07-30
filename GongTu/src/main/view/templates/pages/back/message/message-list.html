@@ -9,11 +9,11 @@
         vertical-align: middle;
     }
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
-        <div style="text-align: center;font-size: 4rem">我的消息列表</div>
+        <div style="text-align: center;font-size: 4rem">收到消息列表</div>
         <div th:replace="plugins/search::search"></div>
         <div class="row">
             <div class="col-xs-12">
@@ -28,11 +28,12 @@
                         </select></td>
                         <td>标题</td>
                         <td>内容</td>
+                        <td>发送者</td>
                         <td>时间</td>
                     </tr>
                 </table>
                 <button id="plDelete" class="btn btn-danger" type="button" style="margin-left: 5rem">删除所选</button>
-
+                <button id="plyidu" class="btn btn-warning" type="button" style="margin-left: 5rem">设为已读</button>
             </div>
         </div>
         <div th:replace="plugins/splitBar::splitBar">

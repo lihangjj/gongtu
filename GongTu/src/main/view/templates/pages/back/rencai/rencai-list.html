@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" style="overflow-x: hidden">
+<head th:include="plugins/include_javascript::js"></head>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.css}"/>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.zh-CN.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<style type="text/css">
+    #dntb tr td, #shouji tr td {
+        vertical-align: middle;
+        padding: 5px;
+
+    }
+
+    table[id^="sydw-"] tr td {
+        padding: 0px;
+    }
+
+    #mingxiTb tr td {
+        vertical-align: middle;
+        padding: 10px 0 10px 0;
+    }
+
+    #pay {
+        margin-bottom: 1.5rem;
+    }
+
+    #pay > div {
+        display: inline-block;
+    }
+
+    #pay > div:nth-child(2) {
+        width: 210px;
+    }
+
+    #pay select {
+        width: 210px;
+    }
+</style>
+<body style="visibility: hidden" id="body">
+<div class="container-fluid">
+    <div id="payWindow" class="modal fade" aria-labelledby="title" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align: center">
+                    <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <label id="title">付款表单</label>
+                </div>
+                <div class="modal-body">
+                    <form id="payForm">
+                        <div class="form-inline form-group" style="color: red">
+                            <label>总金额:</label> <label id="allCost"></label><br/>
+                            <label>已付款:</label><label id="alreadyPay"></label><br/>
+                            <label>未付款:</label> <label id="noPay"></label>
+                        </div>
+                        <div id="pay">
+                            <div><label>付款金额:</label></div>
+                            <div><input type="text" name="payCost" id="payCost"
+                                        class="form-control"/></div>
+                            <span id="payCostMsg"></span>
+                        </div>
+                        <div id="pay">
+                            <div><label>付款方式:</label></div>
+                            <div style="position: relative;">
+                                <select id="payWay" class="form-control"
+                                        style="display: inline-block;">
+                                    <option>转账</option>
+                                    <option>现金</option>
+                                    <option>网银</option>
+                                    <option>支付宝</option>
+                                    <option>微信</option>
+                                </select>
+                                <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none;top: 0;"
+                                       value="转账" type="text" id="payWayInput" name="payWay"
+                                       class="form-control"/>
+                            </div>
+                            <span id="payWayMsg"></span>
+                        </div>
+                        <div id="pay">
+                            <div><label>付款账号:</label></div>
+                            <div style="position: relative;width: 200px">
+                                <select id="payAccount" class="form-control"
+                                        style="display: inline-block;">
+
+                                    <option th:value="${account.accountid}" th:name="${account.bank}"
+                                            th:each="account:${allAccount}"
+                                            th:text="${account.accountid}+'('+${account.bank}+')'+'('+${account.name}+')'"></option>
+
+                                </select>
+                                <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none;top: 0;"
+                                       th:value="${firstAccount}" type="text" id="payAccountInput" name="payAccount"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div id="pay">
+                            <div><label>付款银行:</label></div>
+                            <div style="position: relative;">
+                                <select id="payBank" class="form-control"
+                                        style="display: inline-block;">
+                                    <option>中国工商银行</option>
+                                    <option>中国农业银行</option>
+                                    <option>中国建设银行</option>
+                                    <option>中国邮政银行</option>
+                                    <option>重庆农村商业银行</option>
+                                    <option>中国民生银行</option>
+                                    <option>中国光大银行</option>
+                                    <option>交通银行</option>
+                                    <option>招商银行</option>
+                                    <option>民生银行</option>
+                                </select>
+                                <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none;top: 0;"
+                                       th:value="${firstBank}" type="text" id="payBankInput" name="payBank"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+                        <div id="pay">
+                            <div><label>收款账号:</label></div>
+                            <div><input type="text" name="shouAccount" id="shouAccount" class="form-control"/>
+                            </div>
+                            <span id="shouAccountMsg"></span>
+                        </div>
+
+                        <div id="pay">
+                            <div><label>收款银行:</label></div>
+                            <div style="position: relative;">
+                                <select id="shouBank" class="form-control"
+                                        style="display: inline-block;">
+                                    <option>中国工商银行</option>
+                                    <option>中国农业银行</option>
+                                    <option>中国建设银行</option>
+                                    <option>中国邮政银行</option>
+                                    <option>重庆农村商业银行</option>
+                                    <option>中国民生银行</option>
+                                    <option>中国光大银行</option>
+                                    <option>交通银行</option>
+                                    <option>招商银行</option>
+                                    <option>民生银行</option>
+                                </select>
+                                <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none;top: 0;"
+                                       value="中国工商银行" type="text" id="shouBankInput" name="shouBank"
+                                       class="form-control"/>
+                            </div>
+                        </div>
+
+                        <div id="pay">
+                            <div style="vertical-align: middle"><label>付款时间:</label></div>
+                            <div style="vertical-align: middle">
+                                <div class='input-group date' id='datetimepicker1'>
+                                    <input type='text' class="form-control" style="margin-left: -0.1rem"
+                                           placeholder="不填则为当前时间"
+                                           id="time" name="time"/>
+                                    <span class="input-group-addon">
+                                                             <span class="glyphicon glyphicon-calendar"></span>
+                                                            </span>
+                                </div>
+                            </div>
+                            <span id="timeMsg"></span>
+                        </div>
+                        <div id="pay">
+                            <div><label>付款说明:</label></div>
+                            <div><input type="text" class="form-control" id="note" name="note"/></div>
+                        </div>
+                        <input type="hidden" id="rencaiid" name="rencaiid"/>
+                        <button class="btn btn-danger" type="submit">提交</button>
+                    </form>
+
+                </div>
+                <div class="modal-footer">
+                    <small style="text-align: center;font-size: 1rem;color: gray">Esc键、或单机灰色区域关闭窗口</small>
+                    <button class="btn btn-info" data-dismiss="modal">取消</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="mingxiWindow" class="modal fade" aria-labelledby="title" aria-hidden="true" tabindex="-1">
+        <div class="modal-dialog" style="width: 95%">
+            <div class="modal-content">
+                <div class="modal-header" style="text-align: center">
+                    <button class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <label id="mingxititle">收款明细</label>
+                </div>
+                <div class="modal-body">
+                    <table id="mingxiTb" class="table table-hover table-responsive "
+                           style="text-align: center;">
+                        <tr id="mingxiRow1">
+                            <td>付款方式</td>
+                            <td>付款金额</td>
+                            <td><span style="color: red">付</span>款银行-账户</td>
+                            <td><span style="color: green">收</span>款银行-账户</td>
+                            <td>付款时间</td>
+                            <td>付款说明</td>
+                        </tr>
+                    </table>
+                    <div id="mingxiShouji"></div>
+                </div>
+                <div class="modal-footer">
+                    <small style="text-align: center;font-size: 1rem;color: gray">Esc键、或单机灰色区域关闭窗口</small>
+                    <button class="btn btn-danger" data-dismiss="modal">关闭</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">人才列表</div>
+
+        <div shiro:hasRole="rencai:总经理-副总-财务主管-人才主管">
+            <button type="button" class="btn btn-danger" id="pldele" style="margin-left: 3rem">删除</button>
+            <a th:href="@{/pages/back/rencai/addPre}">
+                <button type="button" class="btn btn-success" id="add" style="margin-left: 3rem">新增</button>
+            </a>
+        </div>
+        <div th:replace="plugins/search::search"></div>
+        <div class="row">
+            <div class="col-xs-12">
+                <table id="dntb" class="table  table-hover table-responsive  " style="text-align: center">
+                    <tr id="row1" style="font-weight: bold">
+                        <td><input type="checkbox" style="width: 2.5rem" class="form-control" id="checkAll"/></td>
+                        <td>照片</td>
+                        <td>姓名</td>
+                        <td>类别<select id="rcType">
+                            <option value="">所有</option>
+                            <option>建造师</option>
+                            <option>注册结构师</option>
+                            <option>建筑师</option>
+                            <option>施工</option>
+                            <option>设计工程师</option>
+                            <option>员</option>
+                            <option>三类人员</option>
+                            <option>建委技工</option>
+                            <option>安监技工</option>
+                            <option>高压进网电工</option>
+                            <option>高压进网电工-特种</option>
+                            <option>其他</option>
+                        </select></td>
+                        <td>专业-等级<select id="zsdengji">
+                            <option value="">所有</option>
+                            <option>一级</option>
+                            <option>二级</option>
+                            <option>高级</option>
+                            <option>中级</option>
+                            <option>初级</option>
+                        </select></td>
+                        <td>学历专业-学历</td>
+                        <td>到期时间</td>
+                        <td>签约价格</td>
+                        <td shiro:hasRole="rencai:总经理-副总-财务主管-人才主管">已支付</td>
+                        <td shiro:hasRole="rencai:总经理-副总-财务主管-人才主管">未支付</td>
+                        <td style="color: orange;font-weight: 400">
+                            <div style="color: orangered">使用情况</div>
+                            使用单位
+                            <select style="color: #23abb8" id="sydw">
+                                <option value="">所有</option>
+                                <option th:each="c:${allContract}" th:text="${c.companyName}"></option>
+
+                            </select>-项目名称&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;资质种类
+                            - 起始时间 - 结束时间
+                        </td>
+                        <td shiro:hasRole="rencai:总经理-副总-财务主管-人才主管">合同</td>
+                        <td shiro:hasRole="rencai:总经理-副总-财务主管-人才主管">操作</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+
+        <div shiro:hasRole="rencai:总经理-副总-财务主管-人才主管">
+            <div style="display: inline-block;color:red;font-weight: bold;margin-left: 5rem">分配人才:</div>
+
+            <div style="display: inline-block;vertical-align: middle">
+                <select class="form-control" name="projectid" id="projectid">
+                    <option value="">请先选择项目</option>
+                    <option th:each="p:${allProject}" th:value="${p.projectid}"
+                            th:selected="${#strings.toString(p.projectid)==pid?true:false}" th:text="${p.contract.companyName}+'-'+
+                            ${p.name}+'【'+${p.type=='qt'?'其他':p.type=='px'?'培训':p.type=='gk'?'挂靠':p.type=='zz'?'资质':p.type=='dp'?'代评':''}+'】'">
+                    </option>
+                </select>
+            </div>
+            <button type="button" class="btn btn-warning" id="rencaisAddToProject"
+                    style="display: inline-block;vertical-align: middle">添加
+            </button>
+
+            <button type="button" class="btn btn-primary" id="rencaisFromProjectRemove"
+                    style="display: inline-block;vertical-align: middle">移除
+            </button>
+        </div>
+        <div th:replace="plugins/splitBar::splitBar">
+        </div>
+
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:inline="javascript" th:src="@{/js/pages/back/rencai/rencai-list.js}"></script>
+</html>

@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="plugins/include_javascript::js"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<style type="text/css">
+    #dntb tr td {
+        vertical-align: top;
+    }
+</style>
+<body style="visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem"><select id="contractStatus">
+            <option th:selected="${status=='进行中'?true:false}">进行中</option>
+            <option th:selected="${status=='暂停'?true:false}">暂停</option>
+            <option th:selected="${status=='完结'?true:false}">完结</option>
+            <option th:selected="${status=='所有'?true:false}" value="">所有</option>
+        </select>项目汇总
+        </div>
+        <div class="row">
+            <div class="col-xs-12" style="overflow-x: auto;">
+                <div style="overflow-y: scroll;" id="infoDiv">
+                    <script type="text/javascript" th:inline="javascript">
+                        /*<![CDATA[*/
+                        $("#infoDiv").css({height: windowH - 230});
+                        $("#contractStatus").change(function () {
+                            window.location = "/pages/back/project/huizong?status=" + this.value;
+                        })
+
+                        /*]]>*/
+                    </script>
+                    <table id="dntb" class="table  " style="text-align: center;">
+                        <tr id="row1">
+                            <td width="1" style="font-weight: bold;vertical-align: top;color: red">执行人</td>
+                            <td th:each="m:${allMembers}" style="border: dashed #828282">
+                                <h3 th:text="${m.name}"></h3>
+                                <table style="text-align: left" class="table table-hover "
+                                       th:each="c:${m.contracts}" th:if="${#lists.size(c.projects)>0}">
+                                    <tr>
+                                        <td style="padding: 2px;">
+                                            <a  th:href="@{/pages/back/contract/editPre(contractid=${c.contractid})}"
+                                               style=""
+                                               onmouseover="this.style='color:orange;text-decoration: none;cursor: pointer'"
+                                               onmouseout="this.style='text-decoration: none;cursor: pointer'">
+                                                <nobr  th:text="${c.companyName}">公司名称公司名称公司名称公司名称公司名称公司名称</nobr>
+                                            </a>
+                                        </td>
+                                    </tr>
+                                    <tr th:each="p:${c.projects}">
+                                        <nobr>
+                                            <td style="padding: 1px">
+                                                <nobr>
+                                                    <span th:text="${p.name}"></span> -
+                                                    <span th:text="${p.type=='zz'?'资质':p.type=='px'?'培训':p.type=='gk'?'挂靠':p.type=='dp'?'代评':p.type=='qt'?'其他':''}"></span>
+                                                </nobr>
+                                            </td>
+                                        </nobr>
+                                    </tr>
+                                </table>
+
+                            </td>
+                        </tr>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+        <div th:replace="plugins/splitBar::splitBar">
+        </div>
+    </div>
+</div>
+</body>
+<script type="text/javascript" th:inline="javascript" th:src="@{/js/pages/back/project/project-huizongt.js}"></script>
+</html>

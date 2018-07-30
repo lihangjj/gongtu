@@ -3,7 +3,26 @@ package lz.cm.vo;
 import java.io.Serializable;
 
 public class Account implements Serializable {
-    private String accountid,name,bank;
+    private String accountid, name, bank;
+    private Double yue;
+
+    public Double getQichuYue() {
+        return qichuYue;
+    }
+
+    public void setQichuYue(Double qichuYue) {
+        this.qichuYue = qichuYue;
+    }
+
+    private Double qichuYue;
+
+    public Double getYue() {
+        return yue;
+    }
+
+    public void setYue(Double yue) {
+        this.yue = yue;
+    }
 
     public String getAccountid() {
         return accountid;

@@ -99,13 +99,13 @@ public class MessageController extends AbstractControllerAdapter {
         return false;
     }
 
-
+    //我的消息列表
     @RequestMapping("mlist")
     String mlist(HttpServletRequest request, Model model) throws Exception {
         setColumnMap(request, "标题:title|内容:note");
         return "pages/back/message/message-mlist";
     }
-
+    //收到消息列表
     @RequestMapping("list")
     String list(HttpServletRequest request, Model model) throws Exception {
         setColumnMap(request, "标题:title|内容:note");
@@ -163,7 +163,6 @@ public class MessageController extends AbstractControllerAdapter {
     @RequestMapping("plDeleteMessage")
     boolean plDeleteMessage(HttpServletRequest request) {
         String[] ids = request.getParameter("str").split("-");
-        System.err.println(ids);
         try {
             return messageService.plljDelete(ids);
         } catch (Exception e) {
@@ -173,19 +172,35 @@ public class MessageController extends AbstractControllerAdapter {
     }
 
     @ResponseBody
-    @RequestMapping("plDeleteGrMessage")//批量删除个人收到的消息
+    @RequestMapping("plDeleteGrMessage")
+//批量删除个人收到的消息
     boolean plDeleteGrMessage(HttpServletRequest request) {
         String[] ids = request.getParameter("str").split("-");
-        System.err.println(ids);
         try {
-            return messageService.plDeleteGr(ids,getMid());
+            return messageService.plDeleteGr(ids, getMid());
         } catch (Exception e) {
             e.printStackTrace();
         }
         return false;
     }
 
+    @ResponseBody
+    @RequestMapping("plYdMessage")
+//批量删除个人收到的消息
+    boolean plYdMessage(HttpServletRequest request) {
+        String[] ids = request.getParameter("str").split("-");
+        System.err.println(ids);
+        try {
+            return messageService.plYdMessage(ids, getMid());
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
     @Override
+
     protected String setUploadPath() {
         return "/upload/cost/";
     }

@@ -21,6 +21,7 @@ public interface IMessageService extends IService<Integer, Message> {
      * @throws Exception
      */
     boolean plDeleteGr(String[] ids,String memberid) throws Exception;
+    boolean plYdMessage(String[] ids,String memberid) throws Exception;
 
     @Transactional(propagation = Propagation.REQUIRED)
     boolean sendTo(int messageid, String[] ids) throws Exception;

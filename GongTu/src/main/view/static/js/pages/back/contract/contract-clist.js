@@ -1,3 +1,34 @@
+var kaishiDate = '';
+var overDate = '';
+var status = '';
+
+function getKaishiDate(kaishiDate) {
+    if (kaishiDate == '') {
+        return '';
+    } else {
+        return " AND signingDate>='" + kaishiDate + "'";
+    }
+
+}
+
+function getOverDate(overDate) {
+    if (overDate == '') {
+        return '';
+    } else {
+        return " AND signingDate<='" + overDate + "'";
+    }
+
+}
+
+function getStatus(status) {
+    if (status == '') {
+        return '';
+    } else {
+        return " AND status='" + status + "'";
+    }
+
+}
+
 function loadData() {
     $.ajax({
         url: "/pages/back/contract/listAjax",
@@ -7,7 +38,7 @@ function loadData() {
             "lineSize": lineSize,
             "currentPage": currentPage,
             "parameterName": 'status',
-            "parameterValue": parameterValue
+            "parameterValue": getStatus(status) + getKaishiDate(kaishiDate) + getOverDate(overDate)
         },
         type: "post",
         dataType: "json",
@@ -30,15 +61,15 @@ function loadData() {
                     " <td><a href='/pages/back/contract/editPre?contractid=" + id + "' style='text-decoration: none;cursor: pointer'>" + contract.companyName + "</a></td>\n" +
                     " <td>" + contract.principal + "-" + contract.principalPhone + "-" + contract.principalQQ + "</td>\n" +
                     " <td >" + contract.allCost + "</td>\n" +
-                    " <td id='drop-"+id+"'  ><div class=\"dropdown\" >\n" +
-                    "            <span id='alreadyPay-" + id + "' style='cursor: pointer' data-toggle=\"dropdown\">" + contract.alreadyPay + "</span>\n" +
+                    " <td id='drop-" + id + "'  ><div class=\"dropdown\" >\n" +
+                    "            <span id='alreadyPay-" + id + "' style='cursor: pointer;color: red' data-toggle=\"dropdown\" >" + contract.alreadyPay + "</span>\n" +
                     "            <div class=\"dropdown-menu\" style='width: 50rem;margin-left: -50rem;'>\n" +
                     "                <table class='table' id='paylog-" + id + "' style='text-align: center'></table>\n" +
                     "            </div>\n" +
                     "        </div></td>\n" +
                     " <td id='noPay-" + id + "'>" + (contract.allCost - contract.alreadyPay) + "</td>\n" +
                     " <td  style='color: " + statusColor + ";font-weight: bold' >" + contract.status + "</td>\n" +
-                    " <td><button class='btn btn-warning ' style='margin: 0.5rem' id='pay-" + id + "-" + contract.allCost + "' >收款</button  ><button class='btn btn-info' id='mingxi-" + id + "' name='" + contract.companyName + "' style='margin: 0.5rem'>明细</button></td>\n" +
+                    " <td><button class='btn btn-xs btn-warning ' style='margin: 0.5rem' id='pay-" + id + "-" + contract.allCost + "' >收款</button  ><button class='btn btn-xs btn-info' id='mingxi-" + id + "' name='" + contract.companyName + "' style='margin: 0.5rem'>明细</button></td>\n" +
                     "  </tr>"));
                 var tb = $("#paylog-" + id);
                 var paylogs = paylogMap[id];
@@ -64,19 +95,17 @@ function loadData() {
                 }
 
             }
-            if (windowNW>992){//不这样手机上不现实
-
-
+            if (windowNW > 992) {//不这样手机上不现实
                 $("[id^=drop]").hover(function () {
-                    var id=this.id.split('-')[1];
-                    var alreadyPay=$("#alreadyPay-"+id);
-                    if (alreadyPay.text()!="0"){
+                    var id = this.id.split('-')[1];
+                    var alreadyPay = $("#alreadyPay-" + id);
+                    if (alreadyPay.text() != "0") {
                         alreadyPay.next().show();
                     }
-                },function () {
-                    var id=this.id.split('-')[1];
-                    var alreadyPay=$("#alreadyPay-"+id);
-                    if (alreadyPay.text()!="0"){
+                }, function () {
+                    var id = this.id.split('-')[1];
+                    var alreadyPay = $("#alreadyPay-" + id);
+                    if (alreadyPay.text() != "0") {
                         alreadyPay.next().hide();
                     }
                 });
@@ -84,7 +113,6 @@ function loadData() {
             $(".dropdown-menu").click(function (e) {
                 e.stopPropagation();
             });
-
             $("[id^=pay-]").each(function () {
                 $(this).click(function () {
                     var id = this.id.split('-')[1];
@@ -101,6 +129,7 @@ function loadData() {
                 })
             });
             $("[id^=mingxi-]").each(function () {
+                var mingxiObj = $(this);
                 $(this).click(function () {
                     var id = this.id.split('-')[1];
                     var name = this.name;
@@ -114,7 +143,6 @@ function loadData() {
                             var paylog = allPaylog[x];
                             var invoiceCost = paylog.invoiceCost == null ? "" : paylog.invoiceCost;
                             var wkjCost = paylog.wkjCost == null ? "" : paylog.wkjCost;
-                            var time = paylog.time == null ? "" : new Date(paylog.time).format("yyyy-MM-dd hh:mm:ss");
                             var ykptime = paylog.ykptime == null ? "" : new Date(paylog.ykptime).format("yyyy-MM-dd hh:mm:ss");
                             var payaccount = paylog.payaccount;
                             oneRow.after("<tr><td>" + paylog.payway + "</td>" +
@@ -122,10 +150,10 @@ function loadData() {
                                 "<td>" + paylog.paybank + "-" + payaccount + "</td>\n" +
                                 "<td>" + paylog.shoubank + "-" + paylog.shouaccount + "</td>\n" +
                                 "<td>" + invoiceCost + "</td>\n" +
-                                " <td>" + time + "</td>\n" +
                                 " <td>" + ykptime + "</td>\n" +
                                 " <td>" + wkjCost + "</td>\n" +
                                 "<td>" + paylog.note + "</td>\n" +
+                                "<td><button id='deletePaylog-" + paylog.paylogid + "' class='btn btn-danger btn-xs'>删除</button></td>\n" +
                                 " </tr>");
                             oneTb.after("<table  class=\"table table-hover  table-bordered visible-xs\" style='margin-bottom: 5rem'>\n" +
                                 "                            <tr >\n" +
@@ -140,7 +168,6 @@ function loadData() {
                                 "                            </tr>\n" +
                                 "                            <tr>\n" +
                                 "                                <td>发票总金额:" + invoiceCost + "</td>\n" +
-                                "                                <td>开具时间:" + time + "</td>\n" +
                                 "                            </tr>\n" +
                                 "                            <tr>\n" +
                                 "                                <td>未开具金额:" + wkjCost + "</td>\n" +
@@ -153,6 +180,19 @@ function loadData() {
 
 
                         }
+                        $("[id^=deletePaylog-]").click(function () {
+                            var pid = this.id.split('-')[1];
+                            areYouSure('您确定要删除吗？', function () {
+                                $.post("/pages/back/finance/deletePaylog", {paylogid: pid}, function (res) {
+                                    if (res) {
+                                        showAlert($("#successMsg"), '该条付款记录已删除');
+                                        mingxiObj.click();
+                                        loadData();
+                                    }
+
+                                });
+                            })
+                        })
 
                     }, "json");
                     $("#mingxiWindow").modal("show");
@@ -161,7 +201,8 @@ function loadData() {
 
 
             });
-
+            $("#hetongzonge").text(data.allC);
+            $("#weifuzonge").text(data.noPay);
             createSplitBar(allRecorders);
             //导航栏应该与此时的内容高度相同
             sameHeight();
@@ -192,16 +233,16 @@ function shipeiSinput() {
     myselect.each(function () {
         $(this).click(function () {
             $(this).next("input").val(this.value);
-            var bank=$(this).children("[value="+this.value+"]").attr("name");
-            if (bank!=undefined){
+            var bank = $(this).children("[value=" + this.value + "]").attr("name");
+            if (bank != undefined) {
                 $("#shoubank").val(bank);
             }
         });
         $(this).change(function () {
             $(this).next("input").val(this.value);
-            var bank=$(this).children("[value="+this.value+"]").attr("name");
+            var bank = $(this).children("[value=" + this.value + "]").attr("name");
 
-            if (bank!=undefined){
+            if (bank != undefined) {
                 $("#shoubank").val(bank);
             }
         })
@@ -244,10 +285,26 @@ function saveAcc(execute) {
 
 }
 
+function initSimpleDate() {
+    $('[id=datetimepicker1]').datetimepicker({
+        format: "yyyy-mm-dd",
+        language: 'zh-CN',//这里是language,autoclose: 1,
+        todayHighlight: 1,//今天高亮，
+        todayBtn: 1,//开启今天按钮
+        autoclose: 1,//点击完自动关
+        startView: 2,//日期页面
+        minView: 2,//最小几个页面，选择日期和时间，如果是2就只是日期
+        forceParse: 0,
+        pickerPosition: 'bottom-right'//日期插件弹出的位置
+    });
+}
+
 
 $(function () {
-
+    shoujiOpenOverFlowX();
     shipeiSinput();
+    kaishiDate = $("#beginDate").val();
+    overDate = $("#overDate").val();
     $("#saveaccount").click(function () {
         var acc = $("#saveaccount").prev().val();
         var bank = $("#shoubank").val();
@@ -270,14 +327,32 @@ $(function () {
         }
 
     });
-    initSuperDetailDate();
+    initSimpleDate();
+    $('[id=superDetailsTime]').datetimepicker({
+        format: "yyyy-mm-dd hh:ii:ss",
+        language: 'zh-CN',//这里是language,autoclose: 1,
+        todayHighlight: 1,//今天高亮，
+        todayBtn: 1,//开启今天按钮
+        autoclose: 1,//点击完自动关
+        startView: 2,//日期页面
+        minView: 0,//最小几个页面，选择日期和时间，如果是2就只是日期,1有小时，0有分钟数
+        forceParse: 0,
+        pickerPosition: 'top-right'//日期插件弹出的位置
+    });
     //这里需要复写parameterName;
     loadData();
     enterKeySubmit(loadData);
     //检索按钮绑定事件
     jiansuo(loadData);
     $("#status").change(function () {
-        parameterValue = this.value;
+        currentPage = 1;
+        status = this.value;
+        loadData();
+    });
+    $("#chaxun").click(function () {
+        kaishiDate = $("#beginDate").val();
+        overDate = $("#overDate").val();
+        currentPage = 1;
         loadData();
     });
     $("#selectAll").click(function () {
@@ -293,10 +368,10 @@ $(function () {
                 str += this.id.split('-')[1] + "-";
             }
         });
-        if (str==""){
-            showAlert($("#warningMsg"),"您还未选择任何数据")
-        }else {
-            areYouSure("您确定要删除选中数据？",function () {
+        if (str == "") {
+            showAlert($("#warningMsg"), "您还未选择任何数据")
+        } else {
+            areYouSure("您确定要删除选中数据？", function () {
 
                 $.post("/pages/back/contract/plDeleteContract", {str: str}, function (res) {
                     if (res) {
@@ -304,7 +379,7 @@ $(function () {
                         for (var x = 0; x < ids.length; x++) {
                             $("#row-" + ids[x]).remove();
                         }
-                        $("#selectAll").get(0).checked=false;
+                        $("#selectAll").get(0).checked = false;
                         showAlert($("#successMsg"), "合同删除成功");
                     } else {
                         showAlert($("#failureMsg"), "合同删除失败");
@@ -322,11 +397,7 @@ $(function () {
             $.post("/pages/back/finance/addApylog", $(form).serializeArray(), function (res) {
                 if (res) {
                     $("#payWindow").modal("hide");
-                    var contractid = $("#contractid").val();
-                    var cost = $("#cost").val();
-                    var nowAlreadyPay = parseInt(alReadyPay) + parseInt(cost);
-                    $("#alreadyPay-" + contractid).text(nowAlreadyPay);
-                    $("#noPay-" + contractid).text(parseInt(allCost) - nowAlreadyPay);
+                    loadData();
                     showAlert($("#successMsg"), "收款成功");
                 } else {
                     showAlert($("#failureMsg"), "收款失败");

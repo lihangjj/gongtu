@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<head th:include="plugins/include_javascript::js"></head>
+<script type="text/javascript">
+    $(function () {
+        windowNW>992?$("[id=htImg-]").css({width:'90%'}):$("[id=htImg-]").css({width:'80%'});
+        $("#print").click(function () {
+            window.print();
+        })
+    })
+</script>
+<body style="visibility: hidden" id="body">
+<div style="text-align: center">
+    <h1 style="color: red;display: inline-block" th:text="${rcname}"></h1><h1 style="display: inline-block">电子合同</h1><br/>
+    <button style="position: fixed" id="print" class="btn btn-success hidden-xs">打印或存为PDF文件</button>
+    <img id="htImg-"  th:each="url:${imgs}"  th:src="${url}"/>
+</div>
+</body>
+</html>

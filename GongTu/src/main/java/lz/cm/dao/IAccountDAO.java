@@ -9,4 +9,5 @@ import java.util.Map;
 public interface IAccountDAO extends IDAO<String, Account> {
     boolean plDeleteAccount(Map<String, Object>map);
 
+    Double getAllCountMoney();
 }

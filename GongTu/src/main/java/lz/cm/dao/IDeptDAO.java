@@ -10,6 +10,7 @@ import java.util.List;
 public interface IDeptDAO extends IDAO<Integer,Dept> {
     Dept getDeptByDname(String dname);
     boolean delete(Dept dept);
-    List<Job> getJobsByDeptId(Integer dept);
+    List<Job> getJobsByDeptId(Integer deptid);
 
+    Dept checkDname(String dname);
 }

@@ -8,7 +8,7 @@
         vertical-align: middle;
     }
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
@@ -28,7 +28,8 @@
                             <option value="px">培训</option>
                             <option value="qt">其他</option>
                         </select></td>
-                        <td>金额</td>
+                        <td id="xuanBt">选人才</td>
+                        <td>查看人才</td>
                         <td>日志</td>
                         <td>执行人</td>
                         <td>签订日期</td>
@@ -41,7 +42,7 @@
                         </select></td>
                     </tr>
                 </table>
-                <button id="deleCheked" class="btn btn-danger" style="margin-left: 5rem">删除所选</button>
+                <button shiro:hasRole="project-p" id="deleCheked" class="btn btn-danger" style="margin-left: 5rem">删除所选</button>
             </div>
         </div>
         <div th:replace="plugins/splitBar::splitBar">

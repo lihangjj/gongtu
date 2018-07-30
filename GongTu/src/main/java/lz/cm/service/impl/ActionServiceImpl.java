@@ -51,7 +51,6 @@ public class ActionServiceImpl implements IActionService {
         List<Integer> actionsId = roleDAO.getAllActionIdByRoleId(roleid);
         List<String> idsList = new ArrayList<>();
         Collections.addAll(idsList, ids);//把数组变成list
-        System.err.println(idsList.size());
         Iterator<String> iterator = idsList.iterator();
         while (iterator.hasNext()) {
             String id = iterator.next();
@@ -78,7 +77,6 @@ public class ActionServiceImpl implements IActionService {
     public boolean actionsRemoveFrom(String[] ids, int roleid) throws Exception {
         List<Integer> actionsId = roleDAO.getAllActionIdByRoleId(roleid);
         List<Integer> idsList = new ArrayList<>();
-        System.err.println(idsList.size());
         for (String id : ids) {
             for (Integer acid : actionsId) {
                 if (acid == Integer.valueOf(id)) {

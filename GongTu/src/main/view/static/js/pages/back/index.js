@@ -22,16 +22,44 @@ var sysColor;
 var sysFont;
 var menuSelectedColor;
 var menuFontColor;
+
 //增加验证日期时间的函数
 function addValidateDateTime() {
     $.validator.addMethod("datetime", function (value, element) {
         if ("" == value || null == value) {
             return true;
         } else {//时间格式，要打括号！！
-            var regex = /[1-2][0-9][0-9][0-9]-(([0][1-9])|([1][0-2]))-(([0][1-9])|([1-2][0-9])|([3][0-1])) (([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])/;
+            var regex = /^[1-2][0-9][0-9][0-9]-(([0][1-9])|([1][0-2]))-(([0][1-9])|([1-2][0-9])|([3][0-1])) (([0-1][0-9])|([2][0-3])):([0-5][0-9]):([0-5][0-9])$/;
             return (regex.test(value));
         }
     }, "错误");
+    $.validator.addMethod("date", function (value, element) {
+        if ("" == value || null == value) {
+            return true;
+        } else {//时间格式，要打括号！！
+            var regex = /^[1-2][0-9][0-9][0-9]-(([0][1-9])|([1][0-2]))-(([0][1-9])|([1-2][0-9])|([3][0-1]))$/;
+            return (regex.test(value));
+        }
+    }, "错误");
+}
+
+//输入身份证自动填充生日和性别，年龄
+function autoIdCard() {
+    $("#idCard").blur(function () {
+        var id = this.value;
+        var yyyy = id.substring(6, 10);
+        var sex = id.substring(16, 17);
+        if (parseInt(sex) % 2 == 0) {
+            $("[value=女]").get(0).checked = true;
+        } else {
+            $("[value=男]").get(0).checked = true;
+        }
+        var birthday = yyyy + '-' + id.substring(10, 12) + '-' + id.substring(12, 14);
+        $("#birthday").val(birthday);
+        var nowYYYY = new Date().getFullYear();
+        $("#age").val(nowYYYY - yyyy);
+        console.log(birthday)
+    });
 }
 
 //恢复菜单栏状态
@@ -48,20 +76,21 @@ function restoreBar() {
             actions.hide();
         }
     });
-
-    var actid = cookie.get("selectedActId");//选中颜色
-    $("[name=" + actid + "]").css({
-        "background": menuSelectedColor
-    });
+    //选中DIV的颜色
+    var pathName = window.location.pathname;
+    var div = $("[href='" + pathName + "']");
+    div.css({"background": menuSelectedColor});
 }
+
 var webSocket;
 var memberid;
 var sessionid;
 var spmid;
 var name;
 
+
 function myWebSocket() {
-    var url="ws://192.168.1.108/fushMessage/"+sessionid;
+    var url = "ws://192.168.1.108/fushMessage/" + sessionid;
     if ('WebSocket' in window) {
         webSocket = new WebSocket(url);
     } else {
@@ -89,7 +118,26 @@ function myWebSocket() {
     };
 }
 
+function shuaXinMessages() {
+    $.get("/pages/back/message/listAjax?parameterName=status&parameterValue=未读", {}, function (data) {
+        console.log(data);
+        var allRecorders = data.allRecorders;
+        if (window.location.pathname == '/login') {
+            if (parseInt(allRecorders) > 0) {
+                showAlert($("#pointMsg"),"您有<span style='color: red;font-weight: bold'>"+allRecorders+"条</span>未读消息，请注意查收");
+
+            }
+        }
+        $("#messages").text(allRecorders);
+    }, "json")
+}
+
 $(function () {
+    $("#msg").click(function () {
+        window.location = "/pages/back/message/list"
+    });
+    addValidateDateTime();
+    shuaXinMessages();
     // myWebSocket();
     contentDiv = $("#contentDiv");
     role = $("[id^=title-]");
@@ -124,7 +172,7 @@ $(function () {
                 cookie.set(id, "hide", 30);
                 menuBarStatus = true;
             }
-                sameHeight();
+            sameHeight();
             var span = $(this).find("span");
             var actionsH = actions.height();
             if (actionsH < 2) {
@@ -303,7 +351,7 @@ function initW() {//重新初始化控件的宽度
     restoreBar();
     setTimeout(function () {
         sameHeight();
-    },100)
+    }, 100)
 }
 
 function zhedie() {
@@ -334,7 +382,7 @@ function zhedie() {
 
 //内容和左边导航高度保持相同
 function sameHeight() {
-    var documentH=$(document).height();
-    $("#menuDiv").css({height:  documentH});
-    $("#contentDiv").css({height:  documentH})
+    var documentH = $(document).height();
+    $("#menuDiv").css({height: documentH});
+    $("#contentDiv").css({height: documentH})
 }

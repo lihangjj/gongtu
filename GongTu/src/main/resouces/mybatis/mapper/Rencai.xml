@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="lz.cm.dao.IRencaiDAO">
+    <select id="checkIdCardAlready" parameterType="String" resultType="String">
+        SELECT idCard from rencai WHERE idCard=#{idCard}
+    </select>
+    <insert id="doCreate">
+        INSERT INTO rencai(type,projectid,note,coordination,time,memberid)VALUES
+        (#{type},#{projectid},#{note},#{coordination},#{time},#{memberid});
+    </insert>
+
+    <update id="plDeleteLog" parameterType="Map">
+        UPDATE log SET dflag=1 WHERE logid IN
+        <foreach collection="ids" item="item" separator="," open="(" close=")">#{item}</foreach>
+    </update>
+
+    <select id="getSydw" resultType="Sydw" parameterType="Integer">
+        SELECT * FROM sydw WHERE rencaiid=#{rencaiid}
+    </select>
+    <update id="editAlreadyPay" parameterType="Integer">
+        UPDATE rencai SET alreadyPay=(SELECT SUM(payCost) FROM rcpaylog WHERE rencaiid=#{rencaiid}) WHERE rencaiid=#{rencaiid}
+    </update>
+    <select id="getRencaiAlreadyPay" parameterType="Integer" resultType="Integer">
+        SELECT SUM(payCost) FROM rcpaylog WHERE rencaiid=#{rencaiid}
+    </select>
+    <delete id="deleteOldSydw" parameterType="Integer">
+        DELETE FROM sydw WHERE rencaiid=#{rencaiid}
+    </delete>
+    <update id="plDeleteRencai" parameterType="Map">
+        UPDATE rencai SET dflag=1 WHERE rencaiid IN
+        <foreach collection="ids" item="item" separator="," open="(" close=")">#{item}</foreach>
+    </update>
+</mapper>

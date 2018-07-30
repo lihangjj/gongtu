@@ -8,7 +8,7 @@
         vertical-align: middle;
     }
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
@@ -31,7 +31,7 @@
                             </select>
                         </td>
                         <td>
-                            <input  class="form-control" th:id="'name-'+${job.jobid}" th:value="${job.name}"/>
+                            <input  class="form-control" th:id="'name-'+${job.jobid}" th:value="${job.job}"/>
                         </td>
                         <td>
                             <button class="btn btn-primary" style="margin: 1rem"
@@ -72,11 +72,10 @@
                 areYouSure("注意！删除将不可恢复，您确定要删除吗？", function () {
                     $.post("/pages/back/job/delete", {jobid: jid}, function (res) {
                         if (res) {
-                            showAlert($("#successMsg"), "职位删除成功！")
+                            showAlert($("#successMsg"), "职位删除成功！");
                             tr.remove();
-
                         } else {
-                            showAlert($("#failureMsg"), "职位删除失败！")
+                            showAlert($("#failureMsg"), "职位删除失败！可能该职位有人")
                         }
                     }, "json")
                 })

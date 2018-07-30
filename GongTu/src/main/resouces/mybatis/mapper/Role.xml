@@ -4,11 +4,11 @@
 <mapper namespace="lz.cm.dao.IRoleDAO">
 
     <insert id="doCreate">
-        INSERT INTO role(title,flag)VALUES
-        (#{title},#{flag});
+        INSERT INTO role(title,flag,note)VALUES
+        (#{title},#{flag},#{note});
     </insert>
     <update id="doUpdate">
-    UPDATE role set title=#{title},flag=#{flag} WHERE roleid=#{roleid}
+    UPDATE role set title=#{title},flag=#{flag},note=#{note} WHERE roleid=#{roleid}
     </update>
     <select id="getAllActionsByRoleId" resultType="Action">
         SELECT *FROM action WHERE actionid IN
@@ -23,4 +23,7 @@
     <delete id="actionsRemoveFrom">
       DELETE FROM role_action WHERE roleid=#{roleid} AND actionid=#{actionid}
     </delete>
+    <select id="getRoleByJobId" parameterType="String" resultType="String">
+        SELECT roleid from role WHERE flag LIKE "%"#{flag}"%"
+    </select>
 </mapper>

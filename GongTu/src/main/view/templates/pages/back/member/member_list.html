@@ -1,15 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" >
 <head th:include="plugins/include_javascript::js"></head>
 <link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
 <script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
 <style type="text/css">
-    #dntb tr td,#shouji tr td{
+    #dntb tr td,#roletb tr td{
         vertical-align: middle;
-
+        padding: 5px;
     }
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div id="hisRoleWindow" class="modal fade" aria-labelledby="title" aria-hidden="true" tabindex="-1">
         <div class="modal-dialog">
@@ -21,9 +21,8 @@
                 <div class="modal-body">
                     <table class="table  table-hover" style="text-align: center" id="hisRoleTable">
                         <tr id="hisRole-row">
-                            <td>角色ID</td>
                             <td>角色名称</td>
-                            <td>角色标记</td>
+                            <td>角色说明</td>
                         </tr>
                     </table>
                 </div>
@@ -43,11 +42,11 @@
                 </div>
                 <div class="modal-body">
                     <table class="table  table-hover  " style="text-align: center" id="roletb">
-                        <tr id="role-row">
-                            <td>多选</td>
-                            <td>角色ID</td>
-                            <td>角色名称</td>
-                            <td>角色标记</td>
+                        <tr id="role-row" style="font-weight: 550">
+                            <td style="padding: 0;">多选</td>
+                            <td style="padding: 0;width: 2rem" >角色ID</td>
+                            <td style="padding: 0;width: 10rem">角色名称</td>
+                            <td style="padding: 0">角色说明</td>
                         </tr>
                     </table>
                     <div class="form-inline hidden-xs" >
@@ -90,17 +89,17 @@
 
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
-        <div style="text-align: center;font-size: 4rem">用户列表</div>
+        <div style="text-align: center;font-size: 4rem">员工列表</div>
         <div th:replace="plugins/search::search"></div>
         <div class="row">
             <div class="col-xs-12">
-                <table id="dntb" class="table  table-hover table-responsive hidden-xs " style="text-align: center">
-                    <tr id="row1">
-                        <td>多选</td>
-                        <td>照片</td>
+                <table id="dntb" class="table  table-hover table-responsive" style="text-align: center">
+                    <tr id="row1" style="font-weight: bold">
+                        <td >多选</td>
+                        <td style="width: 6rem;">照片</td>
                         <td>用户名</td>
                         <td>姓名</td>
-                        <td>电话</td>
+                        <td>办公电话-私人电话</td>
                         <td>部门</td>
                         <td>职位</td>
                         <td>年龄</td>
@@ -115,11 +114,11 @@
                         <td>操作</td>
                     </tr>
 
-                    <tr >
+                    <tr shiro:hasRole="member:总经理-副总">
                         <td ><input type="checkbox" id="selectAll" class="form-control checkbox-inline"/><span></span>全选
                         </td>
-                        <td >
-                            <button class="btn btn-xs btn-info" id="plAddRole" shiro:hasRole="roleAndAction">为员工重新分配角色</button>
+                        <td colspan="2">
+                            <button class="btn btn-xs btn-info" id="plAddRole"  shiro:hasAnyRoles="roleAndAction:superAdmin,roleAndAction:总经理">为员工重新分配角色</button>
                         </td>
                         <td>
                             <button class="btn btn-xs btn-warning" id="plSuo">批量锁定</button>
@@ -136,38 +135,7 @@
 
                     </tr>
                 </table>
-                <div class="visible-xs col-xs-10 col-xs-push-1" style="margin-bottom: 1rem">
-                    <select class="form-control" id="status">
-                        <option value="">所有状态</option>
-                        <option value="1">正常状态</option>
-                        <option value="999">锁定状态</option>
-                        <option value="2">删除状态</option>
-                    </select>
-                </div>
-                <div id="shouji">
-                </div>
-                <table
-                        class="table  table-hover table-responsive visible-xs">
-                    <tr>
-                        <td><input type="checkbox" id="selectAll" style="width: 30%" class="form-control"/><span></span>全选</td>
-                        <td style="vertical-align: middle">
-                            <button class="btn btn-xs btn-info" id="plAddRole">为员工重新分配角色</button>
-                        </td>
 
-                    </tr>
-                    <tr>
-
-                        <td>
-                            <button class="btn btn-xs btn-warning" id="plSuo" style="margin: 1rem">批量锁定</button>
-                            <button class="btn btn-xs btn-success" id="plJie" style="margin: 1rem">批量解锁</button>
-                        </td>
-                        <td>
-                            <button class="btn btn-xs btn-danger" id="plShan" style="margin: 1rem">批量删除</button>
-                            <button class="btn btn-xs btn-success" id="plHui" style="margin: 1rem">批量恢复</button>
-                        </td>
-
-                    </tr>
-                </table>
             </div>
         </div>
         <div th:replace="plugins/splitBar::splitBar">

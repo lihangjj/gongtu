@@ -54,7 +54,7 @@
 #menuDiv {
     min-height: 90%;
     background: rgb(212, 231, 240);
-    transition:transform 1s;
+    transition:transform 0.5s;
     position: absolute;
     top: 10%;
     float: left;
@@ -70,7 +70,7 @@
 }
 
 #contentDiv {
-    transition: width 1s;
+    transition: width 0.5s;
     position: absolute;
     right: 0;
     top: 10%;

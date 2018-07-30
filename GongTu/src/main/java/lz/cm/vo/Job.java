@@ -3,8 +3,8 @@ package lz.cm.vo;
 import java.io.Serializable;
 
 public class Job implements Serializable {
-    private Integer jobid,deptid;
-    private String name;
+    private Integer jobid, deptid;
+    private String job;
     private Dept dept;
 
     public Dept getDept() {
@@ -31,11 +31,11 @@ public class Job implements Serializable {
         this.deptid = deptid;
     }
 
-    public String getName() {
-        return name;
+    public String getJob() {
+        return job;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setJob(String job) {
+        this.job = job;
     }
 }

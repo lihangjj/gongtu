@@ -145,5 +145,24 @@ $(function () {
 
     });
 
+    $("[id^=editYue-]").click(function () {
+        var accid = this.id.split('-')[1];
+        var val = $("#val-" + accid).val();
+        var qichuYue = $("#qichu-" + accid).val();
+        areYouSure("您确定要修改当前账户余额吗？", function () {
+            $.post("/pages/back/finance/editYue", {accountid: accid, yue: val,qichuYue:qichuYue}, function (res) {
+                if (res) {
+                    showAlert($("#successMsg"), '余额修改成功！', '/pages/back/finance/accountList');
+                } else {
+                    showAlert($("#failureMsg"), '余额修改失败！');
+
+                }
+
+            }, "json")
+        });
+
+    });
+    shoujiOpenOverFlowX();
+
 });
 

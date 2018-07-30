@@ -1,0 +1,746 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden">
+<head th:include="plugins/include_javascript::js"></head>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.css}"/>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.zh-CN.js}"></script>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<style type="text/css">
+    #m {
+        display: inline-block;
+        text-align: left;
+        margin: 3px;
+    }
+
+    #m > div:nth-child(1) {
+        display: inline-block;
+    }
+
+    #m label {
+        width: 100px;
+        background: #e3e3e3;
+        font-size: 13px;
+    }
+
+    #m input {
+        width: 140px;
+    }
+
+    #m select {
+        width: 140px;
+    }
+
+    .form-control {
+        padding: 1px;
+        height: 30px;
+    }
+
+</style>
+<body style="visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem">添加人才</div>
+        <div style="padding: 0  3rem 3rem 3rem">
+            <div class="row">
+                <div class="col-xs-12 " style="border: solid #d3d3d3 1px;border-radius: 5px;">
+                    <form class="form" id="formDiv" enctype="multipart/form-data" method="post"
+                          th:action="@{/pages/back/rencai/add}">
+                        <div>
+                            <h4 style="color: #00a2e9">基本信息</h4>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label>人才类别：</label>
+                                </div>
+                                <select id="rcType" name="rcType" style="width: 140px" class="form-control">
+                                    <option>建造师</option>
+                                    <option>注册结构师</option>
+                                    <option>建筑师</option>
+                                    <option>施工类工程师</option>
+                                    <option>设计工程师</option>
+                                    <option>员</option>
+                                    <option>三类人员</option>
+                                    <option>建委技工</option>
+                                    <option>安监技工</option>
+                                    <option>高压进网电工</option>
+                                    <option>高压进网电工-特种</option>
+                                    <option>其他</option>
+                                </select>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div style="display: inline-block">
+                                    <label>姓名：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control " type="text" id="name" name="name"
+                                           placeholder="请输入姓名"/>
+                                </div>
+                                <span th:id="nameMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label>身份证号：</label>
+                                </div>
+                                <input class="form-control" type="text" id="idCard" name="idCard" style="width: 160px"
+                                       placeholder="请输入身份证号码"/>
+                                <span th:id="idCardMsg"></span>
+                            </div>
+                            <div class="form-inline form-group" id="m">
+                                <div>
+                                    <label>出生年月:</label>
+                                </div>
+                                <input class="form-control" type="text" id="birthday" name="birthday"
+                                       th:readonly="true"/>
+
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div><label>年龄：</label></div>
+                                <input class="form-control" th:readonly="true" id="age" name="age"/>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div><label>电话：</label></div>
+                                <input class="form-control" placeholder="请输入电话" id="phone" name="phone"/>
+                                <span th:id="phoneMsg"></span>
+                            </div>
+                            <div class="form-inline form-group" id="m">
+                                <div style="display: inline-block">
+                                    <label>身份证有效期:</label>
+                                </div>
+                                <div class="input-group date" id="datetimepicker1">
+                                    <input type="text" class="form-control" style="margin-left: -0.1rem;width: 100px"
+                                           placeholder="格式如：1991-03-02" id="sfzyxq" name="sfzyxq"/>
+                                    <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                                </div>
+                                <span th:id="sfzyxqMsg"></span>
+                            </div>
+                            <div class="form-inline form-group" id="m">
+                                <div>
+                                    <label>身份证入库：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="sfzrk"
+                                           th:value="是"
+                                           th:checked="true"/>是
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="sfzrk"
+                                           th:value="否"/>否
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m">
+                                <div>
+                                    <label>身份证备份：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="sfzbf"
+                                           th:value="是"
+                                           th:checked="true"/>是
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="sfzbf"
+                                           th:value="否"/>否
+                                </div>
+                            </div>
+
+                            <div class="form-inline form-group" id="m">
+                                <div>
+                                    <label>性别：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="sex" value="男"
+                                           th:checked="true"/>男
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="sex"
+                                           th:value="女"/>女
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m">
+                                <div>
+                                    <label>社保：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="shebao"
+                                           th:value="能"
+                                           th:checked="true"/>能
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="shebao"
+                                           th:value="否"/>否
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="kaobDiv">
+                                <div>
+                                    <label>考B：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="kaob"
+                                           th:value="能"
+                                           th:checked="true"/>能
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="kaob"
+                                           th:value="否"/>否
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="qitaDiv">
+                                <div>
+                                    <label>其他：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="checkbox" style="width: 2.2rem" name="youb"
+                                           th:value="1"
+                                           />有B
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="checkbox" style="width: 2.2rem" name="youzc"
+                                           th:value="1"/>有职称
+                                </div>
+                            </div>
+
+
+
+
+                            <div class="form-inline form-group" id="m" name="guaxmDiv">
+                                <div>
+                                    <label>挂项目：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="guaxm"
+                                           th:value="能"
+                                           th:checked="true"/>能
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="guaxm"
+                                           th:value="否"/>否
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="chuchangDiv">
+                                <div>
+                                    <label>出场：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="chuchang"
+                                           th:value="能"
+                                           th:checked="true"/>能
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="chuchang"
+                                           th:value="否"/>否
+                                </div>
+                            </div>
+
+                            <div class="form-inline form-group" id="m" name="zczsbgDiv">
+                                <div>
+                                    <label>注册证书保管：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zczsbg"
+                                           th:value="单位"
+                                           th:checked="true"/>单位
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zczsbg"
+                                           th:value="人才"/>人才
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zczsbg"
+                                           th:value="我方"/>我方
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="zsbgDiv">
+                                <div>
+                                    <label>证书保管：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zsbg"
+                                           th:value="单位"
+                                           th:checked="true"/>单位
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zsbg"
+                                           th:value="人才"/>人才
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zsbg"
+                                           th:value="我方"/>我方
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="bzbgDiv">
+                                <div>
+                                    <label>B证保管：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="bzbg"
+                                           th:value="单位"
+                                           th:checked="true"/>单位
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="bzbg"
+                                           th:value="人才"/>人才
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="bzbg"
+                                           th:value="我方"/>我方
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="yzbgDiv">
+                                <div>
+                                    <label>印章保管：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="yzbg"
+                                           th:value="单位"
+                                           th:checked="true"/>单位
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="yzbg"
+                                           th:value="人才"/>人才
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="yzbg"
+                                           th:value="我方"/>我方
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="hongtouDiv">
+                                <div>
+                                    <label>红头文件：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="hongtou"
+                                           th:value="有"
+                                           th:checked="true"/>有
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="hongtou"
+                                           th:value="无"/>无
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="psbiaoDiv">
+                                <div>
+                                    <label>评审表：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="psbiao"
+                                           th:value="有"
+                                           th:checked="true"/>有
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="psbiao"
+                                           th:value="无"/>无
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="jpzmDiv">
+                                <div>
+                                    <label>解聘证明：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="jpzm"
+                                           th:value="有"
+                                           th:checked="true"/>有
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="jpzm"
+                                           th:value="无"/>无
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="zyddDiv">
+                                <div>
+                                    <label>职业道德：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zydd"
+                                           th:value="有"
+                                           th:checked="true"/>有
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zydd"
+                                           th:value="无"/>无
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="yjzmDiv">
+                                <div>
+                                    <label>业绩证明：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="yjzm"
+                                           th:value="有"
+                                           th:checked="true"/>有
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="yjzm"
+                                           th:value="无"/>无
+                                </div>
+                            </div>
+                            <div class="form-inline form-group" id="m">
+                                <div>
+                                    <label>证书来源：</label>
+                                </div>
+                                <div style="display: inline-block">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zsly"
+                                           th:value="中介"
+                                           th:checked="true"/>中介
+                                </div>
+                                <div style="display: inline-block;margin-left: 2px">
+                                    <input class="form-control" type="radio" style="width: 2.2rem" name="zsly"
+                                           th:value="直接"/>直接
+                                </div>
+                            </div>
+                            <div style="display: inline-block;position: relative;" id="m">
+                                <div><label>证书专业：</label></div>
+                                <div style="display: inline-block;position: relative;">
+                                    <select id="zszhuanye" class="form-control"
+                                            style="display: inline-block;">
+                                        <option>建筑</option>
+                                        <option>机电</option>
+                                        <option>市政</option>
+                                        <option>公路</option>
+                                        <option>水利</option>
+                                        <option>矿业</option>
+                                        <option>铁路</option>
+                                        <option>民航</option>
+                                        <option>港口与航道</option>
+                                        <option>通信</option>
+                                    </select>
+                                    <input style="position: absolute; border-radius: 5px 0 0 5px;z-index:2;border-right: none;top: 0;"
+                                           value="建筑" type="text" id="zszhuanyeInput" name="zszhuanye"
+                                           class="form-control"/>
+
+                                </div>
+
+                            </div>
+                            <div class="form-inline form-group " id="m" name="zsdengjiDiv">
+                                <div><label>证书等级：</label></div>
+                                <select name="zsdengji" class="form-control">
+                                    <option>一级</option>
+                                    <option>二级</option>
+                                    <option>高级</option>
+                                    <option>中级</option>
+                                    <option>初级</option>
+                                </select>
+                            </div>
+                            <div class="form-inline form-group" id="m" name="nsTimeDiv">
+                                <div style="display: inline-block">
+                                    <label>年审时间:</label>
+                                </div>
+                                <div class="input-group date" id="datetimepicker1">
+                                    <input type="text" class="form-control" style="margin-left: -0.1rem;width: 100px"
+                                           placeholder="格式如：1991-03-02" id="nsTime" name="nsTime"/>
+                                    <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                                </div>
+                                <span id="nsTimeMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div><label>学历专业：</label></div>
+                                <input class="form-control" type="text" id="xlzhuanye" name="xlzhuanye"
+                                       placeholder="请输入学历专业"/>
+                                <span th:id="xlzhuanyeMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div><label>学历：</label></div>
+                                <select name="xldengji" class="form-control">
+                                    <option>无</option>
+                                    <option>初中</option>
+                                    <option>高中</option>
+                                    <option>全日大专</option>
+                                    <option th:selected="true">全日本科</option>
+                                    <option>后教大专</option>
+                                    <option>后教本科</option>
+                                    <option>硕士</option>
+                                    <option>博士</option>
+                                </select>
+                            </div>
+
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label><span style="color: red">人才</span>账户名：</label>
+                                </div>
+                                <input class="form-control" type="text" id="rczhm" name="rczhm"
+                                       placeholder="请输入人才账户名"/>
+                                <span th:id="nameMsg"></span>
+                            </div>
+                            <div style="display: inline-block;position: relative;" id="m">
+                                <div><label><span style="color: red">人才</span>开户行：</label></div>
+                                <div style="display: inline-block;position: relative;">
+                                    <select id="rckhh" class="form-control"
+                                            style="display: inline-block;">
+                                        <option>中国工商银行</option>
+                                        <option>中国农业银行</option>
+                                        <option>中国建设银行</option>
+                                        <option>中国邮政银行</option>
+                                        <option>重庆农村商业银行</option>
+                                        <option>中国民生银行</option>
+                                        <option>中国光大银行</option>
+                                        <option>交通银行</option>
+                                        <option>招商银行</option>
+                                        <option>民生银行</option>
+                                    </select>
+                                    <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none;top: 0;"
+                                           value="中国工商银行" type="text" id="rckhhInput" name="rckhh"
+                                           class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label><span style="color: red">人才</span>账号：</label>
+                                </div>
+                                <input class="form-control" type="text" id="rczh" name="rczh"
+                                       placeholder="请输入人才账号"/>
+                                <span th:id="rczhMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label><span style="color: red">人才</span>款：</label>
+                                </div>
+                                <input class="form-control" type="text" id="rck" name="rck"
+                                       placeholder="请输入人才款"/>
+                                <span th:id="rckMsg"></span>
+                            </div>
+
+                            <div class="form-inline form-group " id="m" name="rencaiPhoto">
+                                <div><label>照片：</label></div>
+                                <div style="display:inline-block;">
+                                    <img th:src="@{/upload/member/nophoto.png}" alt="请上传照片" id="preview"
+                                         style="width: 5rem;border-radius: 5px;cursor: pointer;"/>
+                                </div>
+                                <div style="display: inline-block">
+                                   <span class="btn btn-xs btn-success" style="margin-top: 2rem;"
+                                         id="reUpload">上传(5M以内)</span>
+                                    <input type="file" style="display: none" accept="image/*" name="rcPhoto"
+                                           id="rcPhoto"/>
+                                </div>
+                                <span id="showUrl"></span>
+
+                            </div>
+                        </div>
+
+                        <div>
+                            <h4 style="color: #00a2e9">中介信息</h4>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label><span style="color: green">中介</span>名称：</label>
+                                </div>
+                                <input class="form-control" type="text" id="zjName" name="zjName"
+                                       placeholder="请输入中介名称"/>
+                                <span th:id="zjNameMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label><span style="color: green">中介</span>账户名：</label>
+                                </div>
+                                <input class="form-control" type="text" id="zjzhm" name="zjzhm"
+                                       placeholder="请输入中介账户名"/>
+                                <span th:id="nameMsg"></span>
+                            </div>
+                            <div style="display: inline-block;position: relative;" id="m">
+                                <div><label><span style="color: green">中介</span>开户行：</label></div>
+                                <div style="display: inline-block;position: relative;">
+                                    <select id="zjkhh" class="form-control"
+                                            style="display: inline-block;">
+                                        <option>中国工商银行</option>
+                                        <option>中国农业银行</option>
+                                        <option>中国建设银行</option>
+                                        <option>中国邮政银行</option>
+                                        <option>重庆农村商业银行</option>
+                                        <option>中国民生银行</option>
+                                        <option>中国光大银行</option>
+                                        <option>交通银行</option>
+                                        <option>招商银行</option>
+                                        <option>民生银行</option>
+                                    </select>
+                                    <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none;top: 0;"
+                                           value="中国工商银行" type="text" id="zjkhhInput" name="zjkhh"
+                                           class="form-control"/>
+                                </div>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label><span style="color: green">中介</span>账号：</label>
+                                </div>
+                                <input class="form-control" type="text" id="zjzh" name="zjzh" style="width: 160px"
+                                       placeholder="请输入中介账号"/>
+                                <span th:id="zjzhMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label><span style="color: green">中介</span>联系人：</label>
+                                </div>
+                                <input class="form-control" type="text" id="zjlxr" name="zjlxr"
+                                       placeholder="请输入中介联系人"/>
+                                <span th:id="zjlxrMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label>联系人电话：</label>
+                                </div>
+                                <input class="form-control" type="text" id="zjlxrPhone" name="zjlxrPhone"
+                                       placeholder="请输入中介联系人电话"/>
+                                <span th:id="zjlxrPhoneMsg"></span>
+                            </div>
+
+                        </div>
+                        <div>
+                            <h4 style="color: #00a2e9">签约信息</h4>
+                            <div class="form-inline form-group" id="m">
+                                <div style="display: inline-block">
+                                    <label>签约时间:</label>
+                                </div>
+                                <div class="input-group date" id="datetimepicker1" name="qyTimeDiv">
+                                    <input type="text" class="form-control" style="margin-left: -0.1rem;width: 100px"
+                                           placeholder="格式如：1991-03-02" id="qyTime" name="qyTime"/>
+                                    <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                                </div>
+                                <span id="qyTimeMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label>签约期限(月)：</label>
+                                </div>
+                                <select class="form-control" name="qyqx" id="qyqx">
+                                    <option th:each="x:${#numbers.sequence(1,60)}" th:text="${x}"
+                                            th:selected="${x==12?true:false}"></option>
+                                </select>
+                            </div>
+                            <div class="form-inline form-group" id="m">
+                                <div style="display: inline-block">
+                                    <label>到期时间:</label>
+                                </div>
+                                <input type="text" class="form-control" style="margin-left: -0.1rem"
+                                       placeholder="格式如：1991-03-02" th:readonly="true" id="dqTime" name="dqTime"/>
+
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label>签入价格：</label>
+                                </div>
+                                <input class="form-control" type="text" id="qyPrice" name="qyPrice"
+                                       placeholder="请输入签约价格"/>
+                                <span th:id="qyPriceMsg"></span>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label>付款批次：</label>
+                                </div>
+                                <select class="form-control" name="fkpc">
+                                    <option th:each="x:${#numbers.sequence(1,60)}" th:text="${x}"
+                                            th:selected="${x==12?true:false}"></option>
+                                </select>
+                            </div>
+                            <div class="form-inline form-group " id="m">
+                                <div>
+                                    <label>签约人：</label>
+                                </div>
+                                <select class="form-control" name="qyren">
+                                    <option th:each="m:${allMember}" th:text="${m.name}"
+                                           th:value="${m.memberid}"></option>
+                                </select>
+                            </div>
+                        </div>
+                        <div id="danweiDiv">
+                            <h4 style="color: #00a2e9">证书使用单位<span class="btn btn-warning"
+                                                                   id="addDanwe"><span
+                                    class="glyphicon glyphicon-plus-sign"></span>使用单位</span></h4>
+                            <div id="dwInputGroup">
+                                <div class="form-inline form-group " id="m">
+                                    <div>
+                                        <label>使用单位名称：</label>
+                                    </div>
+                                    <select id="sydanwei" name="sydanwei" class="form-control">
+                                        <option value="">无</option>
+                                        <option th:each="c:${allContract}" th:text="${c.companyName}"
+                                                th:id="${c.contractid}"></option>
+                                    </select>
+                                </div>
+                                <div class="form-inline form-group " id="m">
+                                    <div>
+                                        <label>项目名称：</label>
+                                    </div>
+                                    <select id="xmName" name="xmName" class="form-control">
+                                        <option value="">无</option>
+                                    </select>
+                                    <span th:id="sydanweiMsg"></span>
+                                </div>
+                                <div style="display: inline-block;position: relative;" id="m">
+                                    <div><label>资质种类：</label></div>
+                                    <div style="display: inline-block;position: relative;">
+                                        <select id="zzType" class="form-control"
+                                                style="display: inline-block;">
+                                            <option>建委</option>
+                                            <option>承装修</option>
+                                        </select>
+                                        <input style="position: absolute;border-radius: 5px 0 0 5px;z-index:2;border-right: none;top: 0;"
+                                               value="建委" type="text" id="zzTypeInput" name="zzType"
+                                               class="form-control"/>
+                                    </div>
+                                </div>
+
+                                <div class="form-inline form-group" id="m">
+                                    <div>
+                                        <label>起始时间:</label>
+                                    </div>
+                                    <div class="input-group date" id="datetimepicker1">
+                                        <input type="text" class="form-control" style="margin-left: -0.1rem"
+                                               placeholder="格式如：1991-03-02" id="startTime" name="startTime"/>
+                                        <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                                    </div>
+                                    <span id="qsTimeMsg"></span>
+                                </div>
+                                <div class="form-inline form-group" id="m">
+                                    <div>
+                                        <label>终止时间:</label>
+                                    </div>
+                                    <div class="input-group date" id="datetimepicker1">
+                                        <input type="text" class="form-control" style="margin-left: -0.1rem"
+                                               placeholder="格式如：1991-03-02" id="overTime" name="overTime"/>
+                                        <span class="input-group-addon">
+                                  <span class="glyphicon glyphicon-calendar"></span>
+                                 </span>
+                                    </div>
+                                    <span id="zzTimeMsg"></span>
+
+                                </div>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 style="color: #00a2e9">合同文件</h4>
+
+                            <div class="form-inline form-group" id="m">
+                                <div style="display: inline-block">
+                                    <label>合同文件:</label>
+                                </div>
+                                <span id="hetongBt" class="btn btn-info">上传文件</span><br/>
+                                <span id="showHetongUrl"></span>
+                                <input class="form-control" type="file" accept="image/*" style="display: none"
+                                       id="hetongFile" multiple="multiple"
+                                       name="hetongFile"/>
+                            </div>
+                        </div>
+
+
+                        <div class="form-inline form-group ">
+                            <button type="submit" class="btn btn-success">确认添加</button>
+                            <a th:href="@{/pages/back/loginSuccess}">
+                                <button class="btn btn-danger" type="button">取消添加</button>
+                            </a>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
+<script type="text/javascript" th:src="@{/js/pages/back/rencai/rencai-addPre.js}"></script>
+</body>
+
+</html>

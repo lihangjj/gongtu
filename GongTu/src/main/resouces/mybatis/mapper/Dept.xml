@@ -6,17 +6,15 @@
         INSERT INTO dept(dname)VALUES
         (#{dname});
     </insert>
-    <select id="getDeptByDname" parameterType="String" resultType="Dept">
-        SELECT *FROM dept WHERE dname=#{dname}
-    </select>
-
     <update id="doUpdate" parameterType="Dept">
-        UPDATE dept SET dname=#{dname} WHERE deptid=#{deptid}
+        UPDATE dept SET deptid=#{deptid} WHERE deptid=#{deptid}
     </update>
     <delete id="delete" parameterType="Dept">
         DELETE FROM dept WHERE deptid=#{deptid}
     </delete>
-
+    <select id="checkDname" parameterType="String" resultType="Dept">
+        SELECT dname from dept WHERE dname=#{dname}
+    </select>
     <select id="getJobsByDeptId" parameterType="Integer" resultType="Job">
         SELECT *FROM job WHERE deptid=#{deptid}
     </select>

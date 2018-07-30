@@ -1,4 +1,3 @@
-//
 
 
 function loadData() {
@@ -34,8 +33,8 @@ function loadData() {
                 if (p == null) {
                     companyName = "";
                     pname = "";
-                    type = "其他类型日志"
-                    sta = ""
+                    type = "其他类型日志";
+                    sta = "";
                     staColor = "";
 
                 } else {
@@ -43,7 +42,7 @@ function loadData() {
                     cid = c.contractid;
                     companyName = c.companyName;
                     pname = p.name;
-                    sta = c.status;
+                    sta = p.status;
                     staColor = sta == '进行中' ? 'red' : sta == '暂停' ? 'orange' : sta == '完结' ? 'green' : '';
                     switch (p.type) {
                         case "px":
@@ -64,21 +63,25 @@ function loadData() {
                     }
                 }
                 var s = (d.getTime() - log.time) / (1000 * 60 * 60);
+                console.log(d.getTime() + 'd');
+                console.log(log.time);
+                console.log(s + '@111111111111')
                 var status = memberid == spmid ? "" : s > 24 ? "disabled" : "";
                 var color = type == "其他类型日志" ? "red" : "";
-                var yesColor = log.coordination == "是" ? "" : "red";
+                var yesColor = log.type == "配合" ? "red" : "";
 
                 dntb.append($("<tr id='row-" + logid + "' >\n" +
                     "                        <td ><input class=\"form-control\" type=\"checkbox\" id='check-" + logid + "'/></td>\n" +
-                    "                        <td style='text-align: left;color: " + color + "' ><a style='text-decoration: none;cursor: pointer' href='/pages/back/contract/editPre?contractid=" + cid + "'>" + companyName + "</a>-" + pname + "-" + type + "-<span style='color: " + staColor + "'>" + sta + "</span></td>\n" +
-                    "                        <td style='color: " + yesColor + "' >" + log.coordination + "</td>\n" +
-                    "                        <td  >" + log.type + "</td>\n" +
+                    "                        <td style='text-align: left;color: " + color + "' ><a id='alog-"+logid+"' style='text-decoration: none;cursor: pointer' href='/pages/back/contract/editPre?contractid=" + cid + "'>" + companyName + "</a>-" + pname + "-" + type + "-<span style='color: " + staColor + "'>" + sta + "</span></td>\n" +
+                    "                        <td ><textarea id='coordination-" + logid + "' name='" + log.memberid + "' class='form-control'>" + log.coordination + "</textarea></td>\n" +
+                    "                        <td   style='color: " + yesColor + "' >" + log.type + "</td>\n" +
                     "                        <td ><textarea id='log-" + logid + "' name='" + log.memberid + "' class='form-control'>" + log.note + "</textarea></td>\n" +
                     "                        <td >" + new Date(log.time).format("yyyy-M-dd hh:mm") + "<br/>" + log.member.name + "</td>\n" +
                     "                        <td><button class='btn btn-primary' id='bt-" + logid + "' " + status + " >修改</button> </td>\n" +
                     "                    </tr>"));
 
             }
+            hasRole('contract:总经理-副总-财务主管')?'':$("[id^=alog-]").removeAttr('href');
             windowNW < 768 ? $("[id^=log-]").css({
                 'min-width': '12rem',
                 'min-height': '20rem'
@@ -87,19 +90,25 @@ function loadData() {
                 $(this).click(function () {
                     var id = this.id.split('-')[1];
                     $.post("/pages/back/log/edit", {
-                        logid: id,
-                        note: $("#log-" + id).val(),
-                        memberid: $("#log-" + id).get(0).name
-                    }, function (res) {
-                        var re = res.split(":")[0];
-                        var str = res.split(":")[1];
-                        if ("true" == re) {
-                            showAlert($("#successMsg"), str)
-                        } else {
-                            showAlert($("#failureMsg"), str)
-                        }
+                            logid: id, coordination: $("#coordination-" + id).val(),
+                            note: $("#log-" + id).val(),
+                            memberid:
+                            $("#log-" + id).get(0).name
+                        },
 
-                    }, "text")
+                        function (res) {
+                            var re = res.split(":")[0];
+                            var str = res.split(":")[1];
+                            if ("true" == re) {
+                                showAlert($("#successMsg"), str)
+                            } else {
+                                showAlert($("#failureMsg"), str)
+                            }
+
+                        }
+                        ,
+                        "text"
+                    )
                 });
 
             });
@@ -117,6 +126,7 @@ function loadData() {
 
 // /*]]>*/
 $(function () {
+    shoujiOpenOverFlowX();
     //这里需要复写parameterName;
     y = $("#y").val();
     m = $("#m").val();
@@ -204,14 +214,14 @@ var name = '';
 var y = '';
 var m = '';
 var d = '';
-var st = '进行中';
+var st = '';
 
 function getStatus(st) {
     if (st == '') {
         return ''
     } else {
-        if (st=='其他'){
-            return " and type='"+st+"'"
+        if (st == '其他') {
+            return " and type='" + st + "'"
         }
         return ' split status=' + st;
     }

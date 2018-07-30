@@ -3,8 +3,8 @@
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="lz.cm.dao.IProjectDAO">
     <insert id="doCreate">
-        INSERT INTO project(projectid,contractid,name,type,cost,executive,addDate)VALUES
-        (#{projectid},#{contractid},#{name},#{type},#{cost},#{executive},#{addDate});
+        INSERT INTO project(projectid,contractid,name,type,cost,executive,addDate,status)VALUES
+        (#{projectid},#{contractid},#{name},#{type},#{cost},#{executive},#{addDate},#{status});
     </insert>
     <insert id="doUpdate" parameterType="Project">
         UPDATE  project SET  name=#{name},cost=#{cost},executive=#{executive} WHERE projectid=#{projectid}
@@ -23,4 +23,32 @@
         <foreach collection="ids" close=")" open="(" separator="," item="item">#{item}</foreach>
     </update>
 
+    <insert id="rencaisAddToProject" parameterType="Map">
+        INSERT  INTO rencai_project (rencaiid,projectid) VALUES (#{rencaiid},#{projectid});
+    </insert>
+    <delete id="rencaisDeleteProject" parameterType="Map">
+        DELETE FROM rencai_project WHERE projectid=#{projectid} AND rencaiid IN
+        <foreach collection="ids" close=")" open="(" separator="," item="item">#{item}</foreach>
+    </delete>
+    <delete id="doDeleteProjectByContractId" parameterType="Integer">
+        DELETE FROM project WHERE contractid=#{contractid}
+    </delete>
+    <select id="getAllProjectByExecutive" parameterType="String" resultType="Project">
+        select * from project WHERE executive=#{executive} ;
+    </select>
+
+    <select id="getAllprojectsByStatus" parameterType="String" resultType="Project">
+        SELECT * FROM project WHERE contractid IN (SELECT contractid FROM contract WHERE status=#{staus})
+    </select>
+
+    <select id="getCompanyNameByProjectid" parameterType="Integer" resultType="String">
+        SELECT companyName FROM contract WHERE contractid=(SELECT contractid from project WHERE projectid=#{projectid})
+    </select>
+
+    <delete id="deleteSydw" >
+        DELETE FROM sydw WHERE rencaiid=#{rencaiid} AND sydanwei=#{sydanwei} AND xmName=#{xmName}
+    </delete>
+    <select id="getStatusCount" resultType="Integer">
+        ${value}
+    </select>
 </mapper>

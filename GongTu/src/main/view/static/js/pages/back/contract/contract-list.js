@@ -12,7 +12,7 @@ function showMore(id, type, typeMap) {
         var morezz = $("#more" + type + "-" + id);
         morezz.append(" <tr style='color: black'>\n" +
             "                        <td><label>项目名称</label></td>\n" +
-            "                        <td><label>金额</label></td>\n" +
+            "                        <td id='jine'><label>金额</label></td>\n" +
             "                        <td><label>执行人</label></td>\n" +
             "                        <td><label>添加时间</label></td>\n" +
             "                    </tr>");
@@ -21,7 +21,7 @@ function showMore(id, type, typeMap) {
             var project = list[y];
             morezz.append(" <tr style='color:black;border: dashed #b0ccff 0.1px'>\n" +
                 "                        <td>" + project.name + "</td>\n" +
-                "                        <td>" + project.cost + "</td>\n" +
+                "                        <td id='jine'>" + project.cost + "</td>\n" +
                 "                        <td>" + project.executive + "</td>\n" +
                 "                        <td>" + new Date(project.addDate).format('yyyy-MM-dd hh:mm:ss') + "</td>\n" +
                 "                    </tr>");
@@ -40,7 +40,7 @@ function loadData() {
             "lineSize": lineSize,
             "currentPage": currentPage,
             "parameterName": 'status',
-            "parameterValue": parameterValue
+            "parameterValue": getStatus(status)
         },
         type: "post",
         dataType: "json",
@@ -48,10 +48,7 @@ function loadData() {
             allRecorders = data.allRecorders;
             var allVo = data.allVo;
             var typeMap = data.typeProjectMap;
-            console.log(typeMap);
-            for (var key in typeMap) {
-                console.log("属性：" + key + ",值：" + typeMap[key]);
-            }
+
             var dntb = $("#dntb");
             $("#row1").nextAll().remove();
             for (var x = 0; x < allVo.length; x++) {
@@ -79,11 +76,11 @@ function loadData() {
 
                 var statusColor = contract.status == "进行中" ? "red" : contract.status == "暂停" ? "orange" : "green";
 
-                var signingDate=contract.signingDate==null?"":contract.signingDate;
-                var expireDate=contract.expireDate==null?"":contract.expireDate;
+                var signingDate = contract.signingDate == null ? "" : contract.signingDate;
+                var expireDate = contract.expireDate == null ? "" : contract.expireDate;
                 dntb.append($("<tr id='row-" + id + "'>\n" +
                     " <td><input class='form-control' style='min-width: 2.5rem' type='checkbox'  id='check-" + id + "' value='" + id + "' /></td>\n" +
-                    " <td><a href='/pages/back/contract/editPre?contractid=" + id + "' style='text-decoration: none;cursor: pointer'>" + contract.companyName + "</a></td>\n" +
+                    " <td><a id='a' href='/pages/back/contract/editPre?contractid=" + id + "' style='text-decoration: none;cursor: pointer'>" + contract.companyName + "</a></td>\n" +
                     " <td>" + contract.contact + "-" + contract.phone + "-" + contract.qq + "</td>\n" +
                     " <td id='showzz-" + id + "' style='color: " + zzColor + "'></td>\n" +
                     " <td id='showgk-" + id + "' style='color: " + gkColor + "'></td>\n" +
@@ -108,6 +105,9 @@ function loadData() {
 
             }
 
+            hasRole('contract:总经理-副总-财务主管') ? '' : $("[id=jine]").css({display: 'none'});
+            hasRole('contract:总经理-副总-财务主管') ? '' : $("[id=a]").removeAttr('href');
+            console.log(hasRole('contract:总经理-副总-财务主管'));
             if (windowNW > 992) {
                 $("[id^=show]").each(function () {
                     if ($(this).find(".dropdown-toggle").text() != "无") {
@@ -135,8 +135,8 @@ function loadData() {
 
 // /*]]>*/
 $(function () {
-
     //这里需要复写parameterName;
+    shoujiOpenOverFlowX();
     loadData();
     $("#selectAll").click(function () {
         var c = this.checked;
@@ -178,10 +178,20 @@ $(function () {
     //检索按钮绑定事件
     jiansuo(loadData);
     $("#status").change(function () {
-        parameterValue = this.value;
+        currentPage = 1;
+        status = this.value;
         loadData();
     })
 
 });
+var status = '';
 
+function getStatus(status) {
+    if (status == '') {
+        return '';
+    } else {
+        return " AND status='" + status + "'";
+    }
+
+}
 

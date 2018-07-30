@@ -15,7 +15,7 @@ public abstract class AbstractControllerAdapter extends AbstractController {
 
 
     public String createFileName(MultipartFile photo) {
-        if (photo.isEmpty()) {
+        if (photo.isEmpty() || photo.getSize() == 0) {
             return setUploadPath() + "nophoto.png";
         }
         return setUploadPath() + UUID.randomUUID() + "." + photo.getContentType().split("/")[1];
@@ -49,10 +49,11 @@ public abstract class AbstractControllerAdapter extends AbstractController {
      * @param minPhotoName 小图名称
      * @param bigPhotoName 大图名称
      * @param pic          Multipart名称
+     * @param daxiaoKB     压缩到指定大小KB
      * @param request
      * @return
      */
-    public boolean saveFile(String minPhotoName, String bigPhotoName, MultipartFile pic, HttpServletRequest request) {
+    public boolean saveFile(String minPhotoName, String bigPhotoName, int daxiaoKB, MultipartFile pic, HttpServletRequest request) {
         String realPath = request.getSession().getServletContext().getRealPath("/");//发布的时候磁盘路径
         String bigPath = realPath + bigPhotoName;//发布的时候磁盘路径
         String minPath = realPath + minPhotoName;//发布的时候磁盘路径
@@ -75,22 +76,14 @@ public abstract class AbstractControllerAdapter extends AbstractController {
             }
             //大图已经保存成功，开始保存小图
             File minFile = new File(minPath);
-            if (file.length() > 50 * 1024) {//图片大于50K，就压缩图片
-                Thumbnails.of(file).scale(0.3f).toFile(minFile);
-                while (minFile.length() > 50 * 1024) {//压缩后仍然大于20k,继续压缩
-                    Thumbnails.of(minFile).scale(0.5f).toFile(minFile);
+            if (file.length() > daxiaoKB * 1024) {//图片大于50K，就压缩图片
+                Thumbnails.of(file).scale(0.5f).toFile(minFile);
+                while (minFile.length() > daxiaoKB * 1024) {//压缩后仍然大于daxiaoKB,这样压缩出来是设置值的2/3差不多，两百多KB，继续压缩
+                    Thumbnails.of(minFile).scale(0.7f).outputQuality(0.8f).toFile(minFile);
                 }
             } else {//如果小于50K，就大图小图相同,不压缩处理
-                outputStream = new FileOutputStream(minFile);
-                //这里果然要重新得到输入流
-                inputStream = pic.getInputStream();
-                bytes = new byte[2048];
-                while ((temp = inputStream.read(bytes)) != -1) {
-                    outputStream.write(bytes, 0, temp);
-                }
+                Thumbnails.of(file).scale(1f).toFile(minFile);
             }
-
-
             return true;
         } catch (Exception e) {
             return false;

@@ -7,7 +7,7 @@
         (#{type},#{projectid},#{note},#{coordination},#{time},#{memberid});
     </insert>
     <update id="doUpdate" parameterType="Log">
-        UPDATE log SET note=#{note}  WHERE logid=#{logid}
+        UPDATE log SET note=#{note},coordination=#{coordination}  WHERE logid=#{logid}
     </update>
     <update id="plDeleteLog" parameterType="Map">
         UPDATE log SET dflag=1  WHERE logid IN

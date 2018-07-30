@@ -44,15 +44,16 @@ public class SystemSetController extends AbstractControllerAdapter {
                     member.setContentColor("color:null");
                     member.setBodyColor("color:null");
                     member.setMenuFontColor("rgb(0,0,0)");
-
+                    member.setMenuSelectedColor("rgba(0, 162, 233, 0.5)");
                 } else {
                     member.setStyleValue("default:anya");
                     member.setHdColor("color:" + getResourceValue("default.head.color"));
                     member.setMenuColor("color:" + getResourceValue("default.menu.color"));
                     member.setContentColor("color:" + getResourceValue("default.content.color"));
-
                     member.setBodyColor("color:" + getResourceValue("default.body.color"));
                     member.setMenuFontColor("rgb(255,255,255)");
+                    member.setMenuSelectedColor("rgba(0, 162, 233, 0.5)");
+
                 }
 
                 break;
@@ -254,6 +255,8 @@ public class SystemSetController extends AbstractControllerAdapter {
                 getSession().setAttribute("bodyColor", member.getBodyColor());
                 getSession().setAttribute("styleValue", member.getStyleValue());
                 getSession().setAttribute("menuFontColor", member.getMenuFontColor());
+                getSession().setAttribute("menuSelectedColor", member.getMenuSelectedColor());
+
 
             } else {
                 setMsg("vo.edit.failure", "风格", false, model);

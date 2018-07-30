@@ -8,7 +8,7 @@
         vertical-align: middle;
     }
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
@@ -27,7 +27,7 @@
                         <td>
                             <input th:id="'dname-'+${dept.deptid}" class="form-control" th:value="${dept.dname}"/>
                         </td>
-                        <td th:text="${dept.renshu}"></td>
+                        <td th:id="'renshu-'+${dept.deptid}" th:text="${dept.renshu}"></td>
                         <td>
                             <button class="btn btn-primary" style="margin: 1rem"
                                     th:id="'edit-'+${dept.deptid}">修改
@@ -63,10 +63,14 @@
             $(this).click(function () {
                 var did = this.id.split('-')[1];
                 var tr = $(this).parent().parent();
+                if(parseInt($("#renshu-"+did).text())>0){
+                    showAlert($("#failureMsg"), "部门删除失败,该部门有员工，请先将员工转移！");
+                    return;
+                }
                 areYouSure("注意！删除将不可恢复，您确定要删除吗？", function () {
-                    $.post("/pages/back/dept/delete", {deptid: did}, function (res) {
+                    $.post("/pages/back/dept/delete", {deptid: did,renshu:$("#renshu-"+did).text()}, function (res) {
                         if (res) {
-                            showAlert($("#successMsg"), "部门删除成功！")
+                            showAlert($("#successMsg"), "部门删除成功！");
                             tr.remove();
 
                         } else {

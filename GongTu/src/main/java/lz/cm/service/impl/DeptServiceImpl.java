@@ -30,18 +30,20 @@ public class DeptServiceImpl implements IDeptService {
     }
 
     @Override
-    public List<Job> getJobsByDeptId(int deptid) throws Exception {
+    public List<Job> getJobsByDeptId(Integer deptid) throws Exception {
         return deptDAO.getJobsByDeptId(deptid);
     }
 
-    @Override
-    public Dept getDeptByDname(Dept dept) throws Exception {
-        return deptDAO.getDeptByDname(dept.getDname());
-    }
+
 
     @Override
     public boolean delete(Dept dept) throws Exception {
         return deptDAO.delete(dept);
+    }
+
+    @Override
+    public boolean checkDname(String dname) throws Exception {
+        return deptDAO.checkDname(dname)==null;
     }
 
     @Override
@@ -60,10 +62,17 @@ public class DeptServiceImpl implements IDeptService {
             for (Job j : allJobs) {
                 ids.add(j.getJobid());
             }
-            parameterMap.put("ids",ids);
-            Integer x=memberDAO.getDeptRenshuByJobId(parameterMap);
-            System.err.println(x);
-            d.setRenshu(memberDAO.getDeptRenshuByJobId(parameterMap));
+            if(ids.size()==0){
+                d.setRenshu(0);
+
+            }else {
+                parameterMap.put("ids",ids);
+                d.setRenshu(memberDAO.getDeptRenshuByJobId(parameterMap));
+                if (d.getDeptid()==1){
+                    d.setRenshu(memberDAO.getDeptRenshuByJobId(parameterMap)-1);
+
+                }
+            }
         }
         resMap.put("allVo", allDept);
         return resMap;

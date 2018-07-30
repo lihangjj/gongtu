@@ -17,4 +17,8 @@
         DELETE FROM account WHERE accountid IN
         <foreach collection="ids" close=")" open="(" separator="," item="item">#{item}</foreach>
     </delete>
+    <select id="getAllCountMoney" resultType="Double">
+        SELECT SUM(yue) FROM account;
+    </select>
+
 </mapper>

@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" style="overflow-x:hidden">
-<body style="overflow-x:hidden" id="body">
+<body  id="body">
 <div th:fragment="back_index" class="container-fluid">
     <div th:fragment="head_menu">
         <script type="text/javascript" th:inline="javascript">
@@ -18,6 +18,9 @@
             sessionid = [[${session.sessionid}]];
             spmid = [[${session.spmid}]];
             name = [[${session.name}]];
+            job=[[${session.job}]];
+            allMemberRoles=[[${session.allRoles}]];
+            allMemberActions=[[${session.allActions}]];
             /*]]>*/
             $(function () {
 //                window.localStorage.setItem("test","哈哈哈");
@@ -47,13 +50,13 @@
 
             })
         </script>
-        <div class="row">
-            <div id="validateDiv">
+        <div class="row" >
+            <div id="validateDiv"  >
                 <button class="glyphicon glyphicon-menu-left" id="zhedie" style="background: none"></button>
                 <img th:src="@{/images/pages/back/system/gtLogo.png}"/>
                 <div style="position: absolute;right: 5%;z-index: 9;top:2rem;" class="">
                     <div class="" style="display: inline">
-                        <button class="btn btn-primary " id="msg"><span class="badge" style="color: red;">5</span>消息
+                        <button class="btn btn-primary " id="msg"><span class="badge" style="color: red;" id="messages"></span>未读消息
                         </button>
                     </div>
                     <div class="dropdown " style="display: inline;cursor: pointer">
@@ -95,13 +98,12 @@
                 </script>
             </div>
         </div>
-        <div class="row">
-
-            <div id="menuDiv">
+        <div class="row" >
+            <div id="menuDiv" style="z-index: 100">
                 <p th:text="${session.color}"></p>
                 <div style="text-align: center;margin-bottom: 2rem;border-top: none" id="memberInfo">
                     <img th:src="@{${session.photo}}" th:name="@{${session.bigphoto}}"
-                         style="width: 7rem;height:7rem;border-radius: 5px;"/><br/>
+                         style="width: 7rem;max-height:9rem;border-radius: 5px;"/><br/>
                     <a th:href="@{/pages/back/member/editPre}" class="myA"> 信息修改</a><br/>
                     <span>欢迎：<span th:text="${session.name}"></span> 光临！</span><br/>
                 </div>
@@ -138,7 +140,7 @@
                                                                                                   style="color: #ffa900"></span>
                         </div>
 
-                        <div th:if="${type=='提醒'}"><img th:src="@{/images/lz/dui.png}"/><span th:text="${msg}"
+                        <div th:if="${type=='提醒'}"><img th:src="@{/images/lz/point.png}"/><span th:text="${msg}"
                                                                                               style="color: #d93fff"></span>
                         </div>
                     </div>
@@ -168,7 +170,7 @@
                                 style="color: #ffa900" id="warningMsg"></span>
                         </div>
 
-                        <div style="display: none"><img th:src="@{/images/lz/dui.png}"/><span
+                        <div style="display: none"><img th:src="@{/images/lz/point.png}"/><span
                                 style="color: #d93fff" id="pointMsg"></span>
                         </div>
                     </div>
@@ -201,7 +203,7 @@
 
         <div id="loadingData"
              style="position: absolute;display:none;top:0;width:100%;background:rgba(0,0,0,0.2);z-index: 10;text-align: center;">
-            <div style="position: absolute;width: 16rem;height: 8rem;background:white;left: 50%;top:50%;z-index: 11;transform: translate(-50%,-50%);border-radius: 5px;text-align: center;">
+            <div style="position: fixed;width: 16rem;height: 8rem;background:white;left: 50%;top:50%;z-index: 11;transform: translate(-50%,-50%);border-radius: 5px;text-align: center;">
                 <img th:src="@{/images/loading/loading.gif}" style="margin-top: 1rem"/>
                 <div style="margin-top: 1rem;color: black">
                     数据处理中...

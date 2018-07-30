@@ -3,15 +3,20 @@
 <head th:replace="plugins/include_javascript::js"></head>
 <body style="overflow-x:hidden;visibility: hidden" id="body">
 
-<div class="row" th:fragment="splitBar">
-    <div class="col-xs-12  form-inline" style=" padding: 0 3rem 0 3rem;"
-         th:id="daomei">
-    </div>
-    <div class="col-xs-12 " style="padding: 0 3rem 10rem 3rem;">
-        <ul class="pagination" id="splitBar" >
-        </ul>
-    </div>
+<div class="row" th:fragment="splitBar" style="margin-bottom: 10rem;padding: 20px;">
 
+    <div class="col-xs-12 " >
+        <div style=" display: inline-block;margin-top: 1rem"
+             th:id="daomei">
+        </div>
+        <div style="display: inline-block;vertical-align: top;margin-top: 1rem" >
+            <ul class="pagination" id="splitBar" style="padding: 0;margin-top:0;">
+            </ul>
+        </div>
+        <h4   style="display: inline-block;vertical-align:top;margin-top: 1rem;margin-left: -3rem">
+            共<span id="allRecorders" style="color:  red;font-weight: bold;font-size: 3rem"></span>条数据
+        </h4>
+    </div>
 </div>
 </body>
 </html>

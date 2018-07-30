@@ -52,6 +52,7 @@ function loadData() {
 
 
 $(function () {
+    shoujiOpenOverFlowX();
     loadData();
     $("#selectAll").click(function () {
         var c = this.checked;

@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden">
+<head th:include="plugins/include_javascript::js"></head>
+<link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
+<style type="text/css">
+    #addTb td {
+        vertical-align: middle;
+        padding: 2px;
+    }
+</style>
+<link rel="stylesheet" type="text/css" th:href="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.css}"/>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.min.js}"></script>
+<script type="text/javascript" th:src="@{/bootstrap/dateTimePicker/bootstrap-datetimepicker.zh-CN.js}"></script>
+<script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    /*<![CDATA[*/
+    $(function () {
+        initSimpleDate();
+        shoujiOpenOverFlowX();
+
+        $("[id^=delete-]").click(function () {
+            $(this).parent().parent().remove();
+        });
+        $("#formDiv").validate({
+            debug: true, // 取消表单的提交操作
+            submitHandler: function (form) {
+                var userList = new Array();
+                var s = $(form).serializeArray();
+                for (var x = 0; x < s.length / 7; x++) {
+                    var shoupay = new Object();
+                    shoupay.date = s[x * 7].value;
+                    shoupay.accountid = s[x * 7 + 1].value;
+                    shoupay.mingxi = s[x * 7 + 2].value;
+                    shoupay.shou = s[x * 7 + 3].value;
+                    shoupay.pay = s[x * 7 + 4].value;
+                    shoupay.type = s[x * 7 + 5].value;
+                    shoupay.note = s[x * 7 + 6].value;
+                    userList.push(shoupay);
+                }
+                $.ajax({
+                    url: "/pages/back/shoupay/add",
+                    data: JSON.stringify(userList),
+                    type: "post",
+                    dataType: "json",
+                    contentType: 'application/json;charset=utf-8',
+                    success: function (res) {
+
+                        if (res) {
+                            showAlert($("#successMsg"), '收支明细记账成功', '/pages/back/shoupay/addPre');
+                        }
+                    },
+                    error: function (e) {
+
+                    }
+                });
+                //出现数据加载
+            },
+            errorPlacement: function (error, element) {
+                $("#" + $(element).attr("id") + "Msg").append(error);
+            },
+            highlight: function (element, errorClass) {
+                $(element).fadeOut(1, function () {
+                    $(element).fadeIn(1, function () {
+                        $(element).css({
+                            "box-shadow": "0 0 10px rgba(255,0,0,1)"
+                        })
+                    });
+
+                })
+            },
+            unhighlight: function (element, errorClass) {
+                $(element).fadeOut(1, function () {
+                    $(element).fadeIn(1, function () {
+                        $(element).css({
+                            "box-shadow": "0 0 10px rgba(0,255,0,1)"
+                        });
+                    });
+                })
+            },
+            errorClass: "text-danger",
+            messages: {},
+            rules: {
+                shou: {
+                    min: 0,
+                    number: true
+                },
+                pay: {
+                    min: 0,
+                    number: true
+                }, note: {maxlength: 250}, mingxi: {maxlength: 250}
+            }
+        });
+        $("[id^=delete-]:eq(0)").css({display: "none"});
+        $("#addOne").click(function () {
+            $("[id^=delete-]:eq(0)").css({display: "block"});
+            var muban = $("#muban").clone();
+            muban.find("input").val("");
+            muban.find("textarea").val("");
+            $("[id^=delete-]:eq(0)").css({display: "none"});
+            $("#lastRow").before(muban);
+            $("[id^=delete-]").click(function () {
+                $(this).parent().parent().remove();
+            });
+        })
+
+
+    })
+    /*]]>*/
+</script>
+
+
+<body style="visibility: hidden" id="body">
+<div class="container-fluid">
+    <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
+    <div id="contentDiv"><!--这里是主体-->
+        <div style="text-align: center;font-size: 4rem;">收支记账</div>
+        <div class="row" style="padding: 20px">
+            <div class="col-xs-12  ">
+                <form class="form" id="formDiv" enctype="multipart/form-data" method="post"
+                      th:action="@{/pages/back/shoupay/add}">
+                    <table class="table table-hover " style="text-align: center;margin-top: 100px" id="addTb">
+                        <tr style="font-weight: bold;font-size: 16px;">
+                            <td width="150px">日期</td>
+                            <td>账号(银行)(户主)(余额)</td>
+                            <td>
+                                明细
+                            </td>
+                            <td>收入</td>
+                            <td>支出</td>
+                            <td>费用类别</td>
+                            <td>备注</td>
+                            <td>操作</td>
+                        </tr>
+                        <tr id="muban" th:each="x:${#numbers.sequence(1,10)}">
+                            <td>
+                                <div class='input-group date' id='datetimepicker1' style="width: 150px">
+                                    <input type='text' class="form-control" style="margin-left: -0.1rem"
+                                           placeholder="不填则为今天"
+                                           th:readonly="true" id="date" name="date"/>
+                                    <span class="input-group-addon">
+                             <span class="glyphicon glyphicon-calendar"></span>
+                            </span>
+                                </div>
+                            </td>
+                            <td>
+                                <select id="accountid" name="accountid">
+                                    <option th:value="${account.accountid}" th:name="${account.bank}"
+                                            th:each="account:${allAccount}"
+                                            th:text="${account.accountid}+'('+${account.bank}+')('+${account.name}+')('+${account.yue}+')'"></option>
+                                </select></td>
+
+                            <td><textarea style="min-width: 100px" id="mingxi" name="mingxi"
+                                          placeholder="250字以内"></textarea></td>
+                            <td><input type="text" style="width: 100px" id="shou" name="shou"/></td>
+                            <td><input type="text" style="width: 100px" id="pay" name="pay"/></td>
+                            <td><select id="type" name="type">
+                                <option>其他</option>
+                                <option>工资</option>
+                                <option>五险</option>
+                                <option>房租</option>
+                                <option>水电</option>
+                                <option>汽车</option>
+                                <option>餐饮</option>
+                                <option>办公耗材</option>
+                                <option>办公设备</option>
+                                <option>网络推广</option>
+                                <option>建造师</option>
+                                <option>工程师</option>
+                                <option>员类</option>
+                                <option>技工</option>
+                                <option>培训</option>
+                                <option>报名费</option>
+                                <option>税费</option>
+                                <option>利息</option>
+                            </select></td>
+                            <td><textarea placeholder="250字以内" style="min-width: 100px" id="note"
+                                          name="note"></textarea></td>
+                            <td width="50px">
+                                <button class="btn btn-danger" id="delete-" type="button">删除该栏</button>
+                            </td>
+                        </tr>
+                        <tr id="lastRow">
+                            <td colspan="8" style="padding: 10px">
+                                <button class="btn btn-warning" type="button" id="addOne">增加一栏</button>
+                            </td>
+                        </tr>
+                    </table>
+
+                    <div class="form-inline form-group " style="text-align: center">
+                        <button type="submit" class="btn-lg btn-success">确认记账</button>
+                        <a th:href="@{/pages/back/loginSuccess}">
+                            <button class="btn-lg btn-danger" type="button">取消记账</button>
+                        </a>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>

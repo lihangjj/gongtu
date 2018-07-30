@@ -2,6 +2,7 @@ package lz.cm.service.impl;
 
 import lz.cm.dao.IDeptDAO;
 import lz.cm.dao.IJobDAO;
+import lz.cm.dao.IMemberDAO;
 import lz.cm.service.IJobService;
 import lz.cm.vo.Dept;
 import lz.cm.vo.Job;
@@ -17,6 +18,8 @@ public class JobServiceImpl implements IJobService {
     private IJobDAO jobDAO;
     @Autowired
     private IDeptDAO deptDAO;
+    @Autowired
+    private IMemberDAO memberDAO;
 
     @Override
     public boolean edit(Job job) throws Exception {
@@ -31,6 +34,9 @@ public class JobServiceImpl implements IJobService {
 
     @Override
     public boolean delete(Job job) throws Exception {
+        if (memberDAO.getJobRenshu(job.getJobid()) > 0) {
+            return false;
+        }
         return jobDAO.delete(job);
     }
 

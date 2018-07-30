@@ -25,7 +25,7 @@ public class DeptController extends AbstractControllerAdapter {
     @RequestMapping("checkDname")
     boolean checkDname(Dept dept) {
         try {
-            return deptService.getDeptByDname(dept) == null;
+            return deptService.checkDname(dept.getDname());
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -46,6 +46,9 @@ public class DeptController extends AbstractControllerAdapter {
     @ResponseBody
     @RequestMapping("delete")
     boolean delete(Dept dept) {
+        if (dept.getRenshu()>0){
+            return false;
+        }
         try {
             return deptService.delete(dept);
         } catch (Exception e) {

@@ -11,8 +11,8 @@
        companyName=#{companyName},contact=#{contact},phone=#{phone},qq=#{qq},principal=#{principal},address=#{address},note=#{note},signingDate=#{signingDate},period=#{period},expireDate=#{expireDate},status=#{status},principalPhone=#{principalPhone},principalQQ=#{principalQQ},allCost=#{allCost}
         WHERE contractid=#{contractid}
     </insert>
-    <update id="updateAlreadyPay">
-        UPDATE contract SET alreadyPay=#{alreadyPay} WHERE contractid=#{contractid}
+    <update id="updateAlreadyPay" parameterType="Integer">
+        UPDATE contract SET alreadyPay=(SELECT SUM(cost) FROM paylog WHERE contractid=#{contractid}) WHERE contractid=#{contractid}
     </update>
     <select id="getAlreadyPay" resultType="Contract" parameterType="Integer">
         SELECT alreadyPay FROM contract WHERE contractid=#{contractid}
@@ -20,6 +20,16 @@
 
     <update id="plDeleteContract" parameterType="Map">
         UPDATE contract SET dflag=1 WHERE contractid IN
-        <foreach collection="ids" item="item" separator="," open="(" close=")" >#{item}</foreach>
+        <foreach collection="ids" item="item" separator="," open="(" close=")">#{item}</foreach>
     </update>
+
+    <select id="getContractName" resultType="Contract">
+        SELECT contractid,companyName FROM contract WHERE dflag=0 AND status='进行中';
+    </select>
+
+    <select id="checkCompanyName" resultType="Integer" parameterType="String">
+        SELECT contractid FROM contract WHERE companyName=#{companyName}
+    </select>
+
+
 </mapper>

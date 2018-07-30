@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="GongTu:war">
+    <output-path>$PROJECT_DIR$/GongTu/target</output-path>
+    <root id="archive" name="gongtu.war">
+      <element id="artifact" artifact-name="GongTu:war exploded" />
+    </root>
+  </artifact>
+</component>

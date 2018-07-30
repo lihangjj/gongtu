@@ -5,7 +5,6 @@ import lz.cm.dao.IJobDAO;
 import lz.cm.dao.IRoleDAO;
 import lz.cm.service.AbstractService;
 import lz.cm.service.IRoleService;
-import lz.cm.service.IService;
 import lz.cm.vo.*;
 import lz.util.str.StrUtil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +25,8 @@ public class MemberServiceBackImpl extends AbstractService implements IMemberSer
     private IJobDAO jobDAO;
     @Autowired
     private IDeptDAO deptDAO;
+    @Autowired
+    private IRoleDAO roleDAO;
 
     @Override
     public Member getMemberById(String mid) {
@@ -84,19 +85,26 @@ public class MemberServiceBackImpl extends AbstractService implements IMemberSer
 
     @Override
     public boolean editMember(Member member) throws Exception {
+
+
         return memberDAO.updateMember(member);
     }
 
     @Override
     public boolean addMember(Member member) throws Exception {
-        String[] roleids = StrUtil.BASIC_ROLE.split("-");
-        roleService.plAddRoleToMembers(roleids, new String[]{member.getMemberid()});
+        String[] publicRole = StrUtil.PUBLIC_ROLE.split("-");
+        String job = jobDAO.findById(member.getJobid(), Job.class).getJob();
+        String[] privateRole = roleDAO.getRoleByJobId(job);//职位的权限
+        //将公有数据变成集合
+        List<String> roleids = new ArrayList<>(Arrays.asList(publicRole));
+        Collections.addAll(roleids, privateRole);//将私有角色加入集合，最后再变成数组
+        roleService.plAddRoleToMembers(roleids.toArray(new String[0]), new String[]{member.getMemberid()});
         return memberDAO.doCreate(member);
     }
 
     @Override
     public Member getVoById(String s) {
-        return memberDAO.findById(s,Member.class);
+        return memberDAO.findById(s, Member.class);
     }
 
     @Override
@@ -149,6 +157,46 @@ public class MemberServiceBackImpl extends AbstractService implements IMemberSer
     @Override
     public List<Member> getAllMemberIdAndNames() {
         return memberDAO.getAllMemberIdAndNames();
+    }
+
+    @Override
+    public boolean deleteRoleByMemberid(Member member) throws Exception {
+        if (memberDAO.deleteRoleByMemberid(member)) {//先删除原来的角色
+            String[] publicRole = StrUtil.PUBLIC_ROLE.split("-");
+            String job = jobDAO.findById(member.getJobid(), Job.class).getJob();
+            String[] privateRole = roleDAO.getRoleByJobId(job);//职位的权限
+            //将公有数据变成集合
+            List<String> roleids = new ArrayList<>(Arrays.asList(publicRole));
+            Collections.addAll(roleids, privateRole);//将私有角色加入集合，最后再变成数组
+            return roleService.plAddRoleToMembers(roleids.toArray(new String[0]), new String[]{member.getMemberid()});
+        }
+        return false;
+    }
+
+    @Override
+    public List<Member> getAllExecutive(String status) {
+        String jsCondition = "";
+        if (status == null || "".equals(status)) {
+
+        } else {
+            jsCondition = " AND status='" + status + "'";
+        }
+        List<Member> allMember = (List<Member>) memberDAO.splitVoByColumns("name", Member.class, null,
+                null, null, null, "memberid!='lh'").get("allVo");
+        for (Member m : allMember) {
+            List<Contract> contracts = (List<Contract>) memberDAO.splitVoByColumns("companyName,contractid",
+                    Contract.class, null, null, null, null,
+                    "contractid IN(SELECT contractid FROM project where executive='" + m.getName() + "') " + jsCondition + "").get("allVo");
+            for (Contract c : contracts) {
+                List<Project> projects = (List<Project>) memberDAO.splitVoByColumns("name,type", Project.class, null,
+                        null, null, null, "contractid='" + c.getContractid() + "' AND executive='" + m.getName() + "' " + jsCondition + "").get("allVo");
+
+                c.setProjects(projects);
+            }
+            m.setContracts(contracts);
+
+        }
+        return allMember;
     }
 
 

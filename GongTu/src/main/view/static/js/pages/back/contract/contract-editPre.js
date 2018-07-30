@@ -1,17 +1,14 @@
-
 function addRow(type) {
-    var row = $("<div class=\"row\">\n" +
-        "                    <div class='col-sm-1' >" +
-        "                    </div>\n" +
-        "                    <div class='col-sm-3' >\n" +
+    var row = $("<div class=\"row\">" +
+        "<div class='col-sm-4' >\n" +
         "                        <input class=\"form-control\" type=\"text\" placeholder=\"请输入项目名称\" name='" + type + "-name' " +
         "                               id='" + type + "-name'/>\n" +
         "                    </div>\n" +
-        "                    <div class='col-sm-3'>\n" +
+        "                    <div class='col-sm-2'>\n" +
         "                        <input class=\"form-control\" type=\"text\" placeholder=\"请输入项目金额\" name='" + type + "-cost' " +
         "                               id='cost-'/>\n" +
         "                    </div>\n" +
-        "                    <div class=\"col-sm-3\">\n" +
+        "                    <div class=\"col-sm-2\">\n" +
         "                        <select class=\"form-control\" name='" + type + "-executive'" +
         "                                id='executive'>\n" +
         "                        </select>\n" +
@@ -19,15 +16,19 @@ function addRow(type) {
         "                </div>");
     return row;
 }
+
 //为下拉列表增加选项
 function selectExcutive(type) {
-    $("[name="+type+"-executive").each(function () {
-        $(this).empty();
-        var allNames=$("#allNames").clone();
-        $(this).append(allNames.children());
+    $("[name=" + type + "-executive").each(function () {
+        // $(this).empty();
+        var allNames = $("#allNames").clone();
 
+        if ($(this).children().length == 0) {
+            $(this).append(allNames.children());
+        }
     });
 }
+
 //删除项目行
 function deleteRow(type) {
     $("[name=" + type + "DeleRow]").each(function () {
@@ -48,6 +49,17 @@ function getAllCost() {
             });
             $("#totalCost").text("总金额：" + allCost);
             $("#allCost").val(allCost);
+        });
+        $(this).blur(function () {
+            var allCost = 0;
+            $("[id=cost-]").each(function () {
+                if (this.value != "") {
+                    allCost += parseInt(this.value);
+                }
+            });
+            $("#totalCost").text("总金额：" + allCost);
+            $("#allCost").val(allCost);
+            console.log(allCost)
         })
     });
 }
@@ -62,6 +74,7 @@ function addOrRemoveRow(type) {
     });
     getAllCost();
 }
+
 //设置到期时间
 function setExpiredDate() {
     var signingDate = $("#signingDate").val();
@@ -103,10 +116,10 @@ $(function () {
         submitHandler: function (form) {
             // form.submit(); // 提交表单
             showLoadingData();
-            $.post("/pages/back/contract/edit",$(form).serializeArray(),function (res) {
+            $.post("/pages/back/contract/edit", $(form).serializeArray(), function (res) {
                 hideLoadingData();
-               res?showAlert($("#successMsg"),"合同修改成功！"):showAlert($("#failureMsg"),"合同修改失败");
-            },"json");
+                res ? showAlert($("#successMsg"), "合同修改成功！") : showAlert($("#failureMsg"), "合同修改失败");
+            }, "json");
             //出现数据加载
         },
         errorPlacement: function (error, element) {

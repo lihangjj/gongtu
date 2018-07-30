@@ -49,4 +49,10 @@ public interface IMemberDAO extends IDAO<String, Member> {
     List<String> getAllNames();
 
     List<Member> getAllMemberIdAndNames();
+
+    Integer getJobRenshu(Integer jobid);
+
+    String getMemberidByName(String name);
+
+    boolean deleteRoleByMemberid(Member member);
 }

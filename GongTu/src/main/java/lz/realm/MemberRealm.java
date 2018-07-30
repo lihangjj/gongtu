@@ -60,10 +60,12 @@ public class MemberRealm extends AuthorizingRealm {
         session.setAttribute("styleValue", member.getStyleValue());//用户选中系统提供的风格
         session.setAttribute("sysColor", member.getSysColor());//系统颜色
         session.setAttribute("sysFont", member.getSysFont());//系统字体
+        session.setAttribute("job", member.getJob().getJob());//设置职位
         session.setAttribute("menuFontColor", member.getMenuFontColor());//菜单字体颜色
         session.setAttribute("menuSelectedColor", member.getMenuSelectedColor());//菜单选中背景颜色
         try {
             session.setAttribute("allRoles", memberServiceBack.getRolesAndActions(member.getMemberid()));//该用户的所有权限
+            session.setAttribute("allActions", memberServiceBack.getAllMemberActionsFlag(mid));//该用户的所有权限
         } catch (Exception e) {
             e.printStackTrace();
         }

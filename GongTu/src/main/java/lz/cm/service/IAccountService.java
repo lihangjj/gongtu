@@ -12,4 +12,7 @@ public interface IAccountService extends IService<String, Account> {
 
     boolean plDeleteAccount(String[] ids) throws Exception;
 
+    Double getAllCountMoney();
+
+    boolean editYue(Account account) throws Exception;
 }

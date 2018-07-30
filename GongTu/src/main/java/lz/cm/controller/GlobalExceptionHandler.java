@@ -17,6 +17,7 @@ public class GlobalExceptionHandler {
         if (e instanceof UnauthorizedException) {//没有权限异常
             exception = "您没有" + e.getMessage().substring(e.getMessage().lastIndexOf("[")) + "权限";
         }
+
         model.addAttribute("exception", exception);
 
         return "unAuthPage";

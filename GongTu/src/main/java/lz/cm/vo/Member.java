@@ -2,6 +2,7 @@ package lz.cm.vo;
 
 import java.io.Serializable;
 import java.util.Date;
+import java.util.List;
 
 public class Member implements Serializable {
     private String memberid;
@@ -9,6 +10,35 @@ public class Member implements Serializable {
     private String password;
     private String sex;
     private String phone;
+    List<Contract> contracts;
+
+    public List<Contract> getContracts() {
+        return contracts;
+    }
+
+    public void setContracts(List<Contract> contracts) {
+        this.contracts = contracts;
+    }
+
+    public String getIdCard() {
+        return idCard;
+    }
+
+    public void setIdCard(String idCard) {
+        this.idCard = idCard;
+    }
+
+    private String idCard;
+
+    public String getBgPhone() {
+        return bgPhone;
+    }
+
+    public void setBgPhone(String bgPhone) {
+        this.bgPhone = bgPhone;
+    }
+
+    private String bgPhone;
     private String note;
     private String photo;
     private String contentColor;
@@ -59,7 +89,6 @@ public class Member implements Serializable {
     }
 
 
-
     public void setMenuSelectedColor(String menuSelectedColor) {
         this.menuSelectedColor = menuSelectedColor;
     }
@@ -68,6 +97,7 @@ public class Member implements Serializable {
     public String getBodyColor() {
         return bodyColor;
     }
+
     public void setBodyColor(String bodyColor) {
         this.bodyColor = bodyColor;
     }
@@ -91,7 +121,6 @@ public class Member implements Serializable {
     public void setContentColor(String contentColor) {
         this.contentColor = contentColor;
     }
-
 
 
     public String getHdColor() {
@@ -123,7 +152,6 @@ public class Member implements Serializable {
     private Integer sflag;
     private Integer age;
     private Integer eflag;
-
 
     public Integer getJobid() {
         return jobid;

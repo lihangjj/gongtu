@@ -5,10 +5,31 @@ import java.util.Date;
 import java.util.List;
 
 public class Project implements Serializable {
-    private String name, type, executive;
+    private String name;
+    private String type;
+    private String executive;
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
+
+    private String status;
     private Integer projectid, contractid;
     private Integer cost, dflag;
     private Contract contract;
+    List<Rencai> rencais;
+
+    public List<Rencai> getRencais() {
+        return rencais;
+    }
+
+    public void setRencais(List<Rencai> rencais) {
+        this.rencais = rencais;
+    }
 
     private List<Log> logs;
 

@@ -17,4 +17,11 @@ public interface IRoleDAO extends IDAO<Integer, Role> {
     boolean actionsAddTo(Map<String, Object> map);
 
     boolean actionsRemoveFrom(Map<String, Object> map);
+
+    /**
+     *
+     * @param flag 权限标记，包含了职位名称
+     * @return
+     */
+    String[] getRoleByJobId(String flag);
 }

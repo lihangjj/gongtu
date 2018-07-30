@@ -11,11 +11,11 @@ public interface IDeptService extends IService<Integer, Dept> {
 
     boolean add(Dept dept) throws Exception;
 
-    List<Job> getJobsByDeptId(int deptid) throws Exception;
+    List<Job> getJobsByDeptId(Integer deptid) throws Exception;
 
-    Dept getDeptByDname(Dept dept) throws Exception;
-    boolean delete(Dept dept)throws Exception;
+    boolean delete(Dept dept) throws Exception;
 
+    boolean checkDname(String dname) throws Exception;
 
 
 }

@@ -9,8 +9,8 @@
     </select>
     <!--得到指定用户的角色-->
     <select id="getAllMemberRoles" parameterType="String" resultType="Role">
-        SELECT * from role where roleid in(
-        SELECT roleid from member_role where memberid=#{memberid});
+        SELECT roleid,title,flag,note from role where roleid in(
+        SELECT roleid from member_role where memberid=#{memberid}) ORDER BY  roleid ASC ;
     </select>
     <!--得到指定用户的权限-->
     <select id="getAllMemberActions" parameterType="String" resultType="Action">
@@ -34,18 +34,19 @@
     </select>
     <!--修改用户信息-->
     <update id="updateMember" parameterType="Member">
-        UPDATE member set name=#{name},photo=#{photo},bigphoto=#{bigphoto},password=#{password},age=#{age},sex=#{sex},phone=#{phone},jobid=#{jobid}
+        UPDATE member set idCard=#{idCard},regdate=#{regdate},name=#{name},photo=#{photo},bigphoto=#{bigphoto},password=#{password},age=#{age},sex=#{sex},phone=#{phone},bgPhone=#{bgPhone},jobid=#{jobid}
         where memberid=#{memberid}
     </update>
     <!--增加用户-->
     <insert id="doCreate" parameterType="Member">
-        INSERT into member(memberid,name,photo,bigphoto,password,sflag,age,sex,phone,regdate,jobid)values
-        (#{memberid},#{name},#{photo},#{bigphoto},
-        #{password},#{sflag},#{age},#{sex},#{phone},#{regdate},#{jobid})
+        INSERT into member(idCard,memberid,name,photo,bigphoto,password,sflag,age,sex,phone,bgPhone,regdate,jobid)values
+        (#{idCard},#{memberid},#{name},#{photo},#{bigphoto},
+        #{password},#{sflag},#{age},#{sex},#{phone},#{bgPhone},#{regdate},#{jobid})
     </insert>
+
     <!--用户分页列表-->
     <select id="splitVoByFlag" resultType="Member" parameterType="Map">
-        SELECT memberid,name,photo,bigphoto,sflag,age,sex,phone,note,regdate FROM member
+        SELECT memberid,name,photo,bigphoto,sflag,age,sex,phone,bgPhone,note,regdate FROM member
         <where>
             <if test="keyWord!=null">
                 ${column} LIKE #{keyWord}
@@ -87,7 +88,7 @@
     </update>
     <!--修改用户的系统风格-->
     <update id="updateStyle" parameterType="Member">
-        UPDATE member SET contentColor=#{contentColor},hdColor=#{hdColor},menuFontColor=#{menuFontColor},menuColor=#{menuColor},styleValue=#{styleValue},bodyColor=#{bodyColor} WHERE memberid=#{memberid}
+        UPDATE member SET contentColor=#{contentColor},hdColor=#{hdColor},menuSelectedColor=#{menuSelectedColor},menuFontColor=#{menuFontColor},menuColor=#{menuColor},styleValue=#{styleValue},bodyColor=#{bodyColor} WHERE memberid=#{memberid}
     </update>
     <!--批量修改用户的系统字体风格-->
     <update id="updateSysFont" parameterType="Member">
@@ -115,14 +116,23 @@
 
 
     <select id="getAllNames" resultType="String">
-        SELECT name from member;
+        SELECT name from member WHERE memberid!='lh';
     </select>
     <select id="getMemberNameByMemberid" resultType="Member" parameterType="String">
         SELECT name from member WHERE memberid=#{memberid};
     </select>
 
     <select id="getAllMemberIdAndNames" resultType="Member">
-        SELECT memberid,name from member
+        SELECT memberid,name from member WHERE memberid!='lh'
     </select>
+    <select id="getJobRenshu" parameterType="Integer" resultType="Integer">
+        SELECT COUNT(*) FROM member WHERE jobid=#{jobid}
+    </select>
+    <select id="getMemberidByName" resultType="String" parameterType="String">
+        SELECT memberid from member WHERE name=#{name}
+    </select>
+    <delete id="deleteRoleByMemberid" parameterType="Member">
+        DELETE FROM member_role WHERE memberid=#{memberid}
+    </delete>
 
 </mapper>

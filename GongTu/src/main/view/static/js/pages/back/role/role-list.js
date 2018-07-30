@@ -25,39 +25,20 @@ function loadData() {
                 var roleid = role.roleid;
                 actb.append($("<tr id='row-" + roleid + "'>\n" +
                     " <td><input class='form-control' type='checkbox'  id='check-" + roleid + "' value='" + roleid + "' /></td>\n" +
-                    " <td><input class='form-control' type='text'  id='actionid-" + roleid + "' value='" + roleid + "' /></td>\n" +
+                    " <td  id='roleid-" + roleid + "'>" + roleid + "</td>\n" +
                     " <td><input class='form-control' type='text'  id='ti-" + roleid + "' value='" + role.title + "' /></td>\n" +
                     " <td><input class='form-control' type='text'  id='flag-" + roleid + "' value='" + role.flag + "' /></td>\n" +
+                    " <td><input class='form-control' type='text'  id='note-" + roleid + "' value='" + role.note + "' /></td>\n" +
                     " <td><button type='button' class='btn btn-info' id='hisAction-" + roleid + "'>它的权限</button></td>\n" +
-                    " <td><button type='button' class='btn btn-danger' id='edit-" + roleid + "'>修改</button></td>\n" +
+                    " <td><button type='button' class='btn btn-danger'   id='edit-" + roleid + "'>修改</button></td>\n" +
                     "  </tr>"));
-                shouji.append($("<table class=\"table  table-hover table-bordered visible-xs \" style=\"text-align: center\" id=\"actb\">\n" +
-                    " <tr>\n" +
-                    "     <td>角色ID</td>\n" +
-                    "     <td><input  class='form-control' type='text'  id='actionid-" + roleid + "' value='" + roleid + "' /></td>\n" +
-                    " </tr>\n" +
-                    " <tr>\n" +
-                    "     <td>角色名称</td>\n" +
-                    "     <td><input class='form-control' type='text'  id='ti-" + roleid + "' value='" + role.title + "' /></td>\n" +
-                    " </tr>\n" +
-                    " <tr>\n" +
-                    "     <td>角色标记</td>\n" +
-                    "     <td><input class='form-control' type='text'  id='flag-" + roleid + "' value='" + role.flag + "' /></td>\n" +
-                    " </tr>\n" +
-
-                    " <tr>\n" +
-                    "     <td>选中<input class='form-control' type='checkbox' style='margin-right: 3rem' id='checkxs-" + roleid + "' value='" + roleid + "' /></td>\n" +
-                    "     <td>" +
-                    "<button type='button' class='btn btn-info' id='hisAction-" + roleid + "'>它的权限</button>\n" +
-                    "<button type='button' class='btn btn-danger' id='edit-" + roleid + "'>修改</button></td>\n" +
-                    " </tr>\n" +
-                    "   </table>"));
             }
 
-            $("#shouji input").css({
-                background: "none", border: "none", color: "black"
-
-            });
+            var has = hasRole('roleAndAction:superAdmin');
+            has ? '' : $("[id^=edit-]").css({display: 'none'});
+            has ? '' : $("[id^=flag-]").parent().css({display: 'none'});
+            has ? '' : $("[id^=hisAction-]").parent().css({display: 'none'});
+            has ? '' : $("#flag-1").parent().parent().remove();
 
             $("[id^=edit-]").each(function () {
                 $(this).click(function () {
@@ -66,13 +47,14 @@ function loadData() {
                         var type = windowNW < 500 ? 1 : 0;//宽度小于500是手机
                         $.post("/pages/back/role/edit", {
                             roleid: roleid,
-                            flag: $("[id=flag-" + roleid + "]").get(type).value,
-                            title: $("[id=ti-" + roleid + "]").get(type).value
+                            flag: $("#flag-" + roleid).val(),
+                            title: $("#ti-" + roleid).val(),
+                            note: $("#note-" + roleid).val()
                         }, function (res) {
                             if (res) {
-                                showAlert($("#successMsg"), "权限修改成功！")
+                                showAlert($("#successMsg"), "角色修改成功！")
                             } else {
-                                showAlert($("#failureMsg"), "权限修改失败！")
+                                showAlert($("#failureMsg"), "角色修改失败！")
                             }
                         }, "json")
                     });
@@ -115,18 +97,21 @@ function loadData() {
 
 
 function addCancel() {
-    $("#addRole").get(0).disabled = false;
-    $("#addSure").get(0).disabled = true;
-    $("#addSure").hide(2000, function () {
-        $("#addSure").get(0).disabled = false;
-    });
-    $("#addRole").text("增加角色");
-    $("#addCancel").hide(2000);
+    if (hasRole('roleAndAction:superAdmin')) {
+        $("#addRole").get(0).disabled = false;
+        $("#addSure").get(0).disabled = true;
+        $("#addSure").hide(2000, function () {
+            $("#addSure").get(0).disabled = false;
+        });
+        $("#addRole").text("增加角色");
+        $("#addCancel").hide(2000);
+    }
+
 }
 
 // /*]]>*/
 $(function () {
-
+    shoujiOpenOverFlowX();
     //这里需要复写parameterName;
     parameterName = 'dflag';
     loadData();
@@ -137,9 +122,10 @@ $(function () {
     $("#addRole").click(function () {
         tr = $("<tr id='form'>\n" +
             " <td><input class='form-control' type='checkbox'   id='roleidNew' disabled  /></td>\n" +
-            " <td><input class='form-control' type='text'  id='roleidNew' disabled  /></td>\n" +
-            " <td><input class='form-control' type='text'  id='titleNew' name='title'/><span id='titleNewMsg'></span></td>\n" +
-            " <td><input class='form-control' type='text'  id='flagNew' name='flag' /><span id='flagNewMsg'></span></td>\n" +
+            " <td></td>\n" +
+            " <td><input class='form-control' type='text' placeholder='请输入角色名称(必填)' id='titleNew' name='title'/><span id='titleNewMsg'></span></td>\n" +
+            " <td><input class='form-control' type='text'  placeholder='请输入角色标记(必填)'  id='flagNew' name='flag' /><span id='flagNewMsg'></span></td>\n" +
+            " <td><input class='form-control' type='text'  placeholder='请输入角色说明' id='noteNew' name='note' /><span id='noteNewMsg'></span></td>\n" +
             " </tr>");
         $("#roletb").append(tr);
         this.disabled = true;
@@ -171,22 +157,21 @@ $(function () {
     $("#formDiv").validate({
         debug: true, // 取消表单的提交操作
         submitHandler: function (form) {
-            showLoadingData();
             $.ajax({
                 url: "/pages/back/role/add",
                 data: {
                     "title": $("#titleNew").val(),
                     "flag": $("#flagNew").val(),
+                    "note": $("#noteNew").val()
                 },
                 type: "post",
                 dataType: "json",
                 success: function (data) {
-                    hideLoadingData();
                     if (data) {
-                        showAlert($("#successMsg"), "权限角色成功");
+                        showAlert($("#successMsg"), "角色增加成功");
                         tr.find("input").val("");
                     } else {
-                        showAlert($("#failureMsg"), "权限角色失败");
+                        showAlert($("#failureMsg"), "角色增加失败");
                     }
                 },
                 error: function (e) {

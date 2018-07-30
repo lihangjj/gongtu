@@ -49,6 +49,8 @@ public class MemberController extends AbstractControllerAdapter {
     @RequestMapping("add")
     @RequiresPermissions("member:add")
     String add(Model model, Member member, MultipartFile pic, HttpServletRequest request) {
+
+
         //MD5加密，暂时不加密
 //        member.setPassword(EncryptUtil.getEncPwd(member.getPassword()));
         System.err.println(member.getJobid());
@@ -56,14 +58,16 @@ public class MemberController extends AbstractControllerAdapter {
         String bigphoto = createFileName(pic);
         member.setPhoto(photo);
         member.setBigphoto(bigphoto);
-        member.setRegdate(new Date());
+        if (member.getRegdate() == null) {
+            member.setRegdate(new Date());
+        }
         member.setSflag(1);
         try {
             String title = "用户";
             if (memberServiceBack.addMember(member)) {
                 setMsg("vo.add.success", title, true, model);
                 if (!pic.isEmpty()) {
-                    saveFile(photo, bigphoto, pic, request);
+                    saveFile(photo, bigphoto, 50, pic, request);
                 }
             } else {
                 setMsg("vo.add.failure", title, false, model);
@@ -112,6 +116,7 @@ public class MemberController extends AbstractControllerAdapter {
     @RequestMapping("edit")
 //修改用户
     String edit(Model model, MultipartFile pic, Member member, HttpServletRequest request) {
+        System.err.println(member.getJobid());
         //先加密再说，暂时不加密
 //        member.setPassword(EncryptUtil.getEncPwd(member.getPassword()));
 
@@ -123,28 +128,14 @@ public class MemberController extends AbstractControllerAdapter {
                 return "pages/back/index";
             }
         }
-
-        String title = "用户信息";
-        if ((member.getPassword() == null
-                || "".equals(member.getPassword())//密码为空
-                || oMember.getPassword().equals(member.getPassword()))//密码跟原来设置成一样
-                && pic.isEmpty()//没有上传图片
-                && oMember.getName().equals(member.getName())//名字一样
-                && oMember.getAge().equals(member.getAge())//年龄一样
-                && oMember.getSex().equals(member.getSex())//性别一样
-                && oMember.getPhone().equals(member.getPhone())
-                && oMember.getJobid().equals(member.getJobid())
-                ) {//电话一样
-
-
-            setMsg("vo.edit.success", title, true, model);
-            if (member.getMemberid().equals(request.getSession().getAttribute("memberid"))) {
-                return "pages/back/index";
-            } else {
-                return "redirect:/pages/back/member/list?edit=y";
+        if (!oMember.getJobid().equals(member.getJobid())) {//职位变更了,先删除原来的角色
+            try {
+                memberServiceBack.deleteRoleByMemberid(member);//删除，并且新增该职位的权限
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-
         }
+        String title = "用户信息";
 
         if (member.getPassword() == null || "".equals(member.getPassword())) {//如果没有设置密码
             member.setPassword(oMember.getPassword());//保留原来的密码
@@ -162,7 +153,7 @@ public class MemberController extends AbstractControllerAdapter {
 
             if (memberServiceBack.editMember(member)) {
                 if (!pic.isEmpty()) {//如果改变了照片
-                    saveFile(photo, bigphoto, pic, request);
+                    saveFile(photo, bigphoto, 50, pic, request);
                     deleteFile(oMember.getPhoto(), oMember.getBigphoto(), request);
                 }
 

@@ -1,14 +1,15 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" style="overflow-x:hidden" xmlns:shiro="http://www.pollix.at/thymeleaf/shiro">
+<html xmlns:th="http://www.thymeleaf.org"  xmlns:shiro="http://www.pollix.at/thymeleaf/shiro" style="overflow-x: hidden">
 <head th:include="plugins/include_javascript::js"></head>
 <link type="text/css" rel="stylesheet" th:href="@{/css/pages/back/menu.css}"/>
 <script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
 <style type="text/css">
     #dntb tr td{
         vertical-align: middle;
+        padding: 2px;
     }
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
@@ -39,7 +40,7 @@
                         <td>完成时间</td>
                     </tr>
                 </table>
-                <button id="deleCheked" class="btn btn-danger" style="margin-left: 5rem">删除所选</button>
+                <button id="deleCheked" class="btn btn-danger" style="margin-left: 5rem" shiro:hasRole="member:总经理-副总">删除所选</button>
             </div>
         </div>
         <div th:replace="plugins/splitBar::splitBar">

@@ -8,7 +8,7 @@
         vertical-align: middle;
     }
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
@@ -25,7 +25,7 @@
                             <option value="完结">完结</option>
                             <option value="暂停">暂停</option>
                             <option value="其他">其他</option>
-                            <option value="">所有</option>
+                            <option value="" th:selected="true">所有</option>
                         </select>状态
                         </td>
                         <td>协调</td>
@@ -77,7 +77,7 @@
                 </table>
             </div>
         </div>
-        <button class="btn btn-danger" id="pldele" shiro:hasPermission="log:delete">批量删除</button>
+        <button class="btn btn-danger" id="pldele" shiro:hasRole="project:总经理-副总-财务主管">批量删除</button>
         <div th:replace="plugins/splitBar::splitBar"></div>
     </div>
 </div>

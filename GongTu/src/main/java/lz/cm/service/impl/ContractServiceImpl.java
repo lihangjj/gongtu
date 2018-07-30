@@ -1,10 +1,9 @@
 package lz.cm.service.impl;
 
-import lz.cm.dao.IContractDAO;
-import lz.cm.dao.IPaylogDAO;
-import lz.cm.dao.IProjectDAO;
+import lz.cm.dao.*;
 import lz.cm.service.IContractService;
 import lz.cm.vo.Contract;
+import lz.cm.vo.Message;
 import lz.cm.vo.Project;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,41 +18,70 @@ public class ContractServiceImpl implements IContractService {
     private IProjectDAO projectDAO;
     @Autowired
     private IPaylogDAO paylogDAO;
+    @Autowired
+    private IMessageDAO messageDAO;
+    @Autowired
+    private IMemberDAO memberDAO;
 
     @Override
-    public boolean edit(Contract contract, List<Project> editList, List<Project> addList) throws Exception {
+    public boolean edit(Contract contract, List<Project> addList) throws Exception {
         if (contractDAO.doUpdate(contract)) {//修改基础信息成功
-            int x = 0;
             int y = 0;
-            for (Project p : editList) {//修改原有项目
-                if (projectDAO.doUpdate(p)) {
-                    x++;
-                }
-            }
+            projectDAO.doDeleteProjectByContractId(contract.getContractid()); //删除原来的项目,不管成功与否
             Date date = new Date();
             for (Project p : addList) {//添加新的项目
+                p.setStatus(contract.getStatus());
                 p.setAddDate(date);
                 if (projectDAO.doCreate(p)) {
                     y++;
                 }
             }
-            return x == editList.size() && y == addList.size();
+
+            return y == addList.size();
         }
         return false;
     }
 
     @Override
-    public boolean add(Contract contract, List<Project> allProject) throws Exception {
+    public boolean add(Contract contract, List<Project> allProject, String sender) throws Exception {
         if (contractDAO.doCreate(contract)) {
             Date date = new Date();
             int x = 0;
+            Message message = new Message();
+            message.setTitle("新增项目:"+contract.getCompanyName());
+            message.setTime(date);
+            message.setFlag(1);
+            message.setSender(sender);
+
+            Set<String> allAccepter = new HashSet<>();
+            String note = "";
+
             for (Project p : allProject) {
                 p.setAddDate(date);
                 p.setContractid(contract.getContractid());
+                p.setStatus(contract.getStatus());
                 projectDAO.doCreate(p);
+                allAccepter.add(memberDAO.getMemberidByName(p.getExecutive()));
+                note +="【"+ (x + 1) + ":" + p.getName() + "; 执行人:" + p.getExecutive() + "】";
                 x++;
             }
-            return x == allProject.size();
+            message.setNote(note);
+            messageDAO.doCreate(message);//新建消息
+            messageDAO.updateFlag(String.valueOf(message.getMessageid()));//发送消息
+            Map<String, Object> pMap = new HashMap<>();
+            pMap.put("messageid", message.getMessageid());
+            int y = 0;
+            for (String s : allAccepter) {
+                pMap.put("memberid", s);
+                if (messageDAO.sendTo(pMap)) {
+                    y++;
+                }
+            }
+            if (y == allAccepter.size()) {
+                return x == allProject.size();
+            }
+
+            return false;
         }
 
         return false;
@@ -107,28 +135,33 @@ public class ContractServiceImpl implements IContractService {
     }
 
     @Override
+    public boolean checkCompanyName(String companyName) throws Exception {
+        return contractDAO.checkCompanyName(companyName) == null;
+    }
+
+    @Override
     public Contract getVoById(Integer id) {
         return contractDAO.findById(id, Contract.class);
     }
 
     @Override
     public Map<String, Object> splitVoByFlag(String column, String keyWord, Integer currentPage, Integer lineSize, String parameterName, String parameterValue) throws Exception {
-        String condition;
-        String s = getCondition(parameterName, "=", parameterValue);
-        System.err.println(s);
-        if ("".equals(s)) {
-            condition = " dflag=0";
-        } else {
-            condition = s + " AND dflag=0";
-        }
 
-        Map<String, Object> resMap = contractDAO.splitVoByFlag(Contract.class, column, keyWord, currentPage, lineSize, condition);
+        Map<String, Object> resMap = contractDAO.splitVoByFlag(Contract.class, column, keyWord, currentPage, lineSize, " dflag=0 "+parameterValue);
+        //这个是不分页用于查询全部合同款的
+        Map<String, Object> resMap1 = contractDAO.splitVoByFlag(Contract.class, column, keyWord, null, null, " dflag=0 "+parameterValue);
 
         List<Contract> allContract = (List<Contract>) resMap.get("allVo");
+        List<Contract> allContract1 = (List<Contract>) resMap1.get("allVo");
         Map<String, Object> typeProjectMap = new HashMap<>();
         //付款记录的Map
         Map<Integer, Object> paylogMap = new HashMap<>();
-
+        int allC=0;
+        int alreadyPay=0;
+        for (Contract c : allContract1){
+            allC+=c.getAllCost();
+            alreadyPay+=c.getAlreadyPay();
+        }
         for (Contract c : allContract) {
             paylogMap.put(c.getContractid(), paylogDAO.getAllPaylogsByContractId(c));
             List<Project> allP = projectDAO.getAllProjectByConstractId(c.getContractid());
@@ -167,6 +200,8 @@ public class ContractServiceImpl implements IContractService {
         }
         resMap.put("typeProjectMap", typeProjectMap);
         resMap.put("paylogMap", paylogMap);
+        resMap.put("allC", allC);
+        resMap.put("noPay", allC-alreadyPay);
         return resMap;
     }
 }

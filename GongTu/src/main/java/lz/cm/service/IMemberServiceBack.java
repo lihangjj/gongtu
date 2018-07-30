@@ -23,6 +23,7 @@ public interface IMemberServiceBack extends IService<String, Member> {
 
     Set<String> getAllMemberActionsFlag(String mid) throws Exception;
 
+    @Transactional(propagation = Propagation.REQUIRED)
     boolean editMember(Member member) throws Exception;
 
     @Transactional(propagation = Propagation.REQUIRED)
@@ -37,5 +38,10 @@ public interface IMemberServiceBack extends IService<String, Member> {
     boolean editFontStyle(Member member) throws Exception;
 
     List<String> getAllNames() throws Exception;
+
     List<Member> getAllMemberIdAndNames();
+
+    boolean deleteRoleByMemberid(Member member)throws Exception;
+
+    List<Member> getAllExecutive(String status);
 }

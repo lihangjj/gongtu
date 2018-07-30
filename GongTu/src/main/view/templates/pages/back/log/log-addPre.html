@@ -8,71 +8,8 @@
     }
 </style>
 <script type="text/javascript" th:src="@{/js/pages/back/index.js}"></script>
-<script type="text/javascript ">
-
-    $(function () {
-        $("[name=type]").click(function () {
-            if (this.value == '其他') {
-                $("#projectid").attr("disabled", "")
-            } else {
-                $("#projectid").attr("disabled", false)
-            }
-        });
-        $("#formDiv").validate({
-            debug: true, // 取消表单的提交操作
-            submitHandler: function (form) {
-                $.post("/pages/back/log/add", $(form).serializeArray(), function (res) {
-                    if (res) {
-                        $("#note").val("");
-                        showAlert($("#successMsg"),"日志添加成功！");
-                    } else {
-                        showAlert($("#failureMsg"),"日志添加失败！");
-
-                    }
-                }, "json")
-
-
-            },
-            errorPlacement: function (error, element) {
-                $("#" + $(element).attr("id") + "Msg").append(error);
-            },
-            highlight: function (element, errorClass) {
-                $(element).fadeOut(1, function () {
-                    $(element).fadeIn(1, function () {
-                        $(element).css({
-                            "box-shadow": "0 0 10px rgba(255,0,0,1)"
-                        })
-                    });
-
-                })
-            },
-            unhighlight: function (element, errorClass) {
-                $(element).fadeOut(1, function () {
-                    $(element).fadeIn(1, function () {
-                        $(element).css({
-                            "box-shadow": "0 0 10px rgba(0,255,0,1)"
-                        });
-                    });
-                })
-            },
-            errorClass: "text-danger",
-            messages: {
-                note: "内容不能为空"
-
-            },
-            rules: {
-                note: {
-                    required: true
-                }
-
-            }
-        });
-
-    })
-
-
-</script>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<script type="text/javascript" th:src="@{/js/pages/back/log/log-addPre.js}"></script>
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
@@ -98,14 +35,25 @@
 
                         </div>
                     </div>
+                    <select class="form-control"  id="allSe" style="display: none">
+                        <option th:each="p:${allProject}" th:value="${p.projectid}" th:text="${p.contract.companyName}+'-'+
+                            ${p.name}+'【'+${p.type=='qt'?'其他':p.type=='px'?'培训':p.type=='gk'?'挂靠':p.type=='zz'?'资质':p.type=='dp'?'代评':''}+'】'">
+                        </option>
+                    </select>
+                    <select class="form-control"  id="mySe" style="display: none">
+                        <option th:each="p:${myProject}" th:value="${p.projectid}" th:text="${p.contract.companyName}+'-'+
+                            ${p.name}+'【'+${p.type=='qt'?'其他':p.type=='px'?'培训':p.type=='gk'?'挂靠':p.type=='zz'?'资质':p.type=='dp'?'代评':''}+'】'">
+                        </option>
+                    </select>
+
                     <div class="form-inline form-group ">
                         <label>项目：</label>
                         <select class="form-control" name="projectid" id="projectid">
-                            <option th:each="p:${allProject}" th:value="${p.projectid}" th:text="${p.contract.companyName}+'-'+
+                            <option th:each="p:${myProject}" th:value="${p.projectid}" th:text="${p.contract.companyName}+'-'+
                             ${p.name}+'【'+${p.type=='qt'?'其他':p.type=='px'?'培训':p.type=='gk'?'挂靠':p.type=='zz'?'资质':p.type=='dp'?'代评':''}+'】'">
-                                大师傅大师师傅大师师傅大师师傅大师傅
                             </option>
                         </select>
+
                     </div>
                     <div class="form-inline form-group ">
                         <label>内容：</label>
@@ -115,18 +63,11 @@
                     </div>
                     <div class="form-inline form-group " id="xietiaoDiv">
                         <div style="display: inline-block">
-                            <label>是否需协调：</label>
+                            <label>协调：</label>
                         </div>
-                        <div style="display: inline-block">
-                            <input type="radio" class="form-control" name="coordination"
-                                   value="是" th:checked="true"/>
-                            <div style="text-align: center">是</div>
-                        </div>
-                        <div style="display: inline-block">
-                            <input type="radio" class="form-control" name="coordination"
-                                   value="否"/>
-                            <div style="text-align: center">否</div>
-                        </div>
+                        <textarea style="min-width: 30rem;height: 18rem" class="form-control" id="coordination" name="coordination"
+                                  placeholder="不需要协调则不填写"></textarea>
+
                     </div>
                     <div class="form-inline form-group ">
                         <button type="submit" class="btn btn-success">确认添加</button>

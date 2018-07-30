@@ -26,10 +26,7 @@ public class PaylogServiceImpl implements IPaylogService {
     @Override
     public boolean add(Paylog paylog) throws Exception {
         if (paylogDAO.doCreate(paylog)) {
-            Contract contract = contractDAO.getAlreadyPay(paylog.getContractid());
-            contract.setAlreadyPay(contract.getAlreadyPay() + paylog.getCost());
-            contract.setContractid(paylog.getContractid());
-            return contractDAO.updateAlreadyPay(contract);
+            return contractDAO.updateAlreadyPay(paylog.getContractid());
         }
         return false;
     }
@@ -37,6 +34,15 @@ public class PaylogServiceImpl implements IPaylogService {
     @Override
     public List<Paylog> getAllPaylogsByContractId(Contract contract) throws Exception {
         return paylogDAO.getAllPaylogsByContractId(contract);
+    }
+
+    @Override
+    public boolean delete(Paylog paylog) {
+        paylog = paylogDAO.findXxByConditions("cost,paylogid,contractid", "paylogid='" + paylog.getPaylogid() + "'", Paylog.class);
+        Contract contract = contractDAO.findXxByConditions("contractid,alreadyPay", "contractid='" + paylog.getContractid() + "'", Contract.class);
+        contract.setAlreadyPay(contract.getAlreadyPay()-paylog.getCost());
+        contractDAO.updateXxClomuns("alreadyPay",contract);
+        return paylogDAO.deleteObj(paylog);
     }
 
     @Override

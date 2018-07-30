@@ -24,8 +24,7 @@ import java.util.List;
 @Controller
 @RequestMapping("/pages/back/finance")
 public class FinancController extends AbstractControllerAdapter {
-    @Autowired
-    private ICostService costService;
+
 
     @InitBinder
     public void initBinder(WebDataBinder binder) {
@@ -36,11 +35,16 @@ public class FinancController extends AbstractControllerAdapter {
     private IAccountService accountService;
     @Autowired
     private IPaylogService paylogService;
+    @Autowired
+    private ICostService costService;
 
     @ResponseBody
-    @RequestMapping("delete")
-    boolean delete(Job job) {
+    @RequestMapping("plDeleteCost")
+    boolean plDeleteCost(HttpServletRequest request) {
         try {
+            String[] ids = request.getParameter("str").split("-");
+            return costService.plDeleteCost(ids);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -50,7 +54,19 @@ public class FinancController extends AbstractControllerAdapter {
     @RequestMapping("accountList")
     String accountList(HttpServletRequest request, Model model) {
         model.addAllAttributes(handSplit(request, accountService));
+        model.addAttribute("allCountMoney", accountService.getAllCountMoney());
         return "pages/back/finance/account-list";
+    }
+
+    @ResponseBody
+    @RequestMapping("editYue")
+    boolean editYue(Account account) throws Exception {
+        try {
+            return accountService.editYue(account);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return false;
     }
 
     @ResponseBody
@@ -75,8 +91,9 @@ public class FinancController extends AbstractControllerAdapter {
     @RequestMapping("addAccount")
     @ResponseBody
     boolean add(Account account) {
-        System.err.println(account);
         try {
+            account.setQichuYue(0.0);
+            account.setYue(0.0);
             return accountService.add(account);
         } catch (Exception e) {
             e.printStackTrace();
@@ -87,7 +104,6 @@ public class FinancController extends AbstractControllerAdapter {
     @RequestMapping("checkAccount")
     @ResponseBody
     boolean checkAccount(Account account) {
-        System.err.println(account);
         try {
             return accountService.getVoById(account.getAccountid()) == null;
         } catch (Exception e) {
@@ -99,7 +115,6 @@ public class FinancController extends AbstractControllerAdapter {
     @RequestMapping("addApylog")
     @ResponseBody
     boolean addApyLog(Paylog paylog) {
-        System.err.println(paylog);
         try {
             return paylogService.add(paylog);
         } catch (Exception e) {
@@ -128,7 +143,6 @@ public class FinancController extends AbstractControllerAdapter {
 
     @RequestMapping("costAdd")
     String costAdd(Cost cost, Model model) {
-        System.err.println(cost);
 
 
         if (cost.getFangzu() == null || "".equals(cost.getFangzu())) {
@@ -220,7 +234,7 @@ public class FinancController extends AbstractControllerAdapter {
     @RequestMapping("costList")
     String costList(HttpServletRequest request, Model model) throws Exception {
 
-        setColumnMap(request,"总计:heji|房租:fangzu|水费:shui|电费:dian|汽车:qiche|餐饮:canyin|办公耗材:haocai|办公设备:shebei|网络推广:tuiguang");
+        setColumnMap(request, "总计:heji|房租:fangzu|水费:shui|电费:dian|汽车:qiche|餐饮:canyin|办公耗材:haocai|办公设备:shebei|网络推广:tuiguang");
         return "pages/back/finance/cost-list";
     }
 
@@ -235,6 +249,16 @@ public class FinancController extends AbstractControllerAdapter {
             e.printStackTrace();
         }
         return false;
+    }
+    @RequestMapping("deletePaylog")
+    @ResponseBody
+    boolean deletePaylog(Paylog paylog){
+
+        return  paylogService.delete(paylog);
+
+
+
+
     }
 
 

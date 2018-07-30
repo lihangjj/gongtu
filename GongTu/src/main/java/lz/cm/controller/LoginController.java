@@ -1,5 +1,11 @@
 package lz.cm.controller;
 
+import com.alibaba.fastjson.JSON;
+import com.alibaba.fastjson.JSONArray;
+import com.alibaba.fastjson.JSONObject;
+import com.squareup.okhttp.OkHttpClient;
+import com.squareup.okhttp.Request;
+import com.squareup.okhttp.Response;
 import lz.cm.service.IMemberServiceBack;
 import lz.cm.vo.Member;
 import lz.util.cookie.CookieUtil;
@@ -11,9 +17,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.IOException;
 import java.util.Iterator;
 import java.util.Map;
 
@@ -106,7 +114,30 @@ public class LoginController extends AbstractController {
         }
         return "pages/back/index";
     }
+    @RequestMapping("/getBiYingImg")
+    @ResponseBody
+    String getBiYingImg() {
+        int x= (int) (Math.random()*7);
+        String url = "http://cn.bing.com/HPImageArchive.aspx?format=js&idx="+x+"&n=1";
+        try {
+            OkHttpClient client = new OkHttpClient();
+            Request request = new Request.Builder().url(url).build();
+            Response response = client.newCall(request).execute();
 
+            String content = response.body().string();
+            JSONObject jsonObject = JSON.parseObject(content);
+            JSONArray jsonArray = jsonObject.getJSONArray("images");
+            JSONObject jsonObject1 = (JSONObject) jsonArray.get(0);
+            String imgUrl = (String) jsonObject1.get("url");
+            return "https://cn.bing.com"+ imgUrl;
+            //response.body().string() 不容许同时出现两次
+            //   System.out.println(response.body().string() + "-------------" + "okhtpp");
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
     //去首页
     @RequestMapping("/")
     String index() {
@@ -116,7 +147,6 @@ public class LoginController extends AbstractController {
     //去登录页
     @RequestMapping("/loginPage")
     String loginUrl(HttpServletRequest request, Model model) {
-        System.err.println(getSession().getId());
         Map<String, String> pwdMap = CookieUtil.load(request);
         Iterator<Map.Entry<String, String>> iterable = pwdMap.entrySet().iterator();
         while (iterable.hasNext()) {

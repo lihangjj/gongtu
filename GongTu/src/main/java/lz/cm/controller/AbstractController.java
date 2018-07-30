@@ -1,6 +1,7 @@
 package lz.cm.controller;
 
 
+import lz.cm.vo.Role;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.session.Session;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,11 +13,9 @@ import org.springframework.web.bind.annotation.InitBinder;
 
 import javax.servlet.http.HttpServletRequest;
 import java.lang.reflect.Method;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.LinkedHashMap;
-import java.util.Locale;
-import java.util.Map;
+import java.util.*;
 
 public abstract class AbstractController {
 
@@ -136,11 +135,46 @@ public abstract class AbstractController {
         return (String) getSession().getAttribute("name");
     }
 
+    //没有时间则返回当前时间
+    protected Date getDetailDate(String timeValue) {
+        if (timeValue == null || "".equals(timeValue)) {
+            return new Date();
+        } else {
+            try {
+                return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").parse(timeValue);
+            } catch (ParseException e) {
+                return new Date();
+            }
+        }
+    }
+
     /**
      * 分页的跳转路径
      *
      * @return
      */
     protected abstract String setUrl();
+
+    protected boolean hasRole(String flag) {
+        List<Role> allRoles = (List<Role>) getSession().getAttribute("allRoles");
+        for (Role r : allRoles) {
+            if (r.getFlag().equals(flag)) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    protected boolean hasAnyRoles(String[] flags) {
+        List<Role> allRoles = (List<Role>) getSession().getAttribute("allRoles");
+        for (Role r : allRoles) {
+            for (String s : flags) {
+                if (r.getFlag().equals(s)) {
+                    return true;
+                }
+            }
+        }
+        return false;
+    }
 
 }

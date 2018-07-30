@@ -13,4 +13,8 @@
         UPDATE log SET dflag=1 WHERE logid IN
         <foreach collection="ids" item="item" separator="," open="(" close=")">#{item}</foreach>
     </update>
+    <delete id="plDeleteCost" parameterType="Map">
+        UPDATE  cost SET dflag=1 WHERE costid in
+        <foreach collection="ids" item="item" separator="," open="(" close=")">#{item}</foreach>
+    </delete>
 </mapper>

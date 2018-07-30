@@ -1,10 +1,200 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4065f4bf-0756-4967-baa4-3f281c06620c" name="Default" comment="" />
-    <ignored path="$PROJECT_DIR$/../GongT/out/" />
-    <ignored path="$PROJECT_DIR$/../GongT/target/" />
-    <ignored path="$PROJECT_DIR$/../GongT/GongTu/target/" />
+    <list default="true" id="4065f4bf-0756-4967-baa4-3f281c06620c" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/images/lz/point.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/upload/rencai/nophoto.png" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/GongTu_war.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/artifacts/GongTu_war_exploded.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_alibaba_fastjson_1_2_47.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okhttp_okhttp_2_7_5.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_squareup_okio_okio_1_6_0.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/sqldialects.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/rencai/RencaiController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/shoupay/ShoupayController.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IRcpaylogDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IRencaiDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IShoupayDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/ISydwDAO.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IRcpaylogService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IRencaiService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IShoupayService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/ISydwService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/RcpaylogServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/RencaiServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ShoupayServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/SydwServiceImpl.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Rcpaylog.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Rencai.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Shoupay.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Sydw.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Rencai.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/dept/dept-addPre.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/job/job-addPre.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/log/log-addPre.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/member/member-editPre.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/member/member_addPre.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/rencai/rencai-addPre.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/rencai/rencai-editPre.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/rencai/rencai-list.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/shoupay/shoupay-list.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/project/project-huizong.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/rencai/rencai-addPre.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/rencai/rencai-editPre.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/rencai/rencai-list.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/rencai/show-hetong.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/shoupay/shoupay-addPre.html" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/shoupay/shoupay-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_2.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_annotation_javax_annotation_api_1_2.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_servlet_javax_servlet_api_3_1_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__javax_websocket_javax_websocket_api_1_0.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__javax_websocket_javax_websocket_api_1_0.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_annotations_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_annotations_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_client_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_client_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_continuation_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_continuation_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_http_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_http_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_io_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_plus_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_plus_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_security_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_security_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_server_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_server_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_servlet_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_servlet_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_servlets_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_servlets_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_util_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_webapp_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_webapp_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_xml_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_jetty_xml_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_javax_websocket_client_impl_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_javax_websocket_client_impl_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_javax_websocket_server_impl_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_javax_websocket_server_impl_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_api_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_api_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_client_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_client_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_common_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_common_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_server_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_server_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_servlet_9_4_7_v20170914.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_eclipse_jetty_websocket_websocket_servlet_9_4_7_v20170914.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jasper_apache_el_8_0_33.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_mortbay_jasper_apache_el_8_0_33.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_5_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_commons_5_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_commons_5_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_tree_5_1.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_ow2_asm_asm_tree_5_1.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jetty_1_5_9_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_jetty_1_5_9_RELEASE.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/GongTu.iml" afterPath="$PROJECT_DIR$/GongTu/GongTu.iml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/pom.xml" afterPath="$PROJECT_DIR$/GongTu/pom.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/AbstractController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/AbstractController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/AbstractControllerAdapter.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/AbstractControllerAdapter.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/GlobalExceptionHandler.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/GlobalExceptionHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/LoginController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/LoginController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/action/ActionController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/action/ActionController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/contract/ContractController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/contract/ContractController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/dept/DeptController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/dept/DeptController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/finance/FinancController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/finance/FinancController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/log/LogController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/log/LogController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/member/MemberController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/member/MemberController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/message/MessageController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/message/MessageController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/project/ProjectController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/project/ProjectController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/role/RoleController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/role/RoleController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/system/SystemSetController.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/system/SystemSetController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IAccountDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IAccountDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IContractDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IContractDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/ICostDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/ICostDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IDeptDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IDeptDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IMemberDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IMemberDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IMessageDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IMessageDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IProjectDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IProjectDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IRoleDAO.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IRoleDAO.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IAccountService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IAccountService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IContractService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IContractService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/ICostService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/ICostService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IDeptService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IDeptService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/ILogService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/ILogService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IMemberServiceBack.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IMemberServiceBack.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IMessageService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IMessageService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IPaylogService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IPaylogService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IProjectService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IProjectService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IService.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/AccountServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/AccountServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ActionServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ActionServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ContractServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ContractServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/CostServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/CostServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/DeptServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/DeptServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/JobServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/JobServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/LogServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/LogServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/MemberServiceBackImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/MemberServiceBackImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/MessageServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/MessageServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/PaylogServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/PaylogServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ProjectServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ProjectServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/RoleServiceImpl.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/RoleServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Account.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Account.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Contract.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Contract.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Dept.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Dept.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Job.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Job.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Member.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Member.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Project.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Project.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Role.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Role.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/realm/MemberRealm.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/realm/MemberRealm.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/test/Test.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/test/Test.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/java/lz/util/str/StrUtil.java" afterPath="$PROJECT_DIR$/GongTu/src/main/java/lz/util/str/StrUtil.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/application.properties" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/application.properties" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Account.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Account.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Contract.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Contract.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Cost.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Cost.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Dept.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Dept.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Job.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Job.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Log.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Log.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Member.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Member.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Message.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Message.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Project.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Project.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Role.xml" afterPath="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Role.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/css/pages/back/menu.css" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/css/pages/back/menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/jquery/validate/Message_zh_CN.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/jquery/validate/Message_zh_CN.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/lz.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/lz.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-addPre.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-addPre.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-clist.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-clist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-editPre.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-editPre.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-list.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/finance/account-list.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/finance/account-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/index.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/log/log-list.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/log/log-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/member/member_list.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/member/member_list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/message/message-list.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/message/message-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/message/message-mlist.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/message/message-mlist.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/project/project-list.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/project/project-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/role/role-list.js" afterPath="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/role/role-list.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/login_Page.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/login_Page.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/action/action-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/action/action-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/client/client-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/client/client-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-addPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-addPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-clist.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-clist.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-editPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-editPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/dept/dept-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/dept/dept-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/dept/dept_addPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/dept/dept_addPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/finance/account-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/finance/account-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/finance/cost-addPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/finance/cost-addPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/finance/cost-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/finance/cost-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/index.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/job/job-addPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/job/job-addPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/job/job-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/job/job-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/log/log-addPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/log/log-addPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/log/log-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/log/log-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/member/member_addPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/member/member_addPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/member/member_editPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/member/member_editPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/member/member_list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/member/member_list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/message/message-addPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/message/message-addPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/message/message-editPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/message/message-editPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/message/message-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/message/message-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/message/message-mlist.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/message/message-mlist.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/project/project-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/project/project-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/role/role-list.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/role/role-list.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/system/setFontPre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/system/setFontPre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/system/setStylePre.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/system/setStylePre.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/head_menu.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/head_menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/include_javascript.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/include_javascript.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/search.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/search.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/splitBar.html" afterPath="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/splitBar.html" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/GongTu/src/main/gongtu.sql" afterPath="$PROJECT_DIR$/GongTu/src/gongtu.sql" />
+    </list>
+    <ignored path="$PROJECT_DIR$/out/" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <ignored path="$PROJECT_DIR$/GongTu/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -14,6 +204,11 @@
   </component>
   <component name="CodeInsightWorkspaceSettings">
     <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CoverageDataManager">
+    <SUITE FILE_PATH="coverage/GongT$SpringBootStartMain.coverage" NAME="SpringBootStartMain Coverage Results" MODIFIED="1519889319718" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>lz.*</FILTER>
+    </SUITE>
   </component>
   <component name="DatabaseView">
     <option name="SHOW_INTERMEDIATE" value="true" />
@@ -31,122 +226,122 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MessageController.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/message/MessageController.java">
+      <file leaf-file-name="shoupay-list.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/shoupay/shoupay-list.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="326">
-              <caret line="180" column="38" lean-forward="true" selection-start-line="180" selection-start-column="38" selection-end-line="180" selection-end-column="38" />
+            <state relative-caret-position="5016">
+              <caret line="264" column="0" lean-forward="false" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
               <folding>
-                <element signature="method#addAndSend#0;class#MessageController#0" expanded="false" />
-                <element signature="e#1940#1970#0" expanded="false" />
-                <element signature="method#editAndSend#0;class#MessageController#0" expanded="false" />
-                <element signature="method#edit#0;class#MessageController#0" expanded="false" />
+                <marker date="1532683176536" expanded="true" signature="260:270" ph="{...}" />
+                <marker date="1532683176536" expanded="true" signature="13803:13874" ph="..." />
+                <marker date="1532683176536" expanded="true" signature="13803:13881" ph="..." />
+                <marker date="1532683176536" expanded="true" signature="13803:13889" ph="..." />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IDAO.java">
+      <file leaf-file-name="shoupay-list.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/shoupay/shoupay-list.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="message-list.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-list.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1178">
-              <caret line="71" column="61" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="61" />
+            <state relative-caret-position="2926">
+              <caret line="154" column="29" lean-forward="false" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
               <folding>
-                <marker date="1519596867610" expanded="true" signature="863:874" ph="..." />
-                <marker date="1519596867610" expanded="true" signature="892:909" ph="..." />
-                <marker date="1519596867610" expanded="true" signature="1124:1131" ph="..." />
+                <marker date="1532682023327" expanded="true" signature="632:1303" ph="{...}" />
+                <marker date="1532682023327" expanded="true" signature="1110:1303" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="message-list.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-list.html">
+      <file leaf-file-name="AccountServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/AccountServiceImpl.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="250">
-              <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IMessageService.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IMessageService.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-19">
-              <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MessageServiceImpl.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/MessageServiceImpl.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="254">
-              <caret line="79" column="41" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AopUtils.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.3.13.RELEASE/spring-aop-4.3.13.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
-              <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="JdkDynamicAopProxy.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.3.13.RELEASE/spring-aop-4.3.13.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="160">
-              <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Message.xml" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Message.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="345">
-              <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+            <state relative-caret-position="798">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
               <folding>
-                <marker date="1519597204471" expanded="true" signature="281:378" ph="INSERT INTO message... " />
-                <marker date="1519597204471" expanded="true" signature="427:515" ph="INSERT INTO member_message... " />
-                <marker date="1519597204471" expanded="true" signature="591:646" ph="UPDATE messa... " />
-                <marker date="1519597204471" expanded="true" signature="721:810" ph="UPDATE log S... " />
-                <marker date="1519597204471" expanded="true" signature="881:919" ph="DELETE FROM " />
-                <marker date="1519597204471" expanded="true" signature="881:1006" ph="DELETE FROM " />
-                <marker date="1519597204471" expanded="true" signature="1089:1221" ph="UPDATE log S... " />
-                <marker date="1519597204471" expanded="true" signature="1322:1409" ph="SELECT statu... member_message" />
-                <marker date="1519597204471" expanded="true" signature="1481:1551" ph="DELETE FROM " />
-                <marker date="1519597204471" expanded="true" signature="1481:1638" ph="DELETE FROM " />
+                <marker date="1532586666564" expanded="false" signature="1236:1242" ph=" }" />
+                <marker date="1532586666564" expanded="false" signature="1297:1308" ph=" { " />
+                <marker date="1532586666564" expanded="false" signature="1354:1360" ph=" }" />
+                <marker date="1532586666564" expanded="true" signature="1553:1706" ph="{...}" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="IMessageDAO.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IMessageDAO.java">
+      <file leaf-file-name="ShoupayController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/shoupay/ShoupayController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
+            <state relative-caret-position="855">
+              <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+              <folding>
+                <marker date="1532681178913" expanded="true" signature="2222:2228" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IShoupayService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IShoupayService.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="152">
+              <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShoupayServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ShoupayServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2204">
+              <caret line="122" column="35" lean-forward="false" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
+              <folding>
+                <marker date="1532683369793" expanded="true" signature="5479:5513" ph="{...}" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ProjectController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/project/ProjectController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="817">
+              <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IMemberServiceBack.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IMemberServiceBack.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="741">
+              <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MemberServiceBackImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/MemberServiceBackImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3059">
+              <caret line="177" column="0" lean-forward="false" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="project-huizong.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/project/project-huizong.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="808">
+              <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+              <folding>
+                <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -157,43 +352,43 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Interface" />
-        <option value="Class" />
         <option value="JavaScript File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>-sm-</find>
-      <find>-md-</find>
-      <find>col-xs-12</find>
-      <find>&quot;box-shadow&quot;: &quot;0 0 10px rgba(0,255,0,0.5)&quot;</find>
-      <find>rgba(0,255,0,0.5)</find>
-      <find>hidden</find>
-      <find>addValidateDateTime</find>
-      <find>Double</find>
-      <find>parseFloat</find>
-      <find>form-control number</find>
-      <find>-sm-form-control</find>
-      <find>删除</find>
-      <find>line</find>
-      <find />
-      <find>[8,</find>
-      <find>[8,35]</find>
-      <find>id=&quot;type&quot;</find>
-      <find>s = getCondition</find>
-      <find>getAllProjectByConstractId</find>
-      <find>type</find>
-      <find>contentDiv</find>
-      <find>content</find>
-      <find>dropd</find>
-      <find>border-top</find>
-      <find>arraysp</find>
-      <find>yy</find>
+      <find>new String[]{&quot;project:总</find>
+      <find>new String[]{&quot;</find>
+      <find>system</find>
+      <find>system.e</find>
+      <find>plDeleteProjectByContractId</find>
+      <find>dele</find>
+      <find>getSydw</find>
+      <find>updateStyle</find>
+      <find>pay</find>
+      <find>re</find>
+      <find>getRencaiAlreadyPay</find>
+      <find>updateAlreadyPay</find>
+      <find>editAlreadyPay</find>
+      <find>allSe</find>
       <find>add</find>
-      <find>my</find>
-      <find>useGeneratedKeys</find>
-      <find>@Transactional</find>
+      <find>projectid</find>
+      <find>Contrac</find>
+      <find>validateDiv</find>
+      <find>getAllNames</find>
+      <find>shouji</find>
+      <find>daom</find>
+      <find>allre</find>
+      <find>inser</find>
+      <find>i</find>
+      <find>insert</find>
+      <find>Shoupay</find>
+      <find>has</find>
+      <find>z-</find>
+      <find>paylog</find>
+      <find>huiz</find>
     </findStrings>
     <replaceStrings>
       <replace />
@@ -206,11 +401,26 @@
       <replace>form-control digits</replace>
       <replace>-</replace>
       <replace>+</replace>
+      <replace>'</replace>
       <replace>form-control</replace>
+      <replace>style=&quot;margin-left: 1rem&quot;</replace>
+      <replace>style=&quot;visibility: hidden&quot; id=&quot;body&quot;</replace>
+      <replace>width: '330px'</replace>
+      <replace>width: '250</replace>
+      <replace>h4 style=&quot;color: #00a2e9&quot;</replace>
+      <replace>idth: '300p</replace>
+      <replace>.</replace>
+      <replace>margin-left: 1rem</replace>
+      <replace>tyle=&quot;width: 2.2rem</replace>
+      <replace>施工类工程师</replace>
+      <replace>z</replace>
     </replaceStrings>
+    <dirStrings>
+      <dir>P:\GongT</dir>
+    </dirStrings>
   </component>
   <component name="Git.Settings">
-    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/../GongT" />
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GradleLocalSettings">
     <option name="externalProjectsViewState">
@@ -220,57 +430,57 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/log/log-list.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Account.xml" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IAccountDAO.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IAccountService.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/AccountServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/LogServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/system/setStylePre.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/i18n/Color.properties" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Member.xml" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/MemberServiceBackImpl.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/system/SystemSetController.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/finance/account-list.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/contract/contract-clist.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/contract/contract-clist.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/lz.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/account-list.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/ICosttDAO.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Cost.xml" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/finance/cost-addPre.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/ICostDAO.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/ICostService.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/util/MathUtil.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/test/Test.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/cost-addPre.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/vo/Cost.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/CostServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/cost-list.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/finance/cost-list.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/finance/FinancController.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IMessageServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-addPre.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/interceptor_error.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/unAuthPage.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/GlobalExceptionHandler.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-addPre.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-editPre.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-editPre.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-mlist.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-mlist.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/index.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/plugins/head_menu.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IService.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/AbstractController.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/vo/Message.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-list.html" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-list.js" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IMessageDAO.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/MessageServiceImpl.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/message/MessageController.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IMessageService.java" />
-        <option value="$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Message.xml" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/LoginController.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/log/LogController.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Project.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IProjectService.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ProjectServiceImpl.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IProjectDAO.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Project.xml" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/log/log-list.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/log/log-list.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/LogServiceImpl.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/project/project-list.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Member.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Contract.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IMemberServiceBack.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/project/ProjectController.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/AbstractController.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IAccountDAO.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Account.xml" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IAccountService.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/ShoupayDAO.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IShoupayDAO.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/member/member_addPre.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/search.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Shoupay.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/shoupay/shoupay-addPre.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/splitBar.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-list.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-list.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/role/role-list.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/action/action-list.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/action/action-list.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Account.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/AccountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/finance/account-list.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ContractServiceImpl.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/head_menu.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-clist.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/lz.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IPaylogService.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IDAO.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/PaylogServiceImpl.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-clist.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/finance/account-list.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/finance/FinancController.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IShoupayService.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/shoupay/ShoupayController.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/shoupay/shoupay-list.js" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/shoupay/shoupay-list.html" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ShoupayServiceImpl.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/MemberServiceBackImpl.java" />
+        <option value="$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/project/project-huizong.html" />
       </list>
     </option>
   </component>
@@ -304,8 +514,8 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="432" />
-    <option name="y" value="42" />
+    <option name="x" value="300" />
+    <option name="y" value="216" />
     <option name="width" value="3122" />
     <option name="height" value="1972" />
   </component>
@@ -327,8 +537,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
-      <pane id="Scratches" />
       <pane id="AndroidView" />
       <pane id="Scope" />
       <pane id="ProjectPane">
@@ -381,16 +589,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="java" type="462c0819:PsiDirectoryNode" />
               <item name="lz" type="462c0819:PsiDirectoryNode" />
-              <item name="cfg" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lz" type="462c0819:PsiDirectoryNode" />
               <item name="cm" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -441,7 +639,7 @@
               <item name="controller" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="back" type="462c0819:PsiDirectoryNode" />
-              <item name="job" type="462c0819:PsiDirectoryNode" />
+              <item name="log" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
@@ -471,29 +669,6 @@
               <item name="GongTu" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lz" type="462c0819:PsiDirectoryNode" />
-              <item name="cm" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-              <item name="impl" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="lz" type="462c0819:PsiDirectoryNode" />
-              <item name="cm" type="462c0819:PsiDirectoryNode" />
-              <item name="vo" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="resouces" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -502,34 +677,6 @@
               <item name="GongTu" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resouces" type="462c0819:PsiDirectoryNode" />
-              <item name="i18n" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resouces" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="resouces" type="462c0819:PsiDirectoryNode" />
-              <item name="mybatis" type="462c0819:PsiDirectoryNode" />
-              <item name="mapper" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -540,70 +687,6 @@
               <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="view" type="462c0819:PsiDirectoryNode" />
               <item name="static" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="colorPicker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="css" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="dateTimePicker" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="bootstrap" type="462c0819:PsiDirectoryNode" />
-              <item name="js" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="static" type="462c0819:PsiDirectoryNode" />
-              <item name="images" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
@@ -649,7 +732,7 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="back" type="462c0819:PsiDirectoryNode" />
-              <item name="log" type="462c0819:PsiDirectoryNode" />
+              <item name="client" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
@@ -662,7 +745,7 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="back" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
+              <item name="member" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
@@ -675,7 +758,28 @@
               <item name="js" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="back" type="462c0819:PsiDirectoryNode" />
-              <item name="project" type="462c0819:PsiDirectoryNode" />
+              <item name="role" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GongT" type="462c0819:PsiDirectoryNode" />
+              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
+              <item name="GongT" type="462c0819:PsiDirectoryNode" />
+              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="view" type="462c0819:PsiDirectoryNode" />
+              <item name="static" type="462c0819:PsiDirectoryNode" />
+              <item name="upload" type="462c0819:PsiDirectoryNode" />
+              <item name="member" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
@@ -706,42 +810,6 @@
               <item name="templates" type="462c0819:PsiDirectoryNode" />
               <item name="pages" type="462c0819:PsiDirectoryNode" />
               <item name="back" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="back" type="462c0819:PsiDirectoryNode" />
-              <item name="finance" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="back" type="462c0819:PsiDirectoryNode" />
-              <item name="message" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
-              <item name="GongT" type="462c0819:PsiDirectoryNode" />
-              <item name="GongTu" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="view" type="462c0819:PsiDirectoryNode" />
-              <item name="templates" type="462c0819:PsiDirectoryNode" />
-              <item name="pages" type="462c0819:PsiDirectoryNode" />
-              <item name="back" type="462c0819:PsiDirectoryNode" />
-              <item name="system" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="GongT" type="b2602c69:ProjectViewProjectNode" />
@@ -763,6 +831,8 @@
           <select />
         </subPane>
       </pane>
+      <pane id="PackagesPane" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -779,27 +849,32 @@
     <property name="RequestMappingsPanelWidth2" value="75" />
     <property name="RequestMappingsPanelOrder2" value="2" />
     <property name="restartRequiresConfirmation" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../GongT" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;jrt://C:/Program Files/Java/jdk-9!/jdk.javadoc/com/sun/tools/doclets/internal/toolkit/resources/jquery/jquery-1.10.2.js" />
+    <property name="extract.method.default.visibility" value="private" />
   </component>
   <component name="RecentsManager">
     <key name="CreateClassDialog.RecentsKey">
-      <recent name="lz.cm.service" />
       <recent name="lz.cm.service.impl" />
-    </key>
-    <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="lz.cm.controller.pages.back.message" />
       <recent name="lz.cm.service" />
-      <recent name="lz.cm.dao" />
-      <recent name="lz.cm.vo" />
-      <recent name="lz.cm.controller.pages.back.log" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="P:\GongT\GongTu\src\main\view\static\js\pages\back\message" />
-      <recent name="P:\GongT\GongTu\src\main\view\templates\pages\back\message" />
-      <recent name="P:\GongT\GongTu\src\main\resouces\mybatis\mapper" />
-      <recent name="P:\GongT\GongTu\src\main\view\static\js\pages\back\finance" />
-      <recent name="P:\GongT\GongTu\src\main\view\templates\pages\back\finance" />
+      <recent name="G:\共图oa办公系统\GongT\GongTu\src\main\view\templates\plugins" />
+      <recent name="G:\共图oa办公系统\GongT\GongTu\src\main\view\static\js\pages\back\shoupay" />
+      <recent name="G:\共图oa办公系统\GongT\GongTu\src\main\view\templates\pages\back\shoupay" />
+      <recent name="G:\共图oa办公系统\GongT\GongTu\src\main\view\templates\pages\back\project" />
+      <recent name="P:\共图oa办公系统\GongT\GongTu\src\main\view\static\images\lz" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="lz.cm.service" />
+      <recent name="lz.cm.vo" />
+      <recent name="lz.cm.dao" />
+      <recent name="lz.cm.controller.pages.back.shoupay" />
+      <recent name="lz.cm.controller.pages.back.rencai" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="P:\GongT\GongTu\src\main\view\static\js\pages\back\log" />
+      <recent name="P:\GongT\GongTu\src\main\view\static\js\pages\back\job" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -836,7 +911,7 @@
       <option name="MAIN_CLASS_NAME" value="lz.test.Test" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../GongT" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -857,7 +932,7 @@
       <option name="MAIN_CLASS_NAME" />
       <option name="VM_PARAMETERS" />
       <option name="PROGRAM_PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../GongT" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
       <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
       <option name="ALTERNATIVE_JRE_PATH" />
       <option name="ENABLE_SWING_INSPECTOR" value="false" />
@@ -962,7 +1037,97 @@
       <workItem from="1519209636915" duration="37863000" />
       <workItem from="1519266691716" duration="1851000" />
       <workItem from="1519479847820" duration="33951000" />
-      <workItem from="1519536318730" duration="46735000" />
+      <workItem from="1519536318730" duration="48023000" />
+      <workItem from="1519662144201" duration="9426000" />
+      <workItem from="1519706800156" duration="48582000" />
+      <workItem from="1519805938568" duration="39461000" />
+      <workItem from="1519878437348" duration="2000" />
+      <workItem from="1519878473956" duration="40360000" />
+      <workItem from="1519970874967" duration="28274000" />
+      <workItem from="1520082711750" duration="27641000" />
+      <workItem from="1520141545019" duration="3182000" />
+      <workItem from="1520148957067" duration="4538000" />
+      <workItem from="1520228685107" duration="5778000" />
+      <workItem from="1520250658810" duration="19865000" />
+      <workItem from="1520295841404" duration="44449000" />
+      <workItem from="1520428720688" duration="9678000" />
+      <workItem from="1520439113483" duration="96000" />
+      <workItem from="1520467271886" duration="16239000" />
+      <workItem from="1520496652629" duration="163000" />
+      <workItem from="1520496836495" duration="140000" />
+      <workItem from="1520497222170" duration="3274000" />
+      <workItem from="1520512990798" duration="8939000" />
+      <workItem from="1520525181964" duration="1199000" />
+      <workItem from="1520585891202" duration="1427000" />
+      <workItem from="1520587467694" duration="321000" />
+      <workItem from="1520818986547" duration="8000" />
+      <workItem from="1521014717365" duration="74000" />
+      <workItem from="1521016177339" duration="411000" />
+      <workItem from="1521016912346" duration="256000" />
+      <workItem from="1521017190374" duration="2269000" />
+      <workItem from="1521019751451" duration="3000" />
+      <workItem from="1521302978661" duration="43000" />
+      <workItem from="1521303043543" duration="66000" />
+      <workItem from="1521303122539" duration="26000" />
+      <workItem from="1521303170798" duration="280000" />
+      <workItem from="1521335184538" duration="1002000" />
+      <workItem from="1521464464517" duration="1086000" />
+      <workItem from="1521541159453" duration="45000" />
+      <workItem from="1521633768983" duration="18404000" />
+      <workItem from="1521652686058" duration="1323000" />
+      <workItem from="1521678330053" duration="51000" />
+      <workItem from="1521987554273" duration="611000" />
+      <workItem from="1522155902652" duration="599000" />
+      <workItem from="1522325740686" duration="1132000" />
+      <workItem from="1522553031705" duration="18000" />
+      <workItem from="1522583203813" duration="1227000" />
+      <workItem from="1522678441842" duration="4000" />
+      <workItem from="1523029224234" duration="964000" />
+      <workItem from="1523191372631" duration="959000" />
+      <workItem from="1523196614123" duration="187000" />
+      <workItem from="1524298771085" duration="2027000" />
+      <workItem from="1524363948639" duration="26000" />
+      <workItem from="1524412551718" duration="616000" />
+      <workItem from="1524575884201" duration="1942000" />
+      <workItem from="1524584011434" duration="2846000" />
+      <workItem from="1524615032452" duration="14251000" />
+      <workItem from="1524647910775" duration="102000" />
+      <workItem from="1524748299759" duration="8300000" />
+      <workItem from="1524928881316" duration="1092000" />
+      <workItem from="1525010874774" duration="2559000" />
+      <workItem from="1525013467253" duration="994000" />
+      <workItem from="1525490384047" duration="161000" />
+      <workItem from="1525490727284" duration="149000" />
+      <workItem from="1526053732134" duration="932000" />
+      <workItem from="1526060013082" duration="296000" />
+      <workItem from="1526104172102" duration="857000" />
+      <workItem from="1526349333541" duration="837000" />
+      <workItem from="1526391764905" duration="975000" />
+      <workItem from="1529561090585" duration="17904000" />
+      <workItem from="1530499414835" duration="695000" />
+      <workItem from="1530783717625" duration="33000" />
+      <workItem from="1530783791589" duration="2986000" />
+      <workItem from="1530943052787" duration="37636000" />
+      <workItem from="1531017855838" duration="1548000" />
+      <workItem from="1531062266829" duration="371000" />
+      <workItem from="1531098819151" duration="621000" />
+      <workItem from="1531123007913" duration="3845000" />
+      <workItem from="1531128265568" duration="2889000" />
+      <workItem from="1531192765129" duration="4724000" />
+      <workItem from="1531206839566" duration="114000" />
+      <workItem from="1531324001791" duration="58000" />
+      <workItem from="1531886643495" duration="560000" />
+      <workItem from="1531969903572" duration="121000" />
+      <workItem from="1532089567372" duration="264000" />
+      <workItem from="1532161091153" duration="2846000" />
+      <workItem from="1532182573171" duration="2548000" />
+      <workItem from="1532265221456" duration="628000" />
+      <workItem from="1532526037040" duration="425000" />
+      <workItem from="1532585754887" duration="4218000" />
+      <workItem from="1532676727392" duration="7277000" />
+      <workItem from="1532687125154" duration="1420000" />
+      <workItem from="1532916799758" duration="655000" />
+      <workItem from="1532945439596" duration="117000" />
     </task>
     <task id="LOCAL-00001" summary="去上海之前">
       <created>1517935550443</created>
@@ -985,11 +1150,18 @@
       <option name="project" value="LOCAL" />
       <updated>1519597392705</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="今天去初次交差">
+      <created>1519597435408</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1519597435408</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="347939000" />
+    <option name="totallyTimeSpent" value="826774000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1003,67 +1175,42 @@
   <component name="ToolWindowManager">
     <frame x="-6" y="-6" width="1933" height="1053" extended-state="6" />
     <layout>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28794643" sideWeight="0.50186664" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.14293334" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20106667" sideWeight="0.4939759" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32700893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3463687" sideWeight="0.49813333" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19413333" sideWeight="0.5060241" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-    </layout>
-    <layout-to-restore>
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.28794643" sideWeight="0.50186664" order="7" side_tool="true" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14293334" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32849163" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3463687" sideWeight="0.504" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.15786667" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4122905" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32960895" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2128" sideWeight="0.4939759" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+      <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2911738" sideWeight="0.50373834" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3463687" sideWeight="0.49813333" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31173185" sideWeight="0.496" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19413333" sideWeight="0.5060241" order="5" side_tool="true" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32996634" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="CDI" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="3" side_tool="false" content_ui="combo" />
+      <window_info id="JSF" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.326257" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32924107" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3293124" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1648" sideWeight="0.4939759" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Bean Validation" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32700893" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.19413333" sideWeight="0.5060241" order="6" side_tool="true" content_ui="tabs" />
-    </layout-to-restore>
+      <window_info id="Coverage" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32513967" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+    </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
@@ -1079,540 +1226,386 @@
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="156" />
+      <option name="time" value="450" />
     </breakpoint-manager>
     <watches-manager>
       <configuration name="SpringBootApplicationConfigurationType">
-        <watch expression="contract.contractid" />
+        <watch expression="this" />
       </configuration>
     </watches-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/jquery/validate/Message_zh_CN.js">
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.13.RELEASE/spring-web-4.3.13.RELEASE-sources.jar!/org/springframework/web/method/support/InvocableHandlerMethod.java" />
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/jquery/validate/Message_zh_CN.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/util/MathUtil.java">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/search.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="25" lean-forward="false" selection-start-line="9" selection-start-column="25" selection-end-line="9" selection-end-column="25" />
-          <folding />
+        <state relative-caret-position="336">
+          <caret line="7" column="14" lean-forward="false" selection-start-line="7" selection-start-column="14" selection-end-line="7" selection-end-column="14" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/vo/Cost.java">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/util/MathUtil.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="31" lean-forward="false" selection-start-line="9" selection-start-column="31" selection-end-line="9" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#292#293#0" expanded="true" />
-            <element signature="e#335#336#0" expanded="true" />
-            <element signature="e#369#370#0" expanded="true" />
-            <element signature="e#843#844#0" expanded="true" />
-            <element signature="e#870#871#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="96">
+          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/CostServiceImpl.java">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/splitBar.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="361">
-          <caret line="39" column="68" lean-forward="false" selection-start-line="39" selection-start-column="68" selection-end-line="39" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="false" />
-          </folding>
+        <state relative-caret-position="240">
+          <caret line="5" column="78" lean-forward="false" selection-start-line="5" selection-start-column="78" selection-end-line="5" selection-end-column="78" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/account-list.html">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="14" column="20" lean-forward="true" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#1;n#table#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="152">
+          <caret line="8" column="18" lean-forward="false" selection-start-line="8" selection-start-column="18" selection-end-line="8" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/contract/contract-clist.html">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/rencai/rencai-editPre.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="5" selection-end-column="112" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#1;n#div#1;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
+        <state relative-caret-position="6745">
+          <caret line="355" column="9" lean-forward="false" selection-start-line="355" selection-start-column="9" selection-end-line="355" selection-end-column="9" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/cost-addPre.html">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1181">
-          <caret line="64" column="95" lean-forward="false" selection-start-line="64" selection-start-column="95" selection-end-line="64" selection-end-column="95" />
-          <folding>
-            <element signature="n#style#0;n#button#0;n#a#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
+        <state relative-caret-position="-3562">
+          <caret line="42" column="46" lean-forward="false" selection-start-line="42" selection-start-column="46" selection-end-line="42" selection-end-column="46" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/contract/contract-list.html">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="304">
+          <caret line="17" column="16" lean-forward="false" selection-start-line="17" selection-start-column="15" selection-end-line="17" selection-end-column="16" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/finance/cost-addPre.js">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Shoupay.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="39" column="28" lean-forward="true" selection-start-line="39" selection-start-column="28" selection-end-line="39" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="76">
+          <caret line="5" column="20" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="20" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/finance/cost-list.js">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/role/role-list.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="57">
-          <caret line="3" column="0" lean-forward="false" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="0" />
-          <folding>
-            <marker date="1519569244378" expanded="true" signature="2421:2432" ph="..." />
-            <marker date="1519569244378" expanded="true" signature="2450:2467" ph="..." />
-            <marker date="1519569244378" expanded="true" signature="2788:2798" ph="..." />
-            <marker date="1519569244378" expanded="true" signature="2788:2816" ph="..." />
-          </folding>
+        <state relative-caret-position="494">
+          <caret line="32" column="26" lean-forward="false" selection-start-line="32" selection-start-column="26" selection-end-line="32" selection-end-column="26" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/finance/FinancController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="212">
-          <caret line="222" column="46" lean-forward="false" selection-start-line="222" selection-start-column="46" selection-end-line="222" selection-end-column="46" />
-          <folding>
-            <element signature="method#costAdd#0;class#FinancController#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/ICostDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="6" column="17" lean-forward="false" selection-start-line="6" selection-start-column="17" selection-end-line="6" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/RoleServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IMessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IRoleDAO.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Role.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <marker date="1516694204507" expanded="true" signature="231:292" ph="INSERT INTO role... " />
-            <marker date="1516694204507" expanded="true" signature="339:405" ph="UPDATE role " />
-            <marker date="1516694204507" expanded="true" signature="488:592" ph="SELECT *FROM... action" />
-            <marker date="1516694204507" expanded="true" signature="536:591" ph="SELECT actio... role_action" />
-            <marker date="1516694204507" expanded="true" signature="677:732" ph="SELECT actio... role_action" />
-            <marker date="1516694204507" expanded="true" signature="786:857" ph="INSERT INTO role_action... " />
-            <marker date="1516694204507" expanded="true" signature="914:985" ph="DELETE FROM " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/AbstractControllerAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="13" column="64" lean-forward="true" selection-start-line="13" selection-start-column="64" selection-end-line="13" selection-end-column="64" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-addPre.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="266">
-          <caret line="20" column="53" lean-forward="false" selection-start-line="20" selection-start-column="53" selection-end-line="20" selection-end-column="53" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#textarea#0;n#div#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#label#0;n#div#3;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#input#0;n#div#4;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#a#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/realm/MemberRealm.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="51" column="52" lean-forward="false" selection-start-line="51" selection-start-column="52" selection-end-line="51" selection-end-column="52" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Member.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="198">
-          <caret line="89" column="105" lean-forward="false" selection-start-line="89" selection-start-column="105" selection-end-line="89" selection-end-column="105" />
-          <folding>
-            <marker date="1519539531788" expanded="true" signature="300:347" ph="select * fro... member" />
-            <marker date="1519539531788" expanded="true" signature="469:571" ph="SELECT * fro... role" />
-            <marker date="1519539531788" expanded="true" signature="513:570" ph="SELECT rolei... member_role" />
-            <marker date="1519539531788" expanded="true" signature="697:862" ph="SELECT * fro... action" />
-            <marker date="1519539531788" expanded="true" signature="745:861" ph="SELECT actio... role_action" />
-            <marker date="1519539531788" expanded="true" signature="803:860" ph="SELECT rolei... member_role" />
-            <marker date="1519539531788" expanded="true" signature="968:1040" ph="SELECT * fro... member" />
-            <marker date="1519539531788" expanded="true" signature="1134:1193" ph="UPDATE membe... " />
-            <marker date="1519539531788" expanded="true" signature="1320:1433" ph="SELECT * FRO... action" />
-            <marker date="1519539531788" expanded="true" signature="1368:1423" ph="SELECT actio... role_action" />
-            <marker date="1519539531788" expanded="true" signature="1528:1702" ph="UPDATE membe... " />
-            <marker date="1519539531788" expanded="true" signature="1791:2012" ph="INSERT into member... " />
-            <marker date="1519539531788" expanded="true" signature="2125:2573" ph="SELECT membe... member" />
-            <marker date="1519539531788" expanded="true" signature="3153:3212" ph="update membe... " />
-            <marker date="1519539531788" expanded="true" signature="3323:3460" ph="update membe... " />
-            <marker date="1519539531788" expanded="true" signature="3567:3761" ph="UPDATE membe... " />
-            <marker date="1519539531788" expanded="true" signature="3864:4041" ph="UPDATE membe... " />
-            <marker date="1519539531788" expanded="true" signature="4152:4209" ph="SELECT rolei... member_role" />
-            <marker date="1519539531788" expanded="true" signature="4267:4337" ph="INSERT INTO member_role... " />
-            <marker date="1519539531788" expanded="true" signature="4399:4470" ph="DELETE FROM " />
-            <marker date="1519539531788" expanded="true" signature="4815:4838" ph="SELECT name member" />
-            <marker date="1519539531788" expanded="true" signature="4947:4997" ph="SELECT name member" />
-            <marker date="1519539531788" expanded="true" signature="5083:5115" ph="SELECT membe... member" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="jrt://C:/Program Files/Java/jdk-9!/jdk.javadoc/com/sun/tools/doclets/internal/toolkit/resources/jquery/jquery-1.10.2.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="129">
-          <caret line="7464" column="4" lean-forward="false" selection-start-line="7464" selection-start-column="4" selection-end-line="7464" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IContractService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="95">
-          <caret line="11" column="3" lean-forward="true" selection-start-line="11" selection-start-column="3" selection-end-line="11" selection-end-column="54" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/member/MemberController.java">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/member/MemberController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="133">
           <caret line="26" column="13" lean-forward="false" selection-start-line="26" selection-start-column="13" selection-end-line="26" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/finance/cost-list.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="17" column="0" lean-forward="false" selection-start-line="17" selection-start-column="0" selection-end-line="17" selection-end-column="0" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#table#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#input#0;n#td#0;n#tr#0;n#table#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#button#0;n#a#0;n#div#0;n#div#2;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/interceptor_error.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="9" column="50" lean-forward="false" selection-start-line="9" selection-start-column="50" selection-end-line="9" selection-end-column="50" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/login_Page.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/unAuthPage.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="45" lean-forward="false" selection-start-line="8" selection-start-column="45" selection-end-line="8" selection-end-column="45" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/GlobalExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="228">
-          <caret line="15" column="43" lean-forward="true" selection-start-line="15" selection-start-column="43" selection-end-line="15" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-addPre.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="247">
-          <caret line="25" column="58" lean-forward="false" selection-start-line="25" selection-start-column="48" selection-end-line="25" selection-end-column="58" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-editPre.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="114">
-          <caret line="6" column="7" lean-forward="true" selection-start-line="6" selection-start-column="7" selection-end-line="6" selection-end-column="7" />
-          <folding>
-            <element signature="e#265#3234#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-editPre.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="171">
-          <caret line="18" column="89" lean-forward="true" selection-start-line="18" selection-start-column="89" selection-end-line="18" selection-end-column="89" />
-          <folding>
-            <element signature="n#style#0;n#input#0;n#div#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#0;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#style#0;n#button#1;n#form#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-mlist.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="29" column="36" lean-forward="false" selection-start-line="29" selection-start-column="28" selection-end-line="29" selection-end-column="36" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-web/4.3.13.RELEASE/spring-web-4.3.13.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-116">
-          <caret line="117" column="0" lean-forward="false" selection-start-line="117" selection-start-column="0" selection-end-line="117" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/log/log-list.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="202" column="4" lean-forward="false" selection-start-line="202" selection-start-column="4" selection-end-line="202" selection-end-column="4" />
-          <folding>
-            <element signature="n#!!block;n#getD#0" expanded="false" />
-            <marker date="1519507216452" expanded="true" signature="2743:2759" ph="..." />
-            <marker date="1519507216452" expanded="true" signature="2743:2767" ph="..." />
-            <marker date="1519507216452" expanded="true" signature="2793:2830" ph="..." />
-            <marker date="1519507216452" expanded="true" signature="2955:2962" ph="..." />
-            <marker date="1519507216452" expanded="true" signature="3065:3072" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/jquery/validate/jquery.metadata.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="68" column="12" lean-forward="false" selection-start-line="68" selection-start-column="12" selection-end-line="68" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/plugins/head_menu.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="19" column="12" lean-forward="false" selection-start-line="19" selection-start-column="12" selection-end-line="19" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/index.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="178">
-          <caret line="60" column="4" lean-forward="false" selection-start-line="60" selection-start-column="4" selection-end-line="60" selection-end-column="4" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-mlist.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="152">
-          <caret line="8" column="38" lean-forward="true" selection-start-line="8" selection-start-column="38" selection-end-line="8" selection-end-column="38" />
-          <folding>
-            <marker date="1519592310793" expanded="true" signature="912:923" ph="..." />
-            <marker date="1519592310793" expanded="true" signature="941:958" ph="..." />
-            <marker date="1519592310793" expanded="true" signature="1173:1180" ph="..." />
-            <marker date="1519592310793" expanded="true" signature="1358:1379" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="76">
-          <caret line="5" column="17" lean-forward="false" selection-start-line="5" selection-start-column="17" selection-end-line="5" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/AbstractController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-209">
-          <caret line="84" column="34" lean-forward="false" selection-start-line="84" selection-start-column="34" selection-end-line="84" selection-end-column="34" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/vo/Message.java">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Role.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="76">
           <caret line="5" column="13" lean-forward="false" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
-          <folding>
-            <element signature="e#228#229#0" expanded="true" />
-            <element signature="e#257#258#0" expanded="true" />
-            <element signature="e#301#302#0" expanded="true" />
-            <element signature="e#337#338#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IDAO.java">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ActionServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="93" column="0" lean-forward="false" selection-start-line="93" selection-start-column="0" selection-end-line="93" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="1584">
+          <caret line="43" column="51" lean-forward="false" selection-start-line="43" selection-start-column="51" selection-end-line="43" selection-end-column="51" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/templates/pages/back/message/message-list.html">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IActionService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="13" column="25" lean-forward="false" selection-start-line="13" selection-start-column="25" selection-end-line="13" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/action/ActionController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/action/action-list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1152">
+          <caret line="24" column="47" lean-forward="false" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/role/RoleController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2976">
+          <caret line="78" column="21" lean-forward="false" selection-start-line="78" selection-start-column="21" selection-end-line="78" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/action/action-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2064">
+          <caret line="43" column="120" lean-forward="false" selection-start-line="43" selection-start-column="116" selection-end-line="43" selection-end-column="120" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/member/member_addPre.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/member/member_addPre.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="432">
+          <caret line="9" column="0" lean-forward="false" selection-start-line="9" selection-start-column="0" selection-end-line="11" selection-end-column="112" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/resouces/mybatis/mapper/Account.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/vo/Account.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="8" column="33" lean-forward="false" selection-start-line="8" selection-start-column="33" selection-end-line="8" selection-end-column="33" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/finance/account-list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="583">
+          <caret line="150" column="32" lean-forward="false" selection-start-line="150" selection-start-column="32" selection-end-line="150" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ContractServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="250">
-          <caret line="23" column="50" lean-forward="true" selection-start-line="23" selection-start-column="50" selection-end-line="23" selection-end-column="50" />
-          <folding />
+          <caret line="160" column="37" lean-forward="false" selection-start-line="160" selection-start-column="37" selection-end-line="160" selection-end-column="37" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.3.13.RELEASE/spring-aop-4.3.13.RELEASE.jar!/org/springframework/aop/framework/JdkDynamicAopProxy.class">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/plugins/head_menu.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="160">
-          <caret line="120" column="0" lean-forward="false" selection-start-line="120" selection-start-column="0" selection-end-line="120" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="2499">
+          <caret line="101" column="49" lean-forward="false" selection-start-line="101" selection-start-column="49" selection-end-line="101" selection-end-column="49" />
         </state>
       </provider>
     </entry>
-    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.3.13.RELEASE/spring-aop-4.3.13.RELEASE.jar!/org/springframework/aop/support/AopUtils.class">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/contract/contract-clist.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="179" column="0" lean-forward="false" selection-start-line="179" selection-start-column="0" selection-end-line="179" selection-end-column="0" />
-          <folding />
+        <state relative-caret-position="323">
+          <caret line="154" column="0" lean-forward="false" selection-start-line="154" selection-start-column="0" selection-end-line="154" selection-end-column="0" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/view/static/js/pages/back/message/message-list.js">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/lz.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1178">
-          <caret line="71" column="61" lean-forward="false" selection-start-line="71" selection-start-column="44" selection-end-line="71" selection-end-column="61" />
+        <state relative-caret-position="1767">
+          <caret line="98" column="31" lean-forward="false" selection-start-line="98" selection-start-column="31" selection-end-line="98" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IPaylogDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/log/LogController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="133">
+          <caret line="22" column="13" lean-forward="false" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IPaylogService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="228">
+          <caret line="18" column="1" lean-forward="false" selection-start-line="18" selection-start-column="1" selection-end-line="18" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/PaylogServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="53" column="0" lean-forward="false" selection-start-line="53" selection-start-column="0" selection-end-line="53" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/contract/contract-clist.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1045">
+          <caret line="205" column="41" lean-forward="false" selection-start-line="205" selection-start-column="41" selection-end-line="205" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IAccountDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="11" column="11" lean-forward="false" selection-start-line="11" selection-start-column="11" selection-end-line="11" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IAccountService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="266">
+          <caret line="14" column="11" lean-forward="false" selection-start-line="14" selection-start-column="11" selection-end-line="14" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-context/4.3.13.RELEASE/spring-context-4.3.13.RELEASE-sources.jar!/org/springframework/ui/Model.java" />
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/AbstractController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="188">
+          <caret line="83" column="34" lean-forward="false" selection-start-line="83" selection-start-column="34" selection-end-line="83" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/finance/FinancController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="57" column="0" lean-forward="false" selection-start-line="57" selection-start-column="0" selection-end-line="57" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/finance/account-list.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="513">
+          <caret line="27" column="39" lean-forward="false" selection-start-line="27" selection-start-column="39" selection-end-line="27" selection-end-column="39" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/dao/IDAO.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="665">
+          <caret line="43" column="20" lean-forward="false" selection-start-line="43" selection-start-column="20" selection-end-line="43" selection-end-column="20" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/shoupay/shoupay-addPre.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3287">
+          <caret line="173" column="42" lean-forward="false" selection-start-line="173" selection-start-column="42" selection-end-line="173" selection-end-column="42" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/static/js/pages/back/shoupay/shoupay-list.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2926">
+          <caret line="154" column="29" lean-forward="false" selection-start-line="154" selection-start-column="29" selection-end-line="154" selection-end-column="29" />
           <folding>
-            <marker date="1519596867610" expanded="true" signature="863:874" ph="..." />
-            <marker date="1519596867610" expanded="true" signature="892:909" ph="..." />
-            <marker date="1519596867610" expanded="true" signature="1124:1131" ph="..." />
+            <marker date="1532682023327" expanded="true" signature="632:1303" ph="{...}" />
+            <marker date="1532682023327" expanded="true" signature="1110:1303" ph="{...}" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/dao/IMessageDAO.java">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/shoupay/shoupay-list.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="18" column="0" lean-forward="true" selection-start-line="18" selection-start-column="0" selection-end-line="18" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/impl/MessageServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="254">
-          <caret line="79" column="41" lean-forward="false" selection-start-line="79" selection-start-column="41" selection-end-line="79" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/service/IMessageService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-19">
-          <caret line="0" column="2" lean-forward="false" selection-start-line="0" selection-start-column="2" selection-end-line="0" selection-end-column="2" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/java/lz/cm/controller/pages/back/message/MessageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="326">
-          <caret line="180" column="38" lean-forward="true" selection-start-line="180" selection-start-column="38" selection-end-line="180" selection-end-column="38" />
+        <state relative-caret-position="5016">
+          <caret line="264" column="0" lean-forward="false" selection-start-line="264" selection-start-column="0" selection-end-line="264" selection-end-column="0" />
           <folding>
-            <element signature="method#addAndSend#0;class#MessageController#0" expanded="false" />
-            <element signature="e#1940#1970#0" expanded="false" />
-            <element signature="method#editAndSend#0;class#MessageController#0" expanded="false" />
-            <element signature="method#edit#0;class#MessageController#0" expanded="false" />
+            <marker date="1532683176536" expanded="true" signature="260:270" ph="{...}" />
+            <marker date="1532683176536" expanded="true" signature="13803:13874" ph="..." />
+            <marker date="1532683176536" expanded="true" signature="13803:13881" ph="..." />
+            <marker date="1532683176536" expanded="true" signature="13803:13889" ph="..." />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../GongT/GongTu/src/main/resouces/mybatis/mapper/Message.xml">
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/AccountServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="33" column="34" lean-forward="false" selection-start-line="33" selection-start-column="34" selection-end-line="33" selection-end-column="34" />
+        <state relative-caret-position="798">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
           <folding>
-            <marker date="1519597204471" expanded="true" signature="281:378" ph="INSERT INTO message... " />
-            <marker date="1519597204471" expanded="true" signature="427:515" ph="INSERT INTO member_message... " />
-            <marker date="1519597204471" expanded="true" signature="591:646" ph="UPDATE messa... " />
-            <marker date="1519597204471" expanded="true" signature="721:810" ph="UPDATE log S... " />
-            <marker date="1519597204471" expanded="true" signature="881:919" ph="DELETE FROM " />
-            <marker date="1519597204471" expanded="true" signature="881:1006" ph="DELETE FROM " />
-            <marker date="1519597204471" expanded="true" signature="1089:1221" ph="UPDATE log S... " />
-            <marker date="1519597204471" expanded="true" signature="1322:1409" ph="SELECT statu... member_message" />
-            <marker date="1519597204471" expanded="true" signature="1481:1551" ph="DELETE FROM " />
-            <marker date="1519597204471" expanded="true" signature="1481:1638" ph="DELETE FROM " />
+            <marker date="1532586666564" expanded="false" signature="1236:1242" ph=" }" />
+            <marker date="1532586666564" expanded="false" signature="1297:1308" ph=" { " />
+            <marker date="1532586666564" expanded="false" signature="1354:1360" ph=" }" />
+            <marker date="1532586666564" expanded="true" signature="1553:1706" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/shoupay/ShoupayController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="855">
+          <caret line="78" column="5" lean-forward="false" selection-start-line="78" selection-start-column="5" selection-end-line="78" selection-end-column="5" />
+          <folding>
+            <marker date="1532681178913" expanded="true" signature="2222:2228" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IShoupayService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="152">
+          <caret line="16" column="0" lean-forward="false" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/ShoupayServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2204">
+          <caret line="122" column="35" lean-forward="false" selection-start-line="122" selection-start-column="35" selection-end-line="122" selection-end-column="35" />
+          <folding>
+            <marker date="1532683369793" expanded="true" signature="5479:5513" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/IMemberServiceBack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="741">
+          <caret line="45" column="26" lean-forward="false" selection-start-line="45" selection-start-column="26" selection-end-line="45" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/controller/pages/back/project/ProjectController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="817">
+          <caret line="55" column="0" lean-forward="false" selection-start-line="55" selection-start-column="0" selection-end-line="55" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/java/lz/cm/service/impl/MemberServiceBackImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3059">
+          <caret line="177" column="0" lean-forward="false" selection-start-line="177" selection-start-column="0" selection-end-line="177" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/GongTu/src/main/view/templates/pages/back/project/project-huizong.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="808">
+          <caret line="76" column="0" lean-forward="false" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
+          <folding>
+            <element signature="n#style#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#table#0;n#td#1;n#tr#0;n#table#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>

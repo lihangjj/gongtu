@@ -18,6 +18,7 @@ public interface IMessageDAO extends IDAO<Integer, Message> {
     String getStatus(Map map);
 
     boolean plDeleteGr(Map map);
+    boolean plYdMessage(Map map);
 
 
 

@@ -21,7 +21,7 @@ public class AccountServiceImpl implements IAccountService {
 
     @Override
     public boolean add(Account account) throws Exception {
-        return accountDAO.doCreate(account);
+        return accountDAO.insertAll(account);
     }
 
     @Override
@@ -34,6 +34,16 @@ public class AccountServiceImpl implements IAccountService {
         Map<String, Object> pMaP = new HashMap<>();
         pMaP.put("ids", ids);
         return accountDAO.plDeleteAccount(pMaP);
+    }
+
+    @Override
+    public Double getAllCountMoney() {
+        return accountDAO.getAllCountMoney();
+    }
+
+    @Override
+    public boolean editYue(Account account) {
+        return accountDAO.updateXxClomuns("yue,qichuYue",account);
     }
 
     @Override

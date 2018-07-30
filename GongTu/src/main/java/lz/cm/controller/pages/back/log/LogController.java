@@ -15,9 +15,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 
 @Controller
@@ -36,18 +34,17 @@ public class LogController extends AbstractControllerAdapter {
     @ResponseBody
     String edit(Log log) {
         try {
-            if (!log.getMemberid().equals(getMid())){
+            if (!log.getMemberid().equals(getMid())) {
                 return "false:对不起，您只能够修改自己的日志";
-            }else {
-                if (logService.edit(log)){
+            } else {
+                if (logService.edit(log)) {
                     return "true:日志修改成功！";
-                }else {
+                } else {
                     return "false:日志修改失败！";
 
                 }
 
             }
-
 
 
         } catch (Exception e) {
@@ -61,7 +58,12 @@ public class LogController extends AbstractControllerAdapter {
     @RequestMapping("addPre")
     String addPre(Model model, HttpServletRequest request) {
 
-        List<Project> allP = (List<Project>) handSplit(request, projectService).get("allVo");
+
+        List<Project> allP = projectService.getALLSimpleProject();
+        model.addAttribute("allProject", allP);
+        if (!hasAnyRoles(new String[]{"project:总经理-副总-财务主管", "project:人才主管-项目主管"})) {//不具备此角色，
+            allP = projectService.getProjectsByExecutive(getName());
+        }
         Iterator<Project> iter = allP.iterator();
         while (iter.hasNext()) {
             Project p = iter.next();
@@ -69,14 +71,13 @@ public class LogController extends AbstractControllerAdapter {
                 iter.remove();
             }
         }
-        model.addAttribute("allProject", allP);
+        model.addAttribute("myProject", allP);
         return "pages/back/log/log-addPre";
     }
 
     @RequestMapping("add")
     @ResponseBody
     boolean add(Log log) {
-        System.err.println(log);
         log.setTime(new Date());
         log.setMemberid(getMid());
         try {
@@ -92,8 +93,7 @@ public class LogController extends AbstractControllerAdapter {
     String list(HttpServletRequest request, Model model) throws Exception {
         setColumnMap(request, "内容:note|");
         String date = new SimpleDateFormat("yyyy-M").format(new Date());
-        model.addAttribute("allMembers",memberServiceBack.getAllMemberIdAndNames());
-        System.err.println(date);
+        model.addAttribute("allMembers", memberServiceBack.getAllMemberIdAndNames());
         model.addAttribute("date", date);
         return "pages/back/log/log-list";
     }
@@ -101,8 +101,28 @@ public class LogController extends AbstractControllerAdapter {
     @RequestMapping("listAjax")
     @ResponseBody
     Object listAjax(HttpServletRequest request, Model model) throws Exception {
+        Map<String, Object> resMap = null;
+        if (!hasAnyRoles(new String[]{"project:总经理-副总-财务主管", "project:人才主管-项目主管"})) {//不具备此角色，
+            String parameterName = request.getParameter("parameterName");
+            String parameterValue = request.getParameter("parameterValue");
+            String keyWord = request.getParameter("keyWord");
+            String column = request.getParameter("column");
+            Integer currentPage = null;
+            Integer lineSize = null;
+            try {
+                currentPage = Integer.parseInt(request.getParameter("currentPage"));
+            } catch (NumberFormatException e) {
+            }
+            try {
+                lineSize = Integer.parseInt(request.getParameter("lineSize"));
+            } catch (NumberFormatException e) {
 
-        return handSplit(request, logService);
+            }
+            resMap = logService.splitByExrcutive(column, keyWord, currentPage, lineSize, parameterName, parameterValue, getMid());
+        } else {
+            resMap = handSplit(request, logService);
+        }
+        return resMap;
     }
 
     @ResponseBody

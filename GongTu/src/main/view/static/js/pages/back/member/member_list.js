@@ -13,7 +13,7 @@ function loadData() {
         type: "post",
         dataType: "json",
         success: function (data) {
-            allRecorders = data.allRecorders;
+            allRecorders = memberid == 'lh' ? data.allRecorders : data.allRecorders - 1;
             $("[name=members]").each(function () {
                 $(this).remove();
             });
@@ -34,10 +34,10 @@ function loadData() {
                     color = "green";
                     lock = "锁定";
                     cls = "btn-warning";
-                    dele = "删除";
+                    dele = "离职";
                     deleCls = "btn-danger";
                 } else if (allVo[x].sflag == 2) {
-                    status = "已删除";
+                    status = "已离职";
                     color = "red";
                     dele = "恢复";
                     deleCls = "btn-success";
@@ -52,59 +52,29 @@ function loadData() {
                     deleCls = "btn-success";
                 }
 
-                $("#row1").after($(" <tr name=\"members\">\n" +
+                $("#row1").after($(" <tr name=\"members\" id='tr-" + mid + "'>\n" +
                     "                        <td><input type=\"checkbox\" class='form-control' id='selectItem' name='selectItem'  value='" + mid + "'/></td>\n" +
-                    "                        <td ><img style=\"height: 5rem;cursor: pointer\" name='" + allVo[x].bigphoto + "' src=\"" + allVo[x].photo + "\"/></td>\n" +
+                    "                        <td style='width: 6rem'><img style=\"width: 6rem;cursor: pointer;border-radius: 5px\" name='" + allVo[x].bigphoto + "' src=\"" + allVo[x].photo + "\"/></td>\n" +
                     "                        <td>" + mid + "</td>\n" +
                     "                        <td >" + allVo[x].name + "</td>\n" +
-                    "                        <td>" + allVo[x].phone + "</td>\n" +
+                    "                        <td>" + allVo[x].bgPhone + "-" + allVo[x].phone + "</td>\n" +
                     "                        <td>" + allVo[x].job.dept.dname + "</td>\n" +
-                    "                        <td>" + allVo[x].job.name + "</td>\n" +
+                    "                        <td>" + allVo[x].job.job + "</td>\n" +
                     "                        <td >" + allVo[x].age + "</td>\n" +
                     "                        <td >" + allVo[x].sex + "</td>\n" +
                     "                        <td id='stat-" + mid + "' style='color: " + color + "'>" + status + "</td>\n" +
                     "                        <td >" + new Date(allVo[x].regdate).format("yyyy-M-dd") + "</td>\n" +
-                    "                        <td>\n" +
+                    "                        <td id='cz-"+mid+"'>\n" +
                     "<button class=\"btn btn-xs btn-info\" style=\"margin: 0.2rem\" id='hisRole-" + mid + "'>他的角色</button>\n" +
                     "<button class=\"btn btn-xs btn-primary\" style=\"margin: 0.2rem\" id='edit-" + mid + "'>修改</button>\n" +
                     "<button class=\"btn btn-xs " + cls + "\" style=\"margin: 0.2rem\" id='lock-" + mid + "'>" + lock + "</button>\n" +
                     "<button class=\"btn btn-xs " + deleCls + "\" style=\"margin: 0.2rem\" id='dele-" + mid + "'>" + dele + "</button>\n" +
                     "                        </td>\n" +
                     "                    </tr>"));
-                $("#shouji").append($("<table style='margin-bottom: 10rem' class=\"table  table-hover table-responsive visible-xs\">\n" +
-                    "                        <tr>\n" +
-                    "<td><input type=\"checkbox\" class=' form-control' id='selectItem-xs' name='selectItem' value=\"" + mid + "\"/></td>\n" +
-                    "<td>照片:<img style=\"height: 5rem;cursor: pointer\" name='" + allVo[x].bigphoto + "' src=\"" + allVo[x].photo + "\"/></td>\n" +
-                    "                        </tr>\n" +
-                    "                        <tr>\n" +
-                    "<td>用户名:" + mid + "</td>\n" +
-                    "<td>姓名:" + allVo[x].name + "</td>\n" +
-                    "                        </tr>\n" +
-                    "                        <tr>\n" +
-                    "<td >电话:" + allVo[x].phone + "</td>\n" +
-
-                    "<td>年龄:" + allVo[x].age + "</td>\n" +
-                    "                        </tr>\n" + "" +
-                    "<tr>\n" +
-                    "<td >部门:" + allVo[x].job.dept.dname + "</td>\n" +
-
-                    "<td>职位:" + allVo[x].job.name + "</td>\n" +
-                    "                        </tr>\n" +
-                    "                        <tr>\n" +
-                    "<td>性别:" + allVo[x].sex + "</td>\n" +
-                    "<td style='color: " + color + "' id='stat-" + mid + "' >状态:" + status + "</td>\n" +
-                    "                        </tr>\n" +
-                    "                        <tr>\n" +
-                    "<td >注册日期:" + new Date(allVo[x].regdate).format("yyyy-M-dd") + "</td>\n" +
-                    "<td>\n" +
-                    "    <button class=\"btn btn-xs btn-info\" style=\"margin: 0.2rem\" id='hisRole-" + mid + "'>他的角色</button>\n" +
-                    "    <button class=\"btn btn-xs btn-primary\" style=\"margin: 0.2rem\" id='edit-" + mid + "'>修改</button>\n" +
-                    "    <button class=\"btn btn-xs " + cls + "\" style=\"margin: 0.2rem\"  id='lock-" + mid + "'>" + lock + "</button>\n" +
-                    "    <button class=\"btn btn-xs " + deleCls + "\" style=\"margin: 0.2rem\" id='dele-" + mid + "'>" + dele + "</button>\n" +
-                    "</td>\n" +
-                    " </tr>\n" +
-                    " </table>"))
             }
+            hasRole('member:总经理-副总')?'':$("[id^=cz-]").remove();
+            memberid == 'lh' ? '' : $("#tr-" + spmid).remove();
+
             $("[id^='edit']").each(function () {//为编辑按钮添加点击事件
                 $(this).click(function () {
                     var memberid = this.id.split("-")[1];
@@ -161,7 +131,7 @@ function loadData() {
                     $.post("/pages/back/member/delete", {memberid: memberid}, function (data) {
 
                         areYouSure("您确定要 " + text + " 此用户？", function () {
-                            if (text == "删除") {
+                            if (text == "离职") {
                                 $.post("/pages/back/member/lockOrUnLock", {
                                     memberid: memberid,
                                     sflag: 2
@@ -171,7 +141,7 @@ function loadData() {
                                     bt.addClass("btn-success");
                                     var stat = $("[id=stat-" + memberid + "]");
                                     stat.each(function () {
-                                        $(this).html("已删除");
+                                        $(this).html("已离职");
                                     });
                                     stat.css({
                                         color: "red"
@@ -182,7 +152,7 @@ function loadData() {
                                     memberid: memberid,
                                     sflag: 1
                                 }, function (data) {
-                                    bt.html("删除");
+                                    bt.html("离职");
                                     bt.removeClass("btn-success");
                                     bt.addClass("btn-danger");
 
@@ -209,9 +179,8 @@ function loadData() {
                         for (var x = 0; x < allRole.length; x++) {
                             var role = allRole[x];
                             var row = $("<tr >\n" +
-                                "<td>" + role.roleid + "</td>\n" +
                                 "<td>" + role.title + "</td>\n" +
-                                "<td>" + role.flag + "</td>\n" +
+                                "<td>" + role.note + "</td>\n" +
                                 " </tr>");
                             row1.after(row);
                         }
@@ -236,6 +205,7 @@ function loadData() {
 
 // /*]]>*/
 $(function () {
+    shoujiOpenOverFlowX();
     $("[id=checkAllRole]").each(function () {
         $(this).click(function () {
             var s = this.checked;
@@ -474,9 +444,10 @@ function loadRoleData() {
                     " <td><input type='checkbox' class='checkbox-inline form-control'  id='check-" + roleid + "' value='" + roleid + "'/></td>\n" +
                     " <td id='actionid-" + roleid + "'>" + roleid + "</td>\n" +
                     " <td  >" + role.title + "</td>\n" +
-                    " <td>" + role.flag + "</td>\n" +
+                    " <td>" + role.note + "</td>\n" +
                     "  </tr>"));
             }
+            hasRole('roleAndAction:superAdmin')?'':$("#row-1").remove();
         }
         ,
         error: function (e) {

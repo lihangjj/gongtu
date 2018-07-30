@@ -10,13 +10,17 @@ import java.util.Map;
 
 public interface IContractService extends IService<Integer, Contract> {
     @Transactional(propagation = Propagation.REQUIRED)
-    boolean edit(Contract contract, List<Project> editList, List<Project> addList) throws Exception;
+    boolean edit(Contract contract,  List<Project> addList) throws Exception;
 
     @Transactional(propagation = Propagation.REQUIRED)
-    boolean add(Contract contract, List<Project> allProject) throws Exception;
+    boolean add(Contract contract, List<Project> allProject,String sender) throws Exception;
+
     //表单回填前的方法
     Map<String, Object> getTypeProjectMap(Contract contract) throws Exception;
+
     @Transactional(propagation = Propagation.REQUIRED)
     boolean plDeleteContract(String[] ids) throws Exception;
+
+    boolean checkCompanyName(String companyName) throws Exception;
 
 }

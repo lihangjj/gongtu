@@ -5,7 +5,18 @@ import java.util.List;
 
 public class Role implements Serializable {
     private Integer roleid;
-    private String title, flag;
+    private String title;
+    private String flag;
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
+    }
+
+    private String note;
     private List<Action> actions;
 
     public List<Action> getActions() {

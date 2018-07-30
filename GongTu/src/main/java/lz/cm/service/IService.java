@@ -8,6 +8,7 @@ public interface IService<K, V> {
 
     V getVoById(K id);
 
+
     /**
      * 根据参数标记分页
      *

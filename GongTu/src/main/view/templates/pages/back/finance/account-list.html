@@ -8,7 +8,7 @@
         vertical-align: middle;
     }
 </style>
-<body style="overflow-x:hidden;visibility: hidden" id="body">
+<body style="visibility: hidden" id="body">
 <div class="container-fluid">
     <div th:replace="plugins/head_menu::head_menu"></div><!--引入写好的头部和左侧信息-->
     <div id="contentDiv"><!--这里是主体-->
@@ -16,25 +16,48 @@
         <div class="row">
             <div class="col-xs-12">
                 <form id="formDiv">
+                    <table id="dntb" class="table  table-hover table-responsive  " style="text-align: center">
+                        <tr id="row1" style="font-weight: bold">
+                            <td style="width: 3rem"><input style="min-width: 2.5rem" class="form-control"
+                                                           type="checkbox" id="selectAll"/></td>
+                            <td>账户</td>
+                            <td>户主</td>
+                            <td>银行</td>
+                            <td>起始余额</td>
+                            <td>余额</td>
+                            <td>操作</td>
+                        </tr>
+                        <tr th:each="acc:${allVo}" th:id="'tr-'+${acc.accountid}">
+                            <td><input style="min-width: 2.5rem" class="form-control" type="checkbox"
+                                       th:id="'check-'+${acc.accountid}"/></td>
+                            <td th:text="${acc.accountid}"></td>
+                            <td th:text="${acc.name}"></td>
+                            <td th:text="${acc.bank}"></td>
+                            <td >
 
+                                <input type="text" th:id="'qichu-'+${acc.accountid}"
+                                       th:value="${#numbers.formatDecimal(acc.qichuYue,1,2,'POINT')}"
+                                       style="color: red;font-weight: bold;font-size: 18px"/>
+                            </td>
+                            <td>
+                                <input type="text" th:id="'val-'+${acc.accountid}"
+                                       th:value="${#numbers.formatDecimal(acc.yue,1,2,'POINT')}"
+                                       style="color: red;font-weight: bold;font-size: 18px"/>
+                            </td>
+                            <td>
+                                <button class="btn btn-success" type="button" th:id="'editYue-'+${acc.accountid}">修改余额
+                                </button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td colspan="5" style="font-size: 20px;font-weight: bold"><span>全部账户总余额:</span><span
+                                    style="color: red"
+                                    th:text="${#numbers.formatDecimal(allCountMoney,1,2,'POINT')}"></span></td>
+                        </tr>
+                    </table>
+                    <button id="deleCheked" class="btn btn-danger" type="button" style="margin-left: 5rem">删除所选</button>
 
-                <table id="dntb" class="table  table-hover table-responsive  " style="text-align: center">
-                    <tr id="row1" style="font-weight: bold">
-                        <td style="width: 3rem"><input style="min-width: 2.5rem" class="form-control" type="checkbox" id="selectAll"/></td>
-                        <td>账户</td>
-                        <td>户主</td>
-                        <td>银行</td>
-                    </tr>
-                    <tr th:each="acc:${allVo}" th:id="'tr-'+${acc.accountid}">
-                        <td><input style="min-width: 2.5rem" class="form-control" type="checkbox" th:id="'check-'+${acc.accountid}"/></td>
-                        <td th:text="${acc.accountid}"></td>
-                        <td th:text="${acc.name}"></td>
-                        <td th:text="${acc.bank}"></td>
-                    </tr>
-                </table>
-                <button id="deleCheked" class="btn btn-danger" type="button" style="margin-left: 5rem">删除所选</button>
-
-                <button id="addAcc" class="btn btn-success" style="margin-left: 5rem">添加账户</button>
+                    <button id="addAcc" class="btn btn-success" style="margin-left: 5rem">添加账户</button>
                 </form>
 
             </div>

@@ -66,10 +66,8 @@ public class ContractController extends AbstractControllerAdapter {
     @ResponseBody
     boolean edit(Contract contract, Model model, HttpServletRequest request) {
         try {
-            System.err.println(contract);
             Enumeration<String> enumeration = request.getParameterNames();
             List<Project> addList = new ArrayList<>();
-            List<Project> editList = new ArrayList<>();
             while (enumeration.hasMoreElements()) {
 
                 String parameterName = enumeration.nextElement();
@@ -77,12 +75,12 @@ public class ContractController extends AbstractControllerAdapter {
 
                 if (parameterName.contains("-name")) {
                     String[] values = request.getParameterValues(parameterName);
-
-                    if (parameterName.contains("-name-")) {//表示修改之前的项目
+                    Project p = new Project();
+                    p.setContractid(contract.getContractid());
+                    p.setType(type);
+                    if (parameterName.contains("-name-")) {//表示之前的项目
                         for (int x = 0; x < values.length; x++) {
                             if (!("".equals(values[x]) || values[x] == null)) {//有项目名称
-                                Project p = new Project();
-                                p.setProjectid(Integer.valueOf(parameterName.split("-")[3]));
                                 p.setName(values[x]);
                                 String cost = request.getParameterValues(parameterName.replace("name", "cost"))[x];
                                 if ("".equals(cost) || cost == null) {
@@ -91,15 +89,13 @@ public class ContractController extends AbstractControllerAdapter {
                                     p.setCost(Integer.valueOf(cost));
                                 }
                                 p.setExecutive(request.getParameterValues(parameterName.replace("name", "executive"))[x]);
-                                editList.add(p);
+                                addList.add(p);
                             }
                         }
 
                     } else {//表示有新的项目添加
                         for (int x = 0; x < values.length; x++) {
                             if (!("".equals(values[x]) || values[x] == null)) {//有项目名称
-                                Project p = new Project();
-                                p.setContractid(contract.getContractid());
                                 p.setName(values[x]);
                                 String cost = request.getParameterValues(type + "-cost")[x];
                                 if ("".equals(cost) || cost == null) {
@@ -108,14 +104,13 @@ public class ContractController extends AbstractControllerAdapter {
                                     p.setCost(Integer.valueOf(cost));
                                 }
                                 p.setExecutive(request.getParameterValues(type + "-executive")[x]);
-                                p.setType(type);
                                 addList.add(p);
                             }
                         }
                     }
                 }
             }
-            return contractService.edit(contract, editList, addList);
+            return contractService.edit(contract, addList);
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -126,8 +121,6 @@ public class ContractController extends AbstractControllerAdapter {
 
     @RequestMapping("addPre")
     String addPre(Model model, HttpServletRequest request) {
-
-
         return "pages/back/contract/contract-addPre";
     }
 
@@ -159,7 +152,7 @@ public class ContractController extends AbstractControllerAdapter {
                 }
             }
 
-            if (contractService.add(contract, list)) {
+            if (contractService.add(contract, list,getName())) {
                 setMsg("vo.add.success", "合同", true, model);
             } else {
                 setMsg("vo.add.failure", "合同", false, model);
@@ -192,6 +185,11 @@ public class ContractController extends AbstractControllerAdapter {
     @ResponseBody
     Object listAjax(HttpServletRequest request) throws Exception {
         return handSplit(request, contractService);
+    }
+    @RequestMapping("checkCompanyName")
+    @ResponseBody
+    Object checkCompanyName(Contract contract) throws Exception {
+        return contractService.checkCompanyName(contract.getCompanyName());
     }
 
 
